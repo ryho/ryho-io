@@ -327,23 +327,6 @@ const travelHighlights=[
     "npsCode": "slbe"
   },
   {
-    "id": "nps-miss",
-    "name": "Mississippi National River & Recreation Area",
-    "type": "National River & Recreation Area",
-    "position": [
-      44.942487,
-      -93.098712
-    ],
-    "dates": [
-      "2025-08-18"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/miss/index.htm",
-    "icon": "assets/icons/other-nps/miss.svg",
-    "npsCode": "miss"
-  },
-  {
     "id": "nps-mimi",
     "name": "Minuteman Missile National Historic Site",
     "type": "National Historic Site",
@@ -400,24 +383,6 @@ const travelHighlights=[
     "npsCode": "azru"
   },
   {
-    "id": "nps-gari",
-    "name": "Gauley River National Recreation Area",
-    "type": "National Recreation Area",
-    "position": [
-      38.20614947,
-      -81.00420836
-    ],
-    "dates": [
-      "2025-07-30",
-      "2025-07-31"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/gari/index.htm",
-    "icon": "assets/icons/other-nps/gari.svg",
-    "npsCode": "gari"
-  },
-  {
     "id": "nps-lewi",
     "name": "Lewis and Clark National Historical Park",
     "type": "National Historical Park",
@@ -434,80 +399,6 @@ const travelHighlights=[
     "url": "https://www.nps.gov/lewi/index.htm",
     "icon": "assets/icons/other-nps/lewi.svg",
     "npsCode": "lewi"
-  },
-  {
-    "id": "nps-samo",
-    "name": "Santa Monica Mountains National Recreation Area",
-    "type": "National Recreation Area",
-    "position": [
-      34.09777606,
-      -118.7708619
-    ],
-    "dates": [
-      "2026-03-08",
-      "2026-03-11",
-      "2026-04-10"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/samo/index.htm",
-    "icon": "assets/icons/other-nps/samo.svg",
-    "npsCode": "samo"
-  },
-  {
-    "id": "nps-natr",
-    "name": "Natchez Trace Parkway",
-    "type": "Parkway",
-    "position": [
-      33.78002293,
-      -89.03092439
-    ],
-    "dates": [
-      "2025-12-28"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/natr/index.htm",
-    "icon": "assets/icons/other-nps/natr.svg",
-    "npsCode": "natr"
-  },
-  {
-    "id": "nps-tuzi",
-    "name": "Tuzigoot National Monument",
-    "type": "National Monument",
-    "position": [
-      34.77296377,
-      -112.0279069
-    ],
-    "dates": [
-      "2026-01-24",
-      "2026-03-19"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/tuzi/index.htm",
-    "icon": "assets/icons/other-nps/tuzi.svg",
-    "npsCode": "tuzi"
-  },
-  {
-    "id": "nps-chat",
-    "name": "Chattahoochee River National Recreation Area",
-    "type": "National Recreation Area",
-    "position": [
-      33.99698333,
-      -84.28953177
-    ],
-    "dates": [
-      "2026-10-18",
-      "2026-10-24",
-      "2026-10-25",
-      "2026-10-26"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/chat/index.htm",
-    "icon": "assets/icons/other-nps/chat.svg",
-    "npsCode": "chat"
   },
   {
     "id": "nps-petr",
@@ -549,41 +440,6 @@ const travelHighlights=[
     "npsCode": "mapr"
   },
   {
-    "id": "nps-rira",
-    "name": "River Raisin National Battlefield Park",
-    "type": "National Battlefield Park",
-    "position": [
-      41.91291085,
-      -83.37620464
-    ],
-    "dates": [
-      "2025-08-01"
-    ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/rira/index.htm",
-    "icon": "assets/icons/other-nps/rira.svg",
-    "npsCode": "rira"
-  },
-  {
-    "id": "nps-jeca",
-    "name": "Jewel Cave National Monument",
-    "type": "National Monument",
-    "position": [
-      43.73102945,
-      -103.829994
-    ],
-    "dates": [
-      "2025-08-27",
-      "2026-08-18"
-    ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/jeca/index.htm",
-    "icon": "assets/icons/other-nps/jeca.svg",
-    "npsCode": "jeca"
-  },
-  {
     "id": "nps-ebla",
     "name": "Ebey's Landing National Historical Reserve",
     "type": "National Historical Reserve",
@@ -618,37 +474,12 @@ const travelHighlights=[
     "npsCode": "cach"
   },
   {
-    "id": "nps-tupe",
-    "name": "Tupelo National Battlefield",
-    "type": "National Battlefield",
-    "position": [
-      34.25557705,
-      -88.73708623
-    ],
-    "dates": [
-      "2025-11-26",
-      "2025-11-27",
-      "2025-11-30",
-      "2025-12-24",
-      "2025-12-25",
-      "2025-12-28",
-      "2025-12-29",
-      "2026-08-30",
-      "2026-08-31"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/tupe/index.htm",
-    "icon": "assets/icons/other-nps/tupe.svg",
-    "npsCode": "tupe"
-  },
-  {
     "id": "nps-goga",
     "name": "Golden Gate National Recreation Area",
     "type": "National Recreation Area",
     "position": [
-      37.85982543,
-      -122.6007386
+      37.8199,
+      -122.4783
     ],
     "dates": [
       "2026-06-01",
@@ -658,24 +489,8 @@ const travelHighlights=[
     "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
     "url": "https://www.nps.gov/goga/index.htm",
     "icon": "assets/icons/other-nps/goga.svg",
-    "npsCode": "goga"
-  },
-  {
-    "id": "nps-muwo",
-    "name": "Muir Woods National Monument",
-    "type": "National Monument",
-    "position": [
-      37.89658027,
-      -122.5808047
-    ],
-    "dates": [
-      "2026-06-02"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/muwo/index.htm",
-    "icon": "assets/icons/other-nps/muwo.svg",
-    "npsCode": "muwo"
+    "npsCode": "goga",
+    "positionNote": "Pin placed near Golden Gate Bridge at traveler request; NPS recreation area spans multiple sites."
   },
   {
     "id": "nps-moru",
@@ -730,59 +545,6 @@ const travelHighlights=[
     "npsCode": "yuho"
   },
   {
-    "id": "nps-cebr",
-    "name": "Cedar Breaks National Monument",
-    "type": "National Monument",
-    "position": [
-      37.63545562,
-      -112.845268
-    ],
-    "dates": [
-      "2025-11-01"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/cebr/index.htm",
-    "icon": "assets/icons/other-nps/cebr.svg",
-    "npsCode": "cebr"
-  },
-  {
-    "id": "nps-safr",
-    "name": "San Francisco Maritime National Historical Park",
-    "type": "National Historical Park",
-    "position": [
-      37.81005871,
-      -122.4244415
-    ],
-    "dates": [
-      "2026-06-01",
-      "2026-06-02"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/safr/index.htm",
-    "icon": "assets/icons/other-nps/safr.svg",
-    "npsCode": "safr"
-  },
-  {
-    "id": "nps-cabr",
-    "name": "Cabrillo National Monument",
-    "type": "National Monument",
-    "position": [
-      32.6722503,
-      -117.2415985
-    ],
-    "dates": [
-      "2026-04-01",
-      "2026-04-02"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/cabr/index.htm",
-    "icon": "assets/icons/other-nps/cabr.svg",
-    "npsCode": "cabr"
-  },
-  {
     "id": "nps-glca",
     "name": "Glen Canyon National Recreation Area",
     "type": "National Recreation Area",
@@ -835,77 +597,6 @@ const travelHighlights=[
     "url": "https://www.nps.gov/moja/index.htm",
     "icon": "assets/icons/other-nps/moja.svg",
     "npsCode": "moja"
-  },
-  {
-    "id": "nps-fopo",
-    "name": "Fort Point National Historic Site",
-    "type": "National Historic Site",
-    "position": [
-      37.80837439,
-      -122.473747
-    ],
-    "dates": [
-      "2026-06-01",
-      "2026-06-02"
-    ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/fopo/index.htm",
-    "icon": "assets/icons/other-nps/fopo.svg",
-    "npsCode": "fopo"
-  },
-  {
-    "id": "nps-waca",
-    "name": "Walnut Canyon National Monument",
-    "type": "National Monument",
-    "position": [
-      35.16822994,
-      -111.5024239
-    ],
-    "dates": [
-      "2026-01-14",
-      "2026-01-15",
-      "2026-01-25"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/waca/index.htm",
-    "icon": "assets/icons/other-nps/waca.svg",
-    "npsCode": "waca"
-  },
-  {
-    "id": "nps-fova",
-    "name": "Fort Vancouver National Historic Site",
-    "type": "National Historic Site",
-    "position": [
-      45.62234841,
-      -122.6617043
-    ],
-    "dates": [
-      "2026-06-21"
-    ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/fova/index.htm",
-    "icon": "assets/icons/other-nps/fova.svg",
-    "npsCode": "fova"
-  },
-  {
-    "id": "nps-grko",
-    "name": "Grant-Kohrs Ranch National Historic Site",
-    "type": "National Historic Site",
-    "position": [
-      46.41358923,
-      -112.7467024
-    ],
-    "dates": [
-      "2025-08-31"
-    ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/grko/index.htm",
-    "icon": "assets/icons/other-nps/grko.svg",
-    "npsCode": "grko"
   },
   {
     "id": "nps-deto",
@@ -979,24 +670,6 @@ const travelHighlights=[
     "npsCode": "piro"
   },
   {
-    "id": "nps-bicr",
-    "name": "Birmingham Civil Rights National Monument",
-    "type": "National Monument",
-    "position": [
-      33.5154266357,
-      -86.814666748
-    ],
-    "dates": [
-      "2025-07-23",
-      "2026-10-12"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/bicr/index.htm",
-    "icon": "assets/icons/other-nps/bicr.svg",
-    "npsCode": "bicr"
-  },
-  {
     "id": "nps-libi",
     "name": "Little Bighorn Battlefield National Monument",
     "type": "National Monument",
@@ -1048,5 +721,351 @@ const travelHighlights=[
     "url": "https://www.nps.gov/wupa/index.htm",
     "icon": "assets/icons/other-nps/wupa.svg",
     "npsCode": "wupa"
+  },
+  {
+    "id": "whale-watching-anacortes",
+    "name": "Whale watching in Anacortes",
+    "type": "Activity",
+    "position": [
+      48.5126,
+      -122.6127
+    ],
+    "dates": [
+      "2026-07-08",
+      "2026-07-28"
+    ],
+    "icon": "assets/icons/highlights/whale-watching-anacortes.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "port-townsend-whidbey-ferry",
+    "name": "Ferry from Port Townsend to Whidbey Island",
+    "type": "Ferry",
+    "position": [
+      48.1118,
+      -122.7595
+    ],
+    "dates": [
+      "2026-07-07",
+      "2026-07-08"
+    ],
+    "icon": "assets/icons/highlights/port-townsend-whidbey-ferry.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "vancouver",
+    "name": "Vancouver",
+    "type": "City",
+    "position": [
+      49.2827,
+      -123.1207
+    ],
+    "dates": [
+      "2026-07-23",
+      "2026-07-24",
+      "2026-07-25",
+      "2026-07-26",
+      "2026-07-27",
+      "2026-07-28"
+    ],
+    "icon": "assets/icons/highlights/vancouver.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "seattle",
+    "name": "Seattle",
+    "type": "City",
+    "position": [
+      47.6062,
+      -122.3321
+    ],
+    "dates": [
+      "2026-06-26",
+      "2026-06-27",
+      "2026-06-29",
+      "2026-07-14",
+      "2026-07-21",
+      "2026-07-22"
+    ],
+    "icon": "assets/icons/highlights/seattle.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "phoenix",
+    "name": "Phoenix",
+    "type": "City",
+    "position": [
+      33.4484,
+      -112.074
+    ],
+    "dates": [
+      "2026-03-05",
+      "2026-03-11",
+      "2026-03-12",
+      "2026-03-16",
+      "2026-03-17",
+      "2026-03-18",
+      "2026-03-22",
+      "2026-03-23",
+      "2026-03-24"
+    ],
+    "icon": "assets/icons/highlights/phoenix.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "sedona",
+    "name": "Sedona",
+    "type": "Town",
+    "position": [
+      34.8697,
+      -111.7609
+    ],
+    "dates": [
+      "2026-01-19",
+      "2026-01-20",
+      "2026-01-21",
+      "2026-01-22",
+      "2026-01-23",
+      "2026-03-19",
+      "2026-03-20"
+    ],
+    "icon": "assets/icons/highlights/sedona.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "horseshoe-bend",
+    "name": "Horseshoe Bend",
+    "type": "Scenic stop",
+    "position": [
+      36.879,
+      -111.5104
+    ],
+    "dates": [
+      "2026-01-16",
+      "2026-01-17",
+      "2026-01-19"
+    ],
+    "icon": "assets/icons/highlights/horseshoe-bend.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "vermilion-cliffs",
+    "name": "Vermilion Cliffs",
+    "type": "Scenic area",
+    "position": [
+      36.889,
+      -111.997
+    ],
+    "dates": [
+      "2026-01-17",
+      "2026-01-18"
+    ],
+    "icon": "assets/icons/highlights/vermilion-cliffs.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "white-pocket",
+    "name": "White Pocket",
+    "type": "Backcountry",
+    "position": [
+      36.9556,
+      -111.8875
+    ],
+    "dates": [
+      "2026-01-17"
+    ],
+    "icon": "assets/icons/highlights/white-pocket.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "park-city",
+    "name": "Park City",
+    "type": "Town",
+    "position": [
+      40.6461,
+      -111.498
+    ],
+    "dates": [
+      "2025-11-15"
+    ],
+    "icon": "assets/icons/highlights/park-city.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "salt-lake-city",
+    "name": "Salt Lake City",
+    "type": "City",
+    "position": [
+      40.7608,
+      -111.891
+    ],
+    "dates": [
+      "2025-10-07",
+      "2025-10-08",
+      "2025-11-12",
+      "2025-11-13",
+      "2025-11-14",
+      "2025-11-15",
+      "2025-11-16",
+      "2025-11-17"
+    ],
+    "icon": "assets/icons/highlights/salt-lake-city.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "great-salt-lake",
+    "name": "Great Salt Lake",
+    "type": "Lake",
+    "position": [
+      41.1,
+      -112.5
+    ],
+    "dates": [
+      "2025-11-17"
+    ],
+    "icon": "assets/icons/highlights/great-salt-lake.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "sawtooth-mountains",
+    "name": "Sawtooth Mountains",
+    "type": "Mountain range",
+    "position": [
+      44.1445,
+      -114.9218
+    ],
+    "dates": [
+      "2025-09-22",
+      "2025-09-23",
+      "2025-09-24",
+      "2025-09-25",
+      "2025-09-26"
+    ],
+    "icon": "assets/icons/highlights/sawtooth-mountains.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "boise",
+    "name": "Boise",
+    "type": "City",
+    "position": [
+      43.615,
+      -116.2023
+    ],
+    "dates": [
+      "2025-09-20",
+      "2025-09-21",
+      "2025-09-22"
+    ],
+    "icon": "assets/icons/highlights/boise.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "bend",
+    "name": "Bend",
+    "type": "City",
+    "position": [
+      44.0582,
+      -121.3153
+    ],
+    "dates": [
+      "2025-09-09",
+      "2025-09-10",
+      "2025-09-11",
+      "2025-09-12",
+      "2025-09-13",
+      "2025-09-14",
+      "2025-09-15",
+      "2025-09-16",
+      "2025-09-17",
+      "2025-09-18",
+      "2025-09-19",
+      "2025-09-20"
+    ],
+    "icon": "assets/icons/highlights/bend.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "portland",
+    "name": "Portland",
+    "type": "City",
+    "position": [
+      45.5152,
+      -122.6784
+    ],
+    "dates": [
+      "2026-04-30",
+      "2026-05-01",
+      "2026-05-04",
+      "2026-05-05",
+      "2026-05-06",
+      "2026-05-07",
+      "2026-05-10",
+      "2026-06-20"
+    ],
+    "icon": "assets/icons/highlights/portland.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "cape-flattery",
+    "name": "Cape Flattery — northwesternmost point",
+    "type": "Scenic stop",
+    "position": [
+      48.3842,
+      -124.7343
+    ],
+    "dates": [
+      "2026-07-06"
+    ],
+    "icon": "assets/icons/highlights/cape-flattery.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "mount-baker",
+    "name": "Mount Baker",
+    "type": "Mountain",
+    "position": [
+      48.7768,
+      -121.8144
+    ],
+    "dates": [
+      "2026-07-08",
+      "2026-07-09"
+    ],
+    "icon": "assets/icons/highlights/mount-baker.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "mount-hood",
+    "name": "Mount Hood",
+    "type": "Mountain",
+    "position": [
+      45.3735,
+      -121.6959
+    ],
+    "dates": [
+      "2026-05-07",
+      "2026-05-08",
+      "2026-05-09"
+    ],
+    "icon": "assets/icons/highlights/mount-hood.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "mount-shasta",
+    "name": "Mount Shasta",
+    "type": "Mountain",
+    "position": [
+      41.4092,
+      -122.1949
+    ],
+    "dates": [
+      "2026-04-28",
+      "2026-05-13",
+      "2026-05-14",
+      "2026-05-15"
+    ],
+    "icon": "assets/icons/highlights/mount-shasta.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate"
   }
 ];
