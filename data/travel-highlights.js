@@ -13,7 +13,7 @@ const travelHighlights=[
       "2026-08-22"
     ],
     "icon": "assets/icons/highlights/tallgrass-prairie.svg",
-    "status": "Confirmed by traveler",
+    "status": "Confirmed visit",
     "url": "https://www.nps.gov/tapr/index.htm"
   },
   {
@@ -30,7 +30,7 @@ const travelHighlights=[
       "2026-03-30"
     ],
     "icon": "assets/icons/highlights/organ-pipe-cactus.svg",
-    "status": "Confirmed by traveler",
+    "status": "Confirmed visit",
     "url": "https://www.nps.gov/orpi/index.htm"
   },
   {
@@ -303,11 +303,12 @@ const travelHighlights=[
       "2026-02-12",
       "2026-02-13"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/chcu/index.htm",
     "icon": "assets/icons/other-nps/chcu.svg",
-    "npsCode": "chcu"
+    "npsCode": "chcu",
+    "confirmedByUser": true
   },
   {
     "id": "nps-slbe",
@@ -320,11 +321,12 @@ const travelHighlights=[
     "dates": [
       "2025-08-08"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/slbe/index.htm",
     "icon": "assets/icons/other-nps/slbe.svg",
-    "npsCode": "slbe"
+    "npsCode": "slbe",
+    "confirmedByUser": true
   },
   {
     "id": "nps-mimi",
@@ -338,11 +340,12 @@ const travelHighlights=[
       "2025-08-23",
       "2025-08-24"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/mimi/index.htm",
     "icon": "assets/icons/other-nps/mimi.svg",
-    "npsCode": "mimi"
+    "npsCode": "mimi",
+    "confirmedByUser": true
   },
   {
     "id": "nps-pore",
@@ -357,11 +360,12 @@ const travelHighlights=[
       "2026-06-03",
       "2026-06-04"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/pore/index.htm",
     "icon": "assets/icons/other-nps/pore.svg",
-    "npsCode": "pore"
+    "npsCode": "pore",
+    "confirmedByUser": true
   },
   {
     "id": "nps-azru",
@@ -376,50 +380,31 @@ const travelHighlights=[
       "2026-02-10",
       "2026-02-11"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/azru/index.htm",
     "icon": "assets/icons/other-nps/azru.svg",
-    "npsCode": "azru"
+    "npsCode": "azru",
+    "confirmedByUser": true
   },
   {
     "id": "nps-lewi",
     "name": "Lewis and Clark National Historical Park",
     "type": "National Historical Park",
     "position": [
-      46.21178735,
-      -123.9638583
+      46.1344,
+      -123.8806
     ],
     "dates": [
-      "2026-05-03",
-      "2026-05-04"
+      "2026-05-03"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/lewi/index.htm",
     "icon": "assets/icons/other-nps/lewi.svg",
-    "npsCode": "lewi"
-  },
-  {
-    "id": "nps-petr",
-    "name": "Petroglyph National Monument",
-    "type": "National Monument",
-    "position": [
-      35.13915998,
-      -106.7491456
-    ],
-    "dates": [
-      "2026-02-13",
-      "2026-02-14",
-      "2026-02-15",
-      "2026-02-16",
-      "2026-02-17"
-    ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/petr/index.htm",
-    "icon": "assets/icons/other-nps/petr.svg",
-    "npsCode": "petr"
+    "npsCode": "lewi",
+    "positionNote": "Fort Clatsop Visitor Center and museum",
+    "confirmedByUser": true
   },
   {
     "id": "nps-mapr",
@@ -433,11 +418,12 @@ const travelHighlights=[
       "2026-02-23",
       "2026-02-24"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/mapr/index.htm",
     "icon": "assets/icons/other-nps/mapr.svg",
-    "npsCode": "mapr"
+    "npsCode": "mapr",
+    "confirmedByUser": true
   },
   {
     "id": "nps-ebla",
@@ -450,11 +436,12 @@ const travelHighlights=[
     "dates": [
       "2026-07-08"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/ebla/index.htm",
     "icon": "assets/icons/other-nps/ebla.svg",
-    "npsCode": "ebla"
+    "npsCode": "ebla",
+    "confirmedByUser": true
   },
   {
     "id": "nps-cach",
@@ -467,11 +454,12 @@ const travelHighlights=[
     "dates": [
       "2026-01-29"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/cach/index.htm",
     "icon": "assets/icons/other-nps/cach.svg",
-    "npsCode": "cach"
+    "npsCode": "cach",
+    "confirmedByUser": true
   },
   {
     "id": "nps-goga",
@@ -485,12 +473,13 @@ const travelHighlights=[
       "2026-06-01",
       "2026-06-02"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/goga/index.htm",
     "icon": "assets/icons/other-nps/goga.svg",
     "npsCode": "goga",
-    "positionNote": "Pin placed near Golden Gate Bridge at traveler request; NPS recreation area spans multiple sites."
+    "positionNote": "Pin placed near Golden Gate Bridge at traveler request; NPS recreation area spans multiple sites.",
+    "confirmedByUser": true
   },
   {
     "id": "nps-moru",
@@ -503,11 +492,12 @@ const travelHighlights=[
     "dates": [
       "2025-08-25"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/moru/index.htm",
     "icon": "assets/icons/other-nps/moru.svg",
-    "npsCode": "moru"
+    "npsCode": "moru",
+    "confirmedByUser": true
   },
   {
     "id": "nps-band",
@@ -521,11 +511,12 @@ const travelHighlights=[
       "2026-02-23",
       "2026-02-24"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/band/index.htm",
     "icon": "assets/icons/other-nps/band.svg",
-    "npsCode": "band"
+    "npsCode": "band",
+    "confirmedByUser": true
   },
   {
     "id": "nps-yuho",
@@ -538,11 +529,12 @@ const travelHighlights=[
     "dates": [
       "2026-01-31"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/yuho/index.htm",
     "icon": "assets/icons/other-nps/yuho.svg",
-    "npsCode": "yuho"
+    "npsCode": "yuho",
+    "confirmedByUser": true
   },
   {
     "id": "nps-glca",
@@ -556,11 +548,12 @@ const travelHighlights=[
       "2026-01-17",
       "2026-01-19"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/glca/index.htm",
     "icon": "assets/icons/other-nps/glca.svg",
-    "npsCode": "glca"
+    "npsCode": "glca",
+    "confirmedByUser": true
   },
   {
     "id": "nps-moca",
@@ -575,11 +568,12 @@ const travelHighlights=[
       "2026-03-19",
       "2026-03-22"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/moca/index.htm",
     "icon": "assets/icons/other-nps/moca.svg",
-    "npsCode": "moca"
+    "npsCode": "moca",
+    "confirmedByUser": true
   },
   {
     "id": "nps-moja",
@@ -592,11 +586,12 @@ const travelHighlights=[
     "dates": [
       "2025-12-09"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/moja/index.htm",
     "icon": "assets/icons/other-nps/moja.svg",
-    "npsCode": "moja"
+    "npsCode": "moja",
+    "confirmedByUser": true
   },
   {
     "id": "nps-deto",
@@ -610,11 +605,12 @@ const travelHighlights=[
       "2025-08-27",
       "2025-08-28"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/deto/index.htm",
     "icon": "assets/icons/other-nps/deto.svg",
-    "npsCode": "deto"
+    "npsCode": "deto",
+    "confirmedByUser": true
   },
   {
     "id": "nps-hutr",
@@ -628,11 +624,12 @@ const travelHighlights=[
       "2026-01-28",
       "2026-01-29"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/hutr/index.htm",
     "icon": "assets/icons/other-nps/hutr.svg",
-    "npsCode": "hutr"
+    "npsCode": "hutr",
+    "confirmedByUser": true
   },
   {
     "id": "nps-tusk",
@@ -646,11 +643,12 @@ const travelHighlights=[
       "2025-12-21",
       "2026-01-03"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/tusk/index.htm",
     "icon": "assets/icons/other-nps/tusk.svg",
-    "npsCode": "tusk"
+    "npsCode": "tusk",
+    "confirmedByUser": true
   },
   {
     "id": "nps-piro",
@@ -663,29 +661,12 @@ const travelHighlights=[
     "dates": [
       "2025-08-13"
     ],
-    "status": "Possible visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/piro/index.htm",
     "icon": "assets/icons/other-nps/piro.svg",
-    "npsCode": "piro"
-  },
-  {
-    "id": "nps-libi",
-    "name": "Little Bighorn Battlefield National Monument",
-    "type": "National Monument",
-    "position": [
-      45.55633048,
-      -107.4183614
-    ],
-    "dates": [
-      "2025-08-28",
-      "2026-08-17"
-    ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
-    "url": "https://www.nps.gov/libi/index.htm",
-    "icon": "assets/icons/other-nps/libi.svg",
-    "npsCode": "libi"
+    "npsCode": "piro",
+    "confirmedByUser": true
   },
   {
     "id": "nps-sucr",
@@ -698,11 +679,12 @@ const travelHighlights=[
     "dates": [
       "2026-01-15"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/sucr/index.htm",
     "icon": "assets/icons/other-nps/sucr.svg",
-    "npsCode": "sucr"
+    "npsCode": "sucr",
+    "confirmedByUser": true
   },
   {
     "id": "nps-wupa",
@@ -716,11 +698,12 @@ const travelHighlights=[
       "2026-01-15",
       "2026-01-16"
     ],
-    "status": "Likely visit",
-    "evidence": "Google Timeline route samples near the NPS site; not a confirmed entry",
+    "status": "Confirmed visit",
+    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
     "url": "https://www.nps.gov/wupa/index.htm",
     "icon": "assets/icons/other-nps/wupa.svg",
-    "npsCode": "wupa"
+    "npsCode": "wupa",
+    "confirmedByUser": true
   },
   {
     "id": "whale-watching-anacortes",
@@ -1067,5 +1050,125 @@ const travelHighlights=[
     ],
     "icon": "assets/icons/highlights/mount-shasta.svg",
     "dateSource": "Nearby Google Timeline activity; dates approximate"
+  },
+  {
+    "id": "outpost-x",
+    "name": "Outpost X",
+    "type": "Unique stay",
+    "position": [
+      37.858,
+      -113.6012
+    ],
+    "dates": [
+      "2025-10-29",
+      "2025-10-30",
+      "2025-10-31",
+      "2025-11-01"
+    ],
+    "icon": "assets/icons/highlights/outpost-x.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "url": "https://outpost-x.com/"
+  },
+  {
+    "id": "umpqua-hot-springs",
+    "name": "Umpqua Hot Springs",
+    "type": "Hot springs",
+    "position": [
+      43.2965,
+      -122.3653
+    ],
+    "dates": [
+      "2026-05-11",
+      "2026-05-12"
+    ],
+    "icon": "assets/icons/highlights/umpqua-hot-springs.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate"
+  },
+  {
+    "id": "newberry-volcanic",
+    "name": "Newberry National Volcanic Monument",
+    "type": "National Monument",
+    "position": [
+      43.7135,
+      -121.2592
+    ],
+    "dates": [
+      "2025-09-16"
+    ],
+    "icon": "assets/icons/highlights/newberry-volcanic.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "url": "https://www.fs.usda.gov/visit/destination/newberry-national-volcanic-monument"
+  },
+  {
+    "id": "smith-rock",
+    "name": "Smith Rock State Park",
+    "type": "State Park",
+    "position": [
+      44.3685,
+      -121.1404
+    ],
+    "dates": [
+      "2025-09-13"
+    ],
+    "icon": "assets/icons/highlights/smith-rock.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate"
+  },
+  {
+    "id": "meteor-crater",
+    "name": "Meteor Crater",
+    "type": "Natural landmark",
+    "position": [
+      35.0275,
+      -111.0226
+    ],
+    "dates": [
+      "2026-01-13",
+      "2026-01-15"
+    ],
+    "icon": "assets/icons/highlights/meteor-crater.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "url": "https://meteorcrater.com/"
+  },
+  {
+    "id": "monument-valley",
+    "name": "Monument Valley",
+    "type": "Tribal Park",
+    "position": [
+      36.9824,
+      -110.1112
+    ],
+    "dates": [
+      "2026-01-30"
+    ],
+    "icon": "assets/icons/highlights/monument-valley.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate"
+  },
+  {
+    "id": "acoma-pueblo",
+    "name": "Acoma Pueblo (Sky City)",
+    "type": "Cultural site",
+    "position": [
+      34.8963,
+      -107.5811
+    ],
+    "dates": [
+      "2026-02-13"
+    ],
+    "icon": "assets/icons/highlights/acoma-pueblo.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate"
   }
 ];
