@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+<title id="title">Airplane</title>
+<path d="M35 30V13Q35 5 40 5T45 13v17l27 17v8L45 44v17l10 8v5l-15-4-15 4v-5l10-8V44L8 55v-8Z" fill="#fff" stroke="#fff" stroke-width="7" stroke-linejoin="round"/>
+<path d="M35 30V13Q35 5 40 5T45 13v17l27 17v8L45 44v17l10 8v5l-15-4-15 4v-5l10-8V44L8 55v-8Z" fill="#6ebcc6" stroke="#152332" stroke-width="2" stroke-linejoin="round"/>
+<path d="M35 30V13Q35 5 40 5T45 13v48l-5 9-5-9Z" fill="#f5f0dd" stroke="#152332" stroke-width="2"/>
+<path d="m36 16 4-2 4 2v5l-4-2-4 2Z" fill="#263547"/>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" role="img" aria-labelledby="title">
+<title id="title">Dark pickup towing a cream and turquoise camper</title>
+<g stroke="#152332" stroke-width="2" stroke-linejoin="round">
+<!-- White outline keeps the silhouette legible against map tiles. -->
+<path d="M5 47 12 43 22 29 53 29 63 43 76 43 76 49 82 49 88 17 151 17 153 59 137 61 128 70 112 70 104 61 80 61 75 57 65 57 58 69 44 69 36 58 29 58 23 69 10 69 3 57Z" fill="#fff" stroke="#fff" stroke-width="7"/>
+<path d="M73 54h13" fill="none" stroke-width="4"/>
+<path d="M84 53 91 20h60l2 38-4 4H84Z" fill="#f5f0dd"/>
+<path d="m85 48 16-5 26 5 25-7 1 17-4 4H84Z" fill="#6ebcc6"/>
+<path d="m86 42 15-3 25 4 26-8v8l-25 8-26-5-16 5Z" fill="#a6dce0" stroke="none"/>
+<path d="M107 20v41" fill="none" stroke="#d4d5cb" stroke-width="1"/>
+<rect x="110" y="30" width="12" height="15" rx="2" fill="#b9d3d8"/>
+<rect x="131" y="33" width="12" height="10" rx="2" fill="#b9d3d8"/>
+<path d="M110 37h12m9 1h12" stroke="#718b95" stroke-width="1"/>
+<path d="M117 17v-4h12v4" fill="#d9e0df"/>
+<path d="m96 28 8-1m22-2 18 2" stroke="#6c7b85" stroke-width="1.5"/>
+<path d="M5 48 15 43 25 31h27l12 14h12v16H5Z" fill="#263547"/>
+<path d="m24 35-8 10h22V35Zm18 0v10h17l-9-10Z" fill="#7fadc0"/>
+<path d="M40 46v14m22-14v14M8 51h7m33-2h5m13-1h7" fill="none" stroke="#9babb4" stroke-width="1.5"/>
+<path d="M4 54h10v7H4Z" fill="#152332"/>
+<path d="M6 48h7v4H6Z" fill="#fff4bf"/>
+<path d="M31 43h5v6h-5Z" fill="#172331"/>
+<g fill="#172331"><circle cx="20" cy="61" r="9"/><circle cx="61" cy="61" r="9"/><circle cx="118" cy="62" r="8"/><circle cx="137" cy="62" r="8"/></g>
+<g fill="#98a9b4" stroke-width="1.5"><circle cx="20" cy="61" r="4"/><circle cx="61" cy="61" r="4"/><circle cx="118" cy="62" r="4"/><circle cx="137" cy="62" r="4"/></g>
+</g></svg>
