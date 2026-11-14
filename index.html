@@ -21,12 +21,14 @@ nav .links a{color:var(--sub)}main{padding-top:50px}h1{font-weight:750;letter-sp
 <section class="mapsection" id="travel"><div class="wrap"><div class="maptop"><div><p class="eyebrow">Travel atlas</p><h2>On the road since July 23, 2025</h2><p>Explore a coarse, privacy-conscious sketch of my travels, reconstructed from location history. Routes are approximate and gaps are intentional.</p></div></div>
 <div class="controls"><label for="month">Show:</label><select id="month"><option value="all">Entire trip</option></select><button id="play">▶ Play months</button><span id="count" style="color:var(--sub);font-size:13px" aria-live="polite"></span></div>
 <details style="margin:16px 0"><summary id="park-summary">National parks detected</summary><p>Inferred from recorded locations inside U.S. and Canadian national park boundaries; possible visits need confirmation. Select a month to filter.</p><ul id="park-list" style="columns:2;column-width:260px"></ul></details>
+<details style="margin:16px 0"><summary id="highlight-summary">Trip highlights</summary><p>Hand-picked landmarks, cities, family stops, and international destinations. Dates are inferred from nearby location records. Family pins point to city centers for privacy.</p><ul id="highlight-list" style="columns:2;column-width:260px"></ul></details>
 <div id="map" role="region" aria-label="Interactive map of travels"></div><div class="legend"><span><i class="dot"></i> Recorded route (approximate)</span><span>Dashed lines: recording gaps (route unknown) · Not road-snapped · Not a complete GPS track · Stops over 1 hour rounded · moving points retain GPS precision</span></div></div></section>
 <div class="wrap"><section class="cards"><div class="card"><strong>Travel stories</strong><p>Photos and short dispatches from the road. Coming soon.</p></div><div class="card"><strong>Engineering notes</strong><p>Storage, distributed systems, databases and new experiments. Coming soon.</p></div><div class="card"><strong>Projects</strong><p>Small tools, visualizations and things worth tinkering with. Coming soon.</p></div></section>
 <footer>ryho.io · A work in progress. Location data has been deliberately reduced in precision for public viewing. Map tiles © OpenStreetMap contributors.</footer></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="data/travel-paths.js"></script>
 <script src="data/visited-parks.js"></script>
+<script src="data/travel-highlights.js"></script>
 <script>
 const map=L.map('map',{worldCopyJump:true,preferCanvas:true}).setView([38,-106],4);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:13}).addTo(map);
@@ -59,6 +61,22 @@ function showRouteDate(event, line, dates) {
  L.popup().setLatLng(line[nearest]).setContent(content).openOn(map);
 }
 const parkLayers=L.layerGroup().addTo(map);
+const highlightLayers=L.layerGroup().addTo(map);
+function drawHighlights(chosen){
+ highlightLayers.clearLayers();const list=document.getElementById('highlight-list');list.replaceChildren();
+ const highlights=travelHighlights.filter(place=>chosen==='all'||place.dates.some(date=>date.startsWith(chosen)));
+ document.getElementById('highlight-summary').textContent=highlights.length+' trip highlights'+(chosen==='all'?'':' this month');
+ for(const place of highlights){
+  const dates=place.dates.filter(date=>chosen==='all'||date.startsWith(chosen));
+  const content=document.createElement('div');const heading=document.createElement('strong');heading.textContent=place.name;content.appendChild(heading);
+  const category=document.createElement('p');category.textContent=place.type;category.style.margin='5px 0';content.appendChild(category);
+  const visits=document.createElement('p');visits.textContent='Recorded nearby: '+formatVisitRanges(dates);content.appendChild(visits);
+  if(place.type==='Family'){const privacy=document.createElement('p');privacy.textContent='Marker placed at the city center for privacy.';content.appendChild(privacy);}
+  const marker=L.marker(place.position,{icon:L.icon({iconUrl:place.icon,iconSize:[42,50],iconAnchor:[21,50],popupAnchor:[0,-46]}),title:place.name,alt:place.name,riseOnHover:true}).bindPopup(content,{maxWidth:330}).addTo(highlightLayers);
+  const item=document.createElement('li');const button=document.createElement('button');button.type='button';button.style='background:none;border:0;padding:4px 0;text-align:left;font-size:14px';button.textContent=place.name;button.addEventListener('click',()=>{map.setView(place.position,9);marker.openPopup()});item.appendChild(button);list.appendChild(item);
+ }
+}
+
 const parkIcon=L.icon({iconUrl:'assets/icons/national-park.svg',iconSize:[32,39],iconAnchor:[16,39],popupAnchor:[0,-36]});
 function formatVisitRanges(dates){
  const sorted=[...new Set(dates)].sort();const ranges=[];
@@ -88,6 +106,7 @@ function drawParks(chosen){
 }
 function draw(chosen){
  drawParks(chosen);
+ drawHighlights(chosen);
  map.closePopup();layers.clearLayers();const bounds=[];let count=0;
  for(const [i,m] of months.entries()){
   if(chosen!=='all'&&m!==chosen)continue;
