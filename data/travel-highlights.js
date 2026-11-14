@@ -2,26 +2,6 @@
 // Family pins use city-center coordinates rather than residential addresses.
 const travelHighlights=[
   {
-    "id": "new-river-gorge",
-    "name": "New River Gorge",
-    "type": "Natural landmark",
-    "position": [
-      38.0708,
-      -81.0757
-    ],
-    "dates": [
-      "2025-07-24",
-      "2025-07-25",
-      "2025-07-26",
-      "2025-07-27",
-      "2025-07-28",
-      "2025-07-29",
-      "2025-07-30",
-      "2025-07-31"
-    ],
-    "icon": "assets/icons/highlights/new-river-gorge.svg"
-  },
-  {
     "id": "tallgrass-prairie",
     "name": "Tallgrass Prairie",
     "type": "National preserve",
