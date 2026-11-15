@@ -24,13 +24,14 @@ html,body{width:100%;height:100%;overflow:hidden}body{display:flex;flex-directio
 #map{flex:1;width:100%;height:100%;min-height:0;margin:0;border:0;border-radius:0}
 .legend{flex:none;margin:0;padding:8px 14px;gap:12px;border-top:1px solid var(--line);font-size:12px}
 @media(max-width:700px){.atlas-shell{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,30dvh) minmax(0,1fr)}.atlas-sidebar{border-right:0;border-bottom:1px solid var(--line);padding:12px 16px}.atlas-sidebar h1{font-size:19px}.atlas-sidebar .eyebrow{display:none}.atlas-nav{padding:8px 16px}.atlas-sidebar .controls{margin:10px 0}.legend{font-size:11px;padding:5px 10px;gap:8px}}
+@media(min-width:701px){#category-options>label:first-child{flex-basis:100%}}
 </style></head><body>
 <header class="atlas-nav"><a href="index.html" class="brand">ryho.io</a><span>Travel atlas</span><a href="index.html">← Home</a></header>
 <div class="atlas-shell"><aside class="atlas-sidebar" aria-label="Travel controls"><p class="eyebrow">Travel atlas</p><h1>On the road since July 22, 2025</h1><div class="controls"><label for="month">Highlight:</label><select id="month"><option value="all">Entire trip</option></select><button id="play">▶ Play months</button><span id="count" style="color:var(--sub);font-size:13px" aria-live="polite"></span></div>
 <label style="display:flex;gap:8px;align-items:center;margin:12px 0;font-size:14px"><input type="checkbox" id="hide-holiday-trips" checked>Hide Trips Home</label>
 <fieldset id="category-filters" style="border:0;padding:0;margin:12px 0"><legend>Show locations</legend><div id="category-options" style="display:flex;flex-wrap:wrap;gap:12px"></div></fieldset>
 <details style="margin:16px 0"><summary id="location-summary">Locations</summary><ul id="location-list" style="columns:2;column-width:280px;list-style:none;padding-left:0"></ul></details>
-</aside><main class="atlas-canvas" style="padding:0"><div id="map" role="region" aria-label="Interactive map of travels"></div><div class="legend"><span><i class="dot" style="background:#007A78"></i>Ground travel</span><span><i class="dot" style="background:#B53670"></i>Recorded flights</span><span>Gray dashes: unknown route · Select a month to highlight it</span></div></main></div>
+</aside><main class="atlas-canvas" style="padding:0"><div id="map" role="region" aria-label="Interactive map of travels"></div><div class="legend"><span><i class="dot" style="background:#007A78"></i>Ground travel</span><span><i class="dot" style="background:#B53670"></i>Recorded flights</span><span><i class="dot" style="background:#687583"></i>Missing data</span></div></main></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="assets/vendor/tz-lookup.js"></script>
 <script src="data/transport-overrides.js"></script>

@@ -46,6 +46,19 @@ function showRouteDate(event, line, dates) {
  map.closePopup();
  L.popup().setLatLng(line[nearest]).setContent(content).openOn(map);
 }
+// Keep country-view pins compact; enlarge gradually at closer zoom levels.
+function travelIconScale(zoom){return 1+Math.max(0,Math.min(5,zoom-5))*0.25;}
+function scaledTravelIcon(spec){
+ const scale=travelIconScale(map.getZoom());
+ const pair=value=>value.map(number=>number*scale);
+ return L.icon({iconUrl:spec.url,iconSize:pair(spec.size),iconAnchor:pair(spec.anchor),popupAnchor:pair(spec.popup)});
+}
+function resizeTravelIcons(){
+ for(const group of [locationLayers,layers])group.eachLayer(marker=>{
+  if(marker.options.travelIconSpec)marker.setIcon(scaledTravelIcon(marker.options.travelIconSpec));
+ });
+}
+map.on('zoomend',resizeTravelIcons);
 const locationLayers=L.layerGroup().addTo(map);
 const categories={parks:{name:'National parks',color:'#28633d'},nature:{name:'Nature & outdoors',color:'#2466a5'},cities:{name:'Cities & towns',color:'#7546b8'},landmarks:{name:'Landmarks & oddities',color:'#d0a42b'},people:{name:'People & celebrations',color:'#b53670'}};
 const activeCategories=new Set(Object.keys(categories));
@@ -104,7 +117,8 @@ function drawLocations(chosen){
   const date=document.createElement('p');date.textContent=dates.length?formatVisitRanges(dates):'Date not recorded';content.appendChild(date);
   const url=place.url||(place.code?'https://www.nps.gov/'+(['sequ','kica'].includes(place.code)?'seki':place.code)+'/':null);
   if(url){const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.textContent='More information';content.appendChild(link);}
-  const marker=L.marker(place.position,{icon:L.icon({iconUrl:place.icon,iconSize:[32,38],iconAnchor:place.iconAnchor?[place.iconAnchor[0]*32/42,38]:[16,38],popupAnchor:[16-(place.iconAnchor?place.iconAnchor[0]*32/42:16),-35]}),title:place.name,alt:place.name,riseOnHover:true}).bindPopup(content,{maxWidth:330}).addTo(locationLayers);
+  const spec={url:place.icon,size:[32,38],anchor:place.iconAnchor?[place.iconAnchor[0]*32/42,38]:[16,38],popup:[16-(place.iconAnchor?place.iconAnchor[0]*32/42:16),-35]};
+  const marker=L.marker(place.position,{icon:scaledTravelIcon(spec),travelIconSpec:spec,title:place.name,alt:place.name,riseOnHover:true}).bindPopup(content,{maxWidth:330}).addTo(locationLayers);
   const item=document.createElement('li');const button=document.createElement('button');button.type='button';button.style='background:none;border:0;padding:5px 0;text-align:left;font-size:14px';
   const dot=document.createElement('span');dot.style='display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;background:'+categories[place.category].color;
   const name=document.createElement('span');name.textContent=place.name;const dateLabel=document.createElement('small');dateLabel.style='display:block;margin-left:17px;color:var(--sub)';dateLabel.textContent=dates.length?formatVisitRanges(dates):'Date not recorded';button.append(dot,name,dateLabel);button.addEventListener('click',()=>{map.setView(place.position,9);marker.openPopup();});item.appendChild(button);list.appendChild(item);
@@ -204,7 +218,7 @@ function draw(chosen){
   if(active){
    const segment=Math.floor((points.length-2)/2);
    const point=[(points[segment][0]+points[segment+1][0])/2,(points[segment][1]+points[segment+1][1])/2];
-   L.marker(point,{icon:L.icon({iconUrl:'assets/icons/plane.svg',iconSize:[22,22],iconAnchor:[11,11]}),title:shown[0].points.map(flightCity).join(' → ')}).bindPopup(content.cloneNode(true)).addTo(layers);
+   L.marker(point,{icon:scaledTravelIcon({url:'assets/icons/plane.svg',size:[22,22],anchor:[11,11],popup:[0,-12]}),travelIconSpec:{url:'assets/icons/plane.svg',size:[22,22],anchor:[11,11],popup:[0,-12]},title:shown[0].points.map(flightCity).join(' → ')}).bindPopup(content.cloneNode(true)).addTo(layers);
    for(const location of group.points){const city=flightCity(location);if(labeledAirports.has(city))continue;labeledAirports.add(city);L.circleMarker(location,{radius:4,color:transportColors.flight,fillColor:'white',fillOpacity:1,weight:2}).addTo(layers);}
    bounds.push(...group.points);
   }

@@ -552,27 +552,6 @@ const travelHighlights= [
     "stateLabel": "South Dakota"
   },
   {
-    "id": "nps-band",
-    "name": "Bandelier National Monument, New Mexico",
-    "type": "National Monument",
-    "position": [
-      35.77898596,
-      -106.3317124
-    ],
-    "dates": [
-      "2026-02-23",
-      "2026-02-24"
-    ],
-    "status": "Confirmed visit",
-    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
-    "url": "https://www.nps.gov/band/index.htm",
-    "icon": "assets/icons/other-nps/band.svg",
-    "npsCode": "band",
-    "confirmedByUser": true,
-    "category": "landmarks",
-    "stateLabel": "New Mexico"
-  },
-  {
     "id": "nps-glca",
     "name": "Glen Canyon National Recreation Area, Arizona & Utah",
     "type": "National Recreation Area",
@@ -1755,5 +1734,162 @@ const travelHighlights= [
     "icon": "assets/icons/highlights/monterey.svg",
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline samples; approximate dates"
+  },
+  {
+    "id": "titan-missile-museum",
+    "name": "Titan Missile Museum, Arizona",
+    "type": "Museum",
+    "category": "landmarks",
+    "position": [
+      31.903583333333334,
+      -110.99901944444444
+    ],
+    "dates": [
+      "2026-03-27"
+    ],
+    "icon": "assets/icons/highlights/titan-missile-museum.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline samples within 2 km; dates approximate",
+    "url": "https://titanmissilemuseum.org/"
+  },
+  {
+    "id": "el-malpais",
+    "name": "El Malpais National Monument, New Mexico",
+    "type": "National Monument",
+    "category": "nature",
+    "position": [
+      34.966471,
+      -107.813934
+    ],
+    "dates": [
+      "2026-02-13"
+    ],
+    "icon": "assets/icons/highlights/el-malpais.svg",
+    "confirmedByUser": true,
+    "url": "https://www.nps.gov/elma/",
+    "dateSource": "Route samples within NPS monument boundaries; dates approximate"
+  },
+  {
+    "id": "albuquerque",
+    "name": "Albuquerque, New Mexico",
+    "type": "City",
+    "category": "cities",
+    "position": [
+      35.0844,
+      -106.6504
+    ],
+    "dates": [
+      "2026-02-14",
+      "2026-02-15",
+      "2026-02-16",
+      "2026-02-17"
+    ],
+    "icon": "assets/icons/highlights/albuquerque.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 12 km; dates approximate"
+  },
+  {
+    "id": "santa-fe",
+    "name": "Santa Fe, New Mexico",
+    "type": "City",
+    "category": "cities",
+    "position": [
+      35.687,
+      -105.9378
+    ],
+    "dates": [
+      "2026-02-17",
+      "2026-02-23",
+      "2026-02-24",
+      "2026-02-25"
+    ],
+    "icon": "assets/icons/highlights/santa-fe.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline samples within 8 km; dates approximate"
+  },
+  {
+    "id": "worlds-largest-buffalo",
+    "name": "World\u2019s Largest Buffalo Monument, North Dakota",
+    "type": "Roadside landmark",
+    "category": "landmarks",
+    "position": [
+      46.889321515673984,
+      -98.69857245580693
+    ],
+    "dates": [
+      "2025-08-19"
+    ],
+    "icon": "assets/icons/highlights/worlds-largest-buffalo.svg",
+    "confirmedByUser": true,
+    "dateSource": "GPX destination; nearby Timeline activity within 3 km, dates approximate"
+  },
+  {
+    "id": "poozeum",
+    "name": "Poozeum, Arizona",
+    "type": "Museum",
+    "category": "landmarks",
+    "position": [
+      35.2502,
+      -112.189
+    ],
+    "dates": [
+      "2026-01-06",
+      "2026-03-22"
+    ],
+    "icon": "assets/icons/highlights/poozeum.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 1 km; dates approximate",
+    "url": "https://poozeum.com/",
+    "positionNote": "Approximate location near the museum address in Williams"
+  },
+  {
+    "id": "winslow",
+    "name": "Winslow, Arizona",
+    "type": "City",
+    "category": "cities",
+    "position": [
+      35.0242,
+      -110.6974
+    ],
+    "dates": [
+      "2026-01-25"
+    ],
+    "icon": "assets/icons/highlights/winslow.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 5 km; dates approximate"
+  },
+  {
+    "id": "tucson",
+    "name": "Tucson, Arizona",
+    "type": "City",
+    "category": "cities",
+    "position": [
+      32.2226,
+      -110.9747
+    ],
+    "dates": [
+      "2026-03-26",
+      "2026-03-27",
+      "2026-03-28"
+    ],
+    "icon": "assets/icons/highlights/tucson.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 12 km; dates approximate"
+  },
+  {
+    "id": "four-corners",
+    "name": "Four Corners Monument, Arizona, Utah, Colorado & New Mexico",
+    "type": "Tribal landmark",
+    "category": "landmarks",
+    "position": [
+      36.99897,
+      -109.04517
+    ],
+    "dates": [
+      "2026-01-31"
+    ],
+    "icon": "assets/icons/highlights/four-corners.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline samples within 3 km; dates approximate"
   }
 ];
