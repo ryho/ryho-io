@@ -175,3 +175,10 @@ The comparison toggle also hides the wedding trip October 9–15, 2025,
 including the Las Vegas–Atlanta outbound and return flights.
 
 The converter includes July 22, 2025, to retain the initial drive from Blue Springs toward Louisville. The trip start flag is July 22, 2025.
+
+## Pages
+
+`index.html` is the personal homepage. `travel.html` is the window-filling
+travel atlas, linked from the homepage navigation and travel section. Its
+page does not scroll; controls and locations scroll within the sidebar
+(top panel on small screens). Map behavior lives in `assets/travel-map.js`.
