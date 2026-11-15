@@ -225,8 +225,8 @@ const travelHighlights= [
   },
   {
     "id": "popoyo",
-    "name": "Popoyo, Nicaragua",
-    "type": "Nicaragua",
+    "name": "Popoyo Beach, Nicaragua",
+    "type": "Beach",
     "position": [
       11.473,
       -86.12
@@ -237,7 +237,7 @@ const travelHighlights= [
       "2026-09-29"
     ],
     "icon": "assets/icons/highlights/popoyo.svg",
-    "category": "cities",
+    "category": "nature",
     "country": "Nicaragua"
   },
   {
@@ -1447,7 +1447,7 @@ const travelHighlights= [
   {
     "id": "cannon-beach",
     "name": "Cannon Beach, Oregon",
-    "type": "Coastal town",
+    "type": "Beach",
     "position": [
       45.884,
       -123.968
@@ -1460,7 +1460,7 @@ const travelHighlights= [
     "status": "Confirmed visit",
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline activity; dates approximate",
-    "category": "cities"
+    "category": "nature"
   },
   {
     "id": "point-roberts",
