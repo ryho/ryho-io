@@ -165,7 +165,7 @@ const travelHighlights= [
   },
   {
     "id": "leon",
-    "name": "Le\u00f3n, Nicaragua",
+    "name": "León, Nicaragua",
     "type": "Nicaragua",
     "position": [
       12.4356,
@@ -182,7 +182,7 @@ const travelHighlights= [
   },
   {
     "id": "esteli",
-    "name": "Family in Estel\u00ed, Nicaragua",
+    "name": "Family in Estelí, Nicaragua",
     "type": "Family",
     "position": [
       13.0933,
@@ -1595,7 +1595,7 @@ const travelHighlights= [
   },
   {
     "id": "randy-paige-wedding",
-    "name": "Randy and Paige\u2019s Wedding \u2014 Atlanta, Georgia",
+    "name": "Randy and Paige’s Wedding — Atlanta, Georgia",
     "type": "Wedding",
     "position": [
       33.749,
@@ -1635,7 +1635,7 @@ const travelHighlights= [
   },
   {
     "id": "trip-start",
-    "name": "Trip Start \u2014 Blue Springs, Mississippi",
+    "name": "Trip Start — Blue Springs, Mississippi",
     "type": "Trip start",
     "category": "people",
     "position": [
@@ -1656,7 +1656,7 @@ const travelHighlights= [
   },
   {
     "id": "trip-end",
-    "name": "Trip End \u2014 Blue Springs, Mississippi",
+    "name": "Trip End — Blue Springs, Mississippi",
     "type": "Trip end",
     "category": "people",
     "position": [
@@ -1809,7 +1809,7 @@ const travelHighlights= [
   },
   {
     "id": "worlds-largest-buffalo",
-    "name": "World\u2019s Largest Buffalo Monument, North Dakota",
+    "name": "World’s Largest Buffalo Monument, North Dakota",
     "type": "Roadside landmark",
     "category": "landmarks",
     "position": [
@@ -1891,5 +1891,95 @@ const travelHighlights= [
     "icon": "assets/icons/highlights/four-corners.svg",
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline samples within 3 km; dates approximate"
+  },
+  {
+    "id": "roswell-ufo-museum",
+    "name": "International UFO Museum — Roswell, New Mexico",
+    "type": "Museum",
+    "position": [
+      33.3942,
+      -104.5239
+    ],
+    "dates": [
+      "2026-02-26"
+    ],
+    "icon": "assets/icons/highlights/roswell-ufo-museum.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 2 km; date approximate",
+    "url": "https://www.roswellufomuseum.com/",
+    "category": "landmarks",
+    "stateLabel": "New Mexico"
+  },
+  {
+    "id": "ka-lae-south-point",
+    "name": "Ka Lae — Southernmost Point of the 50 States, Hawaii",
+    "type": "Coastal landmark",
+    "position": [
+      18.9108,
+      -155.6817
+    ],
+    "dates": [
+      "2026-07-20"
+    ],
+    "icon": "assets/icons/highlights/ka-lae-south-point.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline points within 50 m; July 20 in Hawaii local time",
+    "url": "https://www.nps.gov/places/south-point-complex.htm",
+    "category": "nature",
+    "stateLabel": "Hawaii"
+  },
+  {
+    "id": "papakolea-green-sand-beach",
+    "name": "Papakōlea Green Sand Beach, Hawaii",
+    "type": "Beach",
+    "position": [
+      18.9369,
+      -155.6461
+    ],
+    "dates": [
+      "2026-07-20"
+    ],
+    "icon": "assets/icons/highlights/papakolea-green-sand-beach.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; Hawaii local date, approximate",
+    "url": "https://hilo.hawaii.edu/rec/center/GreenSandsDescription.php",
+    "category": "nature",
+    "stateLabel": "Hawaii"
+  },
+  {
+    "id": "punaluu-black-sand-beach",
+    "name": "Punaluʻu Black Sand Beach, Hawaii",
+    "type": "Beach",
+    "position": [
+      19.1362,
+      -155.5045
+    ],
+    "dates": [
+      "2026-07-19"
+    ],
+    "icon": "assets/icons/highlights/punaluu-black-sand-beach.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; Hawaii local date, approximate",
+    "url": "https://www.gohawaii.com/islands/hawaii-big-island/regions/kau/punaluu-black-sand-beach",
+    "category": "nature",
+    "stateLabel": "Hawaii"
+  },
+  {
+    "id": "nara-park",
+    "name": "Nara Park, Japan",
+    "type": "Park",
+    "position": [
+      34.6851,
+      135.843
+    ],
+    "dates": [
+      "2026-09-16"
+    ],
+    "icon": "assets/icons/highlights/nara-park.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline points within 500 m; Japan local date, approximate",
+    "url": "https://visitnara.jp/venues/A00489/",
+    "category": "nature",
+    "country": "Japan"
   }
 ];

@@ -182,3 +182,62 @@ The converter includes July 22, 2025, to retain the initial drive from Blue Spri
 travel atlas, linked from the homepage navigation and travel section. Its
 page does not scroll; controls and locations scroll within the sidebar
 (top panel on small screens). Map behavior lives in `assets/travel-map.js`.
+
+## Language
+
+The English / Español selector appears on both pages. `assets/i18n.js` holds
+the UI translations and saves the choice locally. Map controls, categories,
+messages, popup labels, and dates update immediately while retaining the
+selected filters and map position. `data/place-names-es.js` contains editable
+Spanish names for every destination and flight/train endpoint; proper names
+without a Spanish equivalent stay recognizable.
+Date and time formatting uses the chosen locale and local time zones; familiar
+time-zone abbreviations are preserved.
+
+The basemap uses MapLibre GL via the Leaflet adapter and OpenFreeMap’s Liberty
+style (`assets/map-style.json`), with OpenStreetMap data. Label fields follow
+the language selector (`name:en` / `name:es`), falling back to Latin/local names
+when a translation is unavailable. No API key is needed. The map keeps all
+existing Leaflet routes, pins, filters, and popups.
+
+Basemap appearance is editable in `assets/map-style.json`. The
+`boundary_states` layer shows solid state/province borders from zoom 2;
+`boundary_3` keeps smaller administrative borders at zoom 5 and above.
+Adjust `minzoom`, `line-color`, `line-width`, and `line-opacity` there.
+
+The local vector style uses a classic OpenStreetMap-inspired palette: pale
+blue water, light land, green parks/woods, pink motorways, and purple borders.
+Terrain shading and 3D buildings are disabled to preserve the flat map look.
+
+French is available as `Français` on both pages. UI translations live in
+`assets/i18n.js` and destination names in `data/place-names-fr.js`. French
+dates, month names, and vector map labels follow the selected language; the
+choice is saved locally just like English and Spanish.
+
+## Trip playback
+
+“Play trip” progressively draws the selected month (or entire trip), with a
+moving camper, plane, or Shinkansen. Use the Month selector to choose a month without automatic month cycling.
+Pause/resume, the progress slider, and 0.5×–8× speeds are available. “Follow
+vehicle” follows the current position; dragging the map turns following off.
+“Stop trip” restores the normal map. Changing the month, country, language,
+or Hide Trips Home setting stops playback and rebuilds the route.
+
+`assets/travel-map.js` collects the same filtered ground, flight, train, and
+missing-data sections it draws into `playbackSegments`.
+`assets/trip-playback.js` orders them chronologically and animates each line
+in Web Mercator, taking the short path across the date line. Dates come from
+recorded timestamps. Playback compresses stops and weights travel distance,
+so it is not a real-time clock: at 1× the full trip takes about three minutes
+and a selected month about one minute. Missing-data sections have gray dashed
+lines and no moving vehicle, because the actual route is unknown.
+
+During trip playback, destination pins and the location list appear as their
+recorded local visit dates are reached. Seeking backward hides later visits
+again; category filters and Hide Trips Home still apply. Undated locations
+remain hidden until playback stops. Stopping restores the normal pin list.
+
+US trip-view regions (Southwest, Northwest, Upper Midwest) are defined by
+`usTripRegions` bounds in `assets/travel-map.js`. Their camera fits the actual
+visible route and stops in those areas, respecting the selected month and
+Hide Trips Home. They are broad trip views, not official regional borders.

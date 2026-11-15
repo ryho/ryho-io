@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 52" role="img" aria-labelledby="title">
+<title id="title">Small silver car</title>
+<defs><filter id="outline" x="-10%" y="-20%" width="120%" height="140%" color-interpolation-filters="sRGB"><feMorphology in="SourceAlpha" operator="dilate" radius="1.1" result="edge"/><feFlood flood-color="#fff" flood-opacity=".9"/><feComposite in2="edge" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g filter="url(#outline)" stroke="#384955" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+<path d="m6 29 18-5 12-13q2-2 6-2h25q5 0 8 5l8 11 12 4 3 6-2 7H6l-3-6Z" fill="#b8c2c9"/>
+<path d="m28 24 11-11h12v11Zm27-11h12q3 0 5 3l6 8H55Z" fill="#648a9e"/>
+<path d="m39 14-8 9h5l9-9Zm20 0v9h4v-9Z" fill="#afcbd5" stroke="none"/>
+<path d="M8 29h82l5 5H6Z" fill="#d9dfe2" stroke="none"/>
+<path d="M53 26v14m28-14 1 14M18 35h66" fill="none" stroke="#8697a2" stroke-width="1"/>
+<path d="M43 28h5m22 0h5" fill="none" stroke="#536774"/>
+<path d="M24 23h7v5h-7Z" fill="#9caeb9"/>
+<path d="m6 30 10-2-2 6H5Z" fill="#f7f0cf"/>
+<path d="M91 29h4l2 5h-6Z" fill="#ae6260"/>
+<path d="M4 37h9m77 1h7" fill="none" stroke="#50616b" stroke-width="2"/>
+<g fill="#1d2a33"><circle cx="23" cy="40" r="8"/><circle cx="80" cy="40" r="8"/></g>
+<g fill="#d0d8dd"><circle cx="23" cy="40" r="4"/><circle cx="80" cy="40" r="4"/></g>
+<g fill="#687d8b" stroke="none"><circle cx="23" cy="40" r="1.5"/><circle cx="80" cy="40" r="1.5"/></g>
+</g></svg>

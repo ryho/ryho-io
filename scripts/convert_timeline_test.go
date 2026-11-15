@@ -49,3 +49,18 @@ func TestStopPoints(t *testing.T) {
 		})
 	}
 }
+
+func TestExcludedJapanFlights(t *testing.T) {
+	if !excludedFlight(Point{34.77, 138}, Point{34.71, 137.73}) {
+		t.Fatal("false Japan flight retained")
+	}
+	if excludedFlight(Point{41.97, -87.9}, Point{35.55, 139.77}) {
+		t.Fatal("arrival in Japan removed")
+	}
+	if excludedFlight(Point{35.55, 139.77}, Point{40.71, -74.19}) {
+		t.Fatal("departure from Japan removed")
+	}
+	if excludedFlight(Point{47.45, -122.31}, Point{19.74, -156.03}) {
+		t.Fatal("Hawaii flight removed")
+	}
+}

@@ -1,24 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" role="img" aria-labelledby="title">
-<title id="title">Dark pickup towing a cream and turquoise camper</title>
-<g stroke="#152332" stroke-width="2" stroke-linejoin="round">
-<!-- White outline keeps the silhouette legible against map tiles. -->
-<path d="M5 47 12 43 22 29 53 29 63 43 76 43 76 49 82 49 88 17 151 17 153 59 137 61 128 70 112 70 104 61 80 61 75 57 65 57 58 69 44 69 36 58 29 58 23 69 10 69 3 57Z" fill="#fff" stroke="#fff" stroke-width="7"/>
-<path d="M73 54h13" fill="none" stroke-width="4"/>
-<path d="M84 53 91 20h60l2 38-4 4H84Z" fill="#f5f0dd"/>
-<path d="m85 48 16-5 26 5 25-7 1 17-4 4H84Z" fill="#6ebcc6"/>
-<path d="m86 42 15-3 25 4 26-8v8l-25 8-26-5-16 5Z" fill="#a6dce0" stroke="none"/>
-<path d="M107 20v41" fill="none" stroke="#d4d5cb" stroke-width="1"/>
-<rect x="110" y="30" width="12" height="15" rx="2" fill="#b9d3d8"/>
-<rect x="131" y="33" width="12" height="10" rx="2" fill="#b9d3d8"/>
-<path d="M110 37h12m9 1h12" stroke="#718b95" stroke-width="1"/>
-<path d="M117 17v-4h12v4" fill="#d9e0df"/>
-<path d="m96 28 8-1m22-2 18 2" stroke="#6c7b85" stroke-width="1.5"/>
-<path d="M5 48 15 43 25 31h27l12 14h12v16H5Z" fill="#263547"/>
-<path d="m24 35-8 10h22V35Zm18 0v10h17l-9-10Z" fill="#7fadc0"/>
-<path d="M40 46v14m22-14v14M8 51h7m33-2h5m13-1h7" fill="none" stroke="#9babb4" stroke-width="1.5"/>
-<path d="M4 54h10v7H4Z" fill="#152332"/>
-<path d="M6 48h7v4H6Z" fill="#fff4bf"/>
-<path d="M31 43h5v6h-5Z" fill="#172331"/>
-<g fill="#172331"><circle cx="20" cy="61" r="9"/><circle cx="61" cy="61" r="9"/><circle cx="118" cy="62" r="8"/><circle cx="137" cy="62" r="8"/></g>
-<g fill="#98a9b4" stroke-width="1.5"><circle cx="20" cy="61" r="4"/><circle cx="61" cy="61" r="4"/><circle cx="118" cy="62" r="4"/><circle cx="137" cy="62" r="4"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 90" role="img" aria-labelledby="title">
+<title id="title">Dark crew-cab pickup towing a cream and turquoise camper</title>
+<defs>
+<!-- Trace the actual artwork instead of a separate polygon behind it. -->
+<filter id="outline" x="-10%" y="-20%" width="120%" height="140%" color-interpolation-filters="sRGB">
+<feMorphology in="SourceAlpha" operator="dilate" radius="1.2" result="edge"/>
+<feFlood flood-color="#fff" flood-opacity=".9"/>
+<feComposite in2="edge" operator="in"/>
+<feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<g filter="url(#outline)" stroke="#182633" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+<!-- Low hitch and trailer tongue leave daylight between the vehicles. -->
+<path d="M82 62h19m-4-2 9-4" fill="none" stroke-width="2.5"/>
+<!-- Cream trailer, rounded front, turquoise lower panel, tandem axle. -->
+<path d="M101 59 108 25q1-5 6-5h58l2 39-4 7h-69Z" fill="#f4f0df"/>
+<path d="m103 51 16-7 23 5 31-8 1 18-4 7h-69Z" fill="#6ebac5"/>
+<path d="m104 46 15-5 23 4 31-8v7l-31 8-23-5-16 6Z" fill="#a6dbdb" stroke="none"/>
+<path d="M124 21v44" fill="none" stroke="#c9cbc3" stroke-width="1"/>
+<rect x="128" y="32" width="14" height="15" rx="2" fill="#b5cfd2"/>
+<rect x="150" y="35" width="13" height="11" rx="2" fill="#b5cfd2"/>
+<path d="M128 39h14m8 1h13" stroke="#748e94" stroke-width="1"/>
+<path d="M131 20v-5h14v5" fill="#d4dddc"/>
+<path d="m114 30 6-1m24-3 19 2" fill="none" stroke="#7a8b91" stroke-width="1.2"/>
+<rect x="112" y="54" width="5" height="6" rx="1" fill="#d3e3df" stroke-width="1"/>
+<path d="M101 65h70" stroke="#445661" stroke-width="2.5"/>
+<!-- Pickup: long low hood, upright crew cab and separate open cargo bed. -->
+<path d="M5 51 9 46l15-2 9-15q1-2 4-2h28v18h20v19H5Z" fill="#263342"/>
+<path d="m8 46 16-2 5-7 1 10-22 4Z" fill="#3c4b5c" stroke="none"/>
+<path d="m33 32-7 13h18V32Zm15 0v13h13V32Z" fill="#7fa5b5"/>
+<path d="m34 33-5 9h4l6-9Zm16 0v9h4v-9Z" fill="#adc6cf" stroke="none" opacity=".6"/>
+<!-- Bed rail and interior extend behind the cab. -->
+<path d="M66 44h19v6H66Z" fill="#101e2b"/>
+<path d="M68 45h15v2H68Z" fill="#71818d" stroke="none"/>
+<path d="M65 49h20v14H65Z" fill="#2f3f4f"/>
+<path d="M45 47v15m18-15v15M9 54h15m13-5h5m11 0h5m13 4h10" fill="none" stroke="#7e909c" stroke-width="1"/>
+<path d="M25 43h5v7h-5Z" fill="#172331"/>
+<path d="M5 51h7v6H5Z" fill="#e4e8e3"/>
+<path d="M6 52h3v3H6Z" fill="#ffe6aa" stroke="none"/>
+<path d="M4 58h8v6H4Z" fill="#121e2b"/>
+<path d="M82 51h3v7h-3Z" fill="#a75453" stroke="none"/>
+<path d="M27 64h33" stroke="#101e2b" stroke-width="2.5"/>
+<!-- Four visible tires, including the camper's two closely spaced axles. -->
+<g fill="#13212c"><circle cx="19" cy="64" r="9"/><circle cx="72" cy="64" r="9"/><circle cx="136" cy="66" r="8"/><circle cx="155" cy="66" r="8"/></g>
+<g fill="#9babb5" stroke-width="1.4"><circle cx="19" cy="64" r="4.5"/><circle cx="72" cy="64" r="4.5"/><circle cx="136" cy="66" r="4"/><circle cx="155" cy="66" r="4"/></g>
+<g fill="#405261" stroke="none"><circle cx="19" cy="64" r="1.5"/><circle cx="72" cy="64" r="1.5"/><circle cx="136" cy="66" r="1.3"/><circle cx="155" cy="66" r="1.3"/></g>
 </g></svg>

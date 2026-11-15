@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 44" role="img" aria-labelledby="title desc">
+<title id="title">White Shinkansen with a long rounded nose</title>
+<desc id="desc">Side-profile icon with a swept-back black windshield, white lower body and gray skirt. Shape adapted from Gabrielchl’s Shinkansen head illustration, CC BY 4.0; redrawn for the map.</desc>
+<metadata>Reference: https://commons.wikimedia.org/wiki/File:Shinkansen_head_illustration_side_view.png ; author Gabrielchl; license https://creativecommons.org/licenses/by/4.0/ ; changes: simplified SVG geometry, white body and dark blue stripe, compact map icon.</metadata>
+<defs><filter id="outline" x="-10%" y="-25%" width="120%" height="150%"><feMorphology in="SourceAlpha" operator="dilate" radius="1.1" result="edge"/><feFlood flood-color="white"/><feComposite in2="edge" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g filter="url(#outline)" stroke-linejoin="round" stroke-linecap="round">
+<!-- A continuous low roof curves through the cab into a broad, rounded beak. -->
+<path d="M4 5h28C52 5 60 9 72 14c14 6 31 7 48 10 14 2 22 6 23 12 1 4-10 5-23 5H4Z" fill="#f7f8f4" stroke="#45545c" stroke-width=".8"/>
+<path d="M4 5h28C52 5 60 9 72 14c14 6 31 7 48 10 13 2 21 6 23 11-19-6-45-7-67-12C61 19 45 16 29 16H4Z" fill="#ffffff"/>
+<path d="M5 6h27c20 0 28 4 40 9 14 6 31 7 48 10" fill="none" stroke="#e3e3e3" stroke-width="1"/>
+<!-- Teardrop windshield blends into the long sloping roof. -->
+<path d="M58 11c-5-1-8 0-8 3 0 4 9 5 18 6l21 2C79 19 66 13 58 11Z" fill="#171717" stroke="#454545" stroke-width=".8"/>
+<path d="M55 12c5 0 15 4 22 6-9-1-17-2-22-3Z" fill="#303030" stroke="none"/>
+<!-- Thin livery stripe tapers away before the nose. -->
+<path d="M4 23h40l32-1-32 4H4Z" fill="#373b63"/>
+<path d="M4 27h29l-7 1H4Z" fill="#373b63"/>
+<path d="M4 33h137q2 1 2 3c1 4-10 5-23 5H4Z" fill="#5c5c5c"/>
+<path d="M4 36h31m3 1h7m49 0h27" fill="none" stroke="#858585" stroke-width=".8"/>
+<path d="M119 26q-2 6-1 14m14-10q-3 5-2 10" fill="none" stroke="#cccccc" stroke-width=".6"/>
+<!-- Passenger windows and the narrow cab door remain readable at marker size. -->
+<g fill="#171717"><rect x="9" y="13" width="7" height="5" rx="1.5"/><rect x="20" y="13" width="7" height="5" rx="1.5"/></g>
+<rect x="33" y="9" width="9" height="24" rx="2" fill="none" stroke="#777777" stroke-width=".7"/>
+<rect x="35" y="12" width="5" height="8" rx="1.6" fill="#171717"/>
+<path d="M43 34h9m25 0h9" stroke="#444444" stroke-width="1.2"/>
+</g></svg>

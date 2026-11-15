@@ -151,6 +151,14 @@ func stopPoints(samples []Sample, radius, hours, maxGap float64) []bool {
 	return result
 }
 
+// Traveler correction: no domestic flights were taken in Japan.
+// The bounding region covers the Japan portion of this trip; international
+// flights remain included because only one endpoint is inside the region.
+func excludedFlight(a, b Point) bool {
+	inJapan := func(p Point) bool { return p[0] >= 24 && p[0] <= 46 && p[1] >= 122 && p[1] <= 146 }
+	return inJapan(a) && inJapan(b)
+}
+
 func run() error {
 	output := flag.String("output", "data/travel-paths.js", "Output file (relative to current directory)")
 	start := flag.String("start", "2025-07-22", "Inclusive start date")
@@ -299,6 +307,9 @@ func run() error {
 		a, e1 := coordinate(r.Activity.Start)
 		b, e2 := coordinate(r.Activity.End)
 		if e1 != nil || e2 != nil {
+			continue
+		}
+		if excludedFlight(a, b) {
 			continue
 		}
 		// Airport endpoints retain the existing stop privacy grid.
