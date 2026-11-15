@@ -150,5 +150,6 @@ window.frenchPlaceNames={
   "Ka Lae — Southernmost Point of the 50 States, Hawaii": "Ka Lae — Point le plus au sud des 50 États, Hawaï",
   "Papakōlea Green Sand Beach, Hawaii": "Plage de sable vert de Papakōlea, Hawaï",
   "Punaluʻu Black Sand Beach, Hawaii": "Plage de sable noir de Punaluʻu, Hawaï",
-  "Nara Park, Japan": "Parc de Nara, Japon"
+  "Nara Park, Japan": "Parc de Nara, Japon",
+  "Fujikawaguchiko, Japan": "Fujikawaguchiko, Japon"
 };

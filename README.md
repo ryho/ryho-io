@@ -241,3 +241,7 @@ US trip-view regions (Southwest, Northwest, Upper Midwest) are defined by
 `usTripRegions` bounds in `assets/travel-map.js`. Their camera fits the actual
 visible route and stops in those areas, respecting the selected month and
 Hide Trips Home. They are broad trip views, not official regional borders.
+
+On a first visit, language follows the first supported browser preference
+(English, Spanish, or French, including regional variants), falling back to
+English. An explicitly selected and saved language takes priority afterward.

@@ -1981,5 +1981,24 @@ const travelHighlights= [
     "url": "https://visitnara.jp/venues/A00489/",
     "category": "nature",
     "country": "Japan"
+  },
+  {
+    "id": "fujikawaguchiko",
+    "name": "Fujikawaguchiko, Japan",
+    "type": "Town",
+    "position": [
+      35.4973,
+      138.7552
+    ],
+    "dates": [
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "icon": "assets/icons/highlights/fujikawaguchiko.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 5 km; Japan local dates, approximate",
+    "category": "cities",
+    "country": "Japan"
   }
 ];

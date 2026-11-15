@@ -61,6 +61,12 @@ function countryTripBounds(key,month,fallbackToCountry=true){
  const selected=month==='all'?visible:visible.filter(p=>p.month===month);
  return (selected.length||!fallbackToCountry?selected:visible).map(p=>p.point);
 }
+function fitUSView(){
+ // Preserve the preferred framing as a geographic area, so smaller maps zoom out.
+ const zoom=5,center=map.project([42.87,-102.2],zoom),half=L.point(570,390);
+ const bounds=L.latLngBounds(map.unproject(center.subtract(half),zoom),map.unproject(center.add(half),zoom));
+ map.fitBounds(bounds,{padding:[12,12],animate:false});
+}
 function focusCountry(){draw(monthSel.value);}
 countrySelect.addEventListener('change',focusCountry);
 const transportColors={ground:'#007A78',flight:'#B53670',gap:'#687583',rail:'#7546D9'};
@@ -332,8 +338,7 @@ function draw(chosen){
 
  const countryBounds=countrySelect.value==='all'?[]:countryTripBounds(countrySelect.value,chosen,chosen==='all');
  if(countrySelect.value==='us'&&chosen==='all'){
-  // Match the traveler's preferred desktop framing of the mainland trip.
-  map.setView([42.87,-102.2],5);
+  fitUSView();
  }
  else if(countryBounds.length)map.fitBounds(countryBounds,{padding:[35,35],maxZoom:10});
  else if(bounds.length)map.fitBounds(bounds,{padding:[30,30],maxZoom:chosen==='all'?5:9});
@@ -352,4 +357,7 @@ window.addEventListener('languagechange',refreshLanguage);
 TravelI18n.apply();
 draw('all');
 
-new ResizeObserver(()=>map.invalidateSize()).observe(document.getElementById("map"));
+new ResizeObserver(()=>{
+ map.invalidateSize();
+ if(countrySelect.value==='us'&&monthSel.value==='all'&&!window.tripPlayback?.isActive())fitUSView();
+}).observe(document.getElementById("map"));

@@ -64,7 +64,10 @@
  Object.assign(spanish,{'Region:':'Región:','Hawaii':'Hawái','World':'Mundo','Southwest US':'Suroeste de EE. UU.','Northwest US':'Noroeste de EE. UU.','Upper Midwest US':'Medio Oeste norte de EE. UU.'});
  Object.assign(french,{'Region:':'Région :','Hawaii':'Hawaï','World':'Monde','Southwest US':'Sud-Ouest des États-Unis','Northwest US':'Nord-Ouest des États-Unis','Upper Midwest US':'Haut Midwest des États-Unis'});
  const dictionaries={en:{},es:spanish,fr:french};
- let language='en';try{const saved=localStorage.getItem('ryho-language');if(Object.hasOwn(dictionaries,saved))language=saved;}catch(error){}
+ // Follow the browser's ordered preferences until the visitor chooses a language.
+ const browserLanguages=navigator.languages?.length?navigator.languages:[navigator.language||'en'];
+ let language=browserLanguages.map(value=>value.toLowerCase().split(/[-_]/)[0]).find(value=>Object.hasOwn(dictionaries,value))||'en';
+ try{const saved=localStorage.getItem('ryho-language');if(Object.hasOwn(dictionaries,saved))language=saved;}catch(error){}
  const t=text=>dictionaries[language][text]||text;
  function apply(){document.documentElement.lang=language;document.querySelectorAll('[data-i18n]').forEach(node=>node.textContent=t(node.dataset.i18n));document.querySelectorAll('[data-language-select]').forEach(select=>select.value=language);}
  const placeName=text=>({es:window.spanishPlaceNames,fr:window.frenchPlaceNames}[language]?.[text]||text);

@@ -129,7 +129,7 @@ function stopTripPlayback(restore=true){
  playbackControls.options.hidden=true;playbackControls.stop.hidden=true;playbackControls.progress.value=0;playbackLabels();
  if(restore)draw(monthSel.value);
 }
-window.tripPlayback={stop:stopTripPlayback};
+window.tripPlayback={stop:stopTripPlayback,isActive:()=>tripActive};
 playbackControls.play.addEventListener('click',()=>{
  if(tripRunning){tripRunning=false;cancelAnimationFrame(tripFrame);tripFrame=null;tripLastFrame=0;playbackLabels();return;}
  if(!tripActive){
