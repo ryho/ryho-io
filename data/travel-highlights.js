@@ -1,9 +1,9 @@
 // Curated highlights confirmed by the traveler; dates estimated from nearby Timeline samples.
 // Family pins use city-center coordinates rather than residential addresses.
-const travelHighlights=[
+const travelHighlights= [
   {
     "id": "tallgrass-prairie",
-    "name": "Tallgrass Prairie",
+    "name": "Tallgrass Prairie, Kansas",
     "type": "National Preserve",
     "position": [
       38.4403,
@@ -14,11 +14,13 @@ const travelHighlights=[
     ],
     "icon": "assets/icons/highlights/tallgrass-prairie.svg",
     "status": "Confirmed visit",
-    "url": "https://www.nps.gov/tapr/index.htm"
+    "url": "https://www.nps.gov/tapr/index.htm",
+    "category": "nature",
+    "stateLabel": "Kansas"
   },
   {
     "id": "organ-pipe-cactus",
-    "name": "Organ Pipe Cactus",
+    "name": "Organ Pipe Cactus National Monument, Arizona",
     "type": "National Monument",
     "position": [
       31.957,
@@ -31,11 +33,13 @@ const travelHighlights=[
     ],
     "icon": "assets/icons/highlights/organ-pipe-cactus.svg",
     "status": "Confirmed visit",
-    "url": "https://www.nps.gov/orpi/index.htm"
+    "url": "https://www.nps.gov/orpi/index.htm",
+    "category": "landmarks",
+    "stateLabel": "Arizona"
   },
   {
     "id": "detroit",
-    "name": "Detroit",
+    "name": "Detroit, Michigan",
     "type": "City",
     "position": [
       42.3314,
@@ -49,11 +53,12 @@ const travelHighlights=[
       "2025-08-04",
       "2025-08-05"
     ],
-    "icon": "assets/icons/highlights/detroit.svg"
+    "icon": "assets/icons/highlights/detroit.svg",
+    "category": "cities"
   },
   {
     "id": "las-vegas",
-    "name": "Las Vegas",
+    "name": "Las Vegas, Nevada",
     "type": "City",
     "position": [
       36.1699,
@@ -85,11 +90,12 @@ const travelHighlights=[
       "2026-01-04",
       "2026-01-05"
     ],
-    "icon": "assets/icons/highlights/las-vegas.svg"
+    "icon": "assets/icons/highlights/las-vegas.svg",
+    "category": "cities"
   },
   {
     "id": "carhenge",
-    "name": "Carhenge",
+    "name": "Carhenge, Nebraska",
     "type": "Roadside attraction",
     "position": [
       42.142,
@@ -98,11 +104,13 @@ const travelHighlights=[
     "dates": [
       "2026-08-20"
     ],
-    "icon": "assets/icons/highlights/carhenge.svg"
+    "icon": "assets/icons/highlights/carhenge.svg",
+    "category": "landmarks",
+    "stateLabel": "Nebraska"
   },
   {
     "id": "family-louisville-ms",
-    "name": "Family in Louisville, MS",
+    "name": "Family in Louisville, Mississippi",
     "type": "Family",
     "position": [
       33.1237,
@@ -112,7 +120,8 @@ const travelHighlights=[
       "2025-07-23",
       "2025-12-28"
     ],
-    "icon": "assets/icons/highlights/family-louisville-ms.svg"
+    "icon": "assets/icons/highlights/family-louisville-ms.svg",
+    "category": "people"
   },
   {
     "id": "family-madison-wi",
@@ -129,11 +138,12 @@ const travelHighlights=[
       "2025-08-17",
       "2025-08-18"
     ],
-    "icon": "assets/icons/highlights/family-madison-wi.svg"
+    "icon": "assets/icons/highlights/family-madison-wi.svg",
+    "category": "people"
   },
   {
     "id": "family-los-angeles",
-    "name": "Family in Los Angeles",
+    "name": "Family in Los Angeles, California",
     "type": "Family",
     "position": [
       34.0522,
@@ -150,11 +160,12 @@ const travelHighlights=[
       "2026-04-09",
       "2026-04-10"
     ],
-    "icon": "assets/icons/highlights/family-los-angeles.svg"
+    "icon": "assets/icons/highlights/family-los-angeles.svg",
+    "category": "people"
   },
   {
     "id": "leon",
-    "name": "León",
+    "name": "Le\u00f3n, Nicaragua",
     "type": "Nicaragua",
     "position": [
       12.4356,
@@ -165,12 +176,14 @@ const travelHighlights=[
       "2026-10-03",
       "2026-10-04"
     ],
-    "icon": "assets/icons/highlights/leon.svg"
+    "icon": "assets/icons/highlights/leon.svg",
+    "category": "cities",
+    "country": "Nicaragua"
   },
   {
     "id": "esteli",
-    "name": "Estelí",
-    "type": "Nicaragua",
+    "name": "Family in Estel\u00ed, Nicaragua",
+    "type": "Family",
     "position": [
       13.0933,
       -86.3538
@@ -189,11 +202,13 @@ const travelHighlights=[
       "2026-10-07",
       "2026-10-08"
     ],
-    "icon": "assets/icons/highlights/esteli.svg"
+    "icon": "assets/icons/highlights/family-louisville-ms.svg",
+    "category": "people",
+    "country": "Nicaragua"
   },
   {
     "id": "granada",
-    "name": "Granada",
+    "name": "Granada, Nicaragua",
     "type": "Nicaragua",
     "position": [
       11.9344,
@@ -204,11 +219,13 @@ const travelHighlights=[
       "2026-09-29",
       "2026-09-30"
     ],
-    "icon": "assets/icons/highlights/granada.svg"
+    "icon": "assets/icons/highlights/granada.svg",
+    "category": "cities",
+    "country": "Nicaragua"
   },
   {
     "id": "popoyo",
-    "name": "Popoyo",
+    "name": "Popoyo, Nicaragua",
     "type": "Nicaragua",
     "position": [
       11.473,
@@ -219,11 +236,13 @@ const travelHighlights=[
       "2026-09-28",
       "2026-09-29"
     ],
-    "icon": "assets/icons/highlights/popoyo.svg"
+    "icon": "assets/icons/highlights/popoyo.svg",
+    "category": "cities",
+    "country": "Nicaragua"
   },
   {
     "id": "tokyo",
-    "name": "Tokyo",
+    "name": "Tokyo, Japan",
     "type": "Japan",
     "position": [
       35.6762,
@@ -241,11 +260,13 @@ const travelHighlights=[
       "2026-09-17",
       "2026-09-18"
     ],
-    "icon": "assets/icons/highlights/tokyo.svg"
+    "icon": "assets/icons/highlights/tokyo.svg",
+    "category": "cities",
+    "country": "Japan"
   },
   {
     "id": "kyoto",
-    "name": "Kyoto",
+    "name": "Kyoto, Japan",
     "type": "Japan",
     "position": [
       35.0116,
@@ -257,11 +278,13 @@ const travelHighlights=[
       "2026-09-13",
       "2026-09-14"
     ],
-    "icon": "assets/icons/highlights/kyoto.svg"
+    "icon": "assets/icons/highlights/kyoto.svg",
+    "category": "cities",
+    "country": "Japan"
   },
   {
     "id": "osaka",
-    "name": "Osaka",
+    "name": "Osaka, Japan",
     "type": "Japan",
     "position": [
       34.6937,
@@ -273,11 +296,13 @@ const travelHighlights=[
       "2026-09-16",
       "2026-09-17"
     ],
-    "icon": "assets/icons/highlights/osaka.svg"
+    "icon": "assets/icons/highlights/osaka.svg",
+    "category": "cities",
+    "country": "Japan"
   },
   {
     "id": "mt-fuji",
-    "name": "Mt. Fuji",
+    "name": "Mt. Fuji, Japan",
     "type": "Japan",
     "position": [
       35.3606,
@@ -288,11 +313,13 @@ const travelHighlights=[
       "2026-09-10",
       "2026-09-11"
     ],
-    "icon": "assets/icons/highlights/mt-fuji.svg"
+    "icon": "assets/icons/highlights/mt-fuji.svg",
+    "category": "nature",
+    "country": "Japan"
   },
   {
     "id": "nps-chcu",
-    "name": "Chaco Culture National Historical Park",
+    "name": "Chaco Culture National Historical Park, New Mexico",
     "type": "National Historical Park",
     "position": [
       36.03963414,
@@ -308,11 +335,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/chcu/index.htm",
     "icon": "assets/icons/other-nps/chcu.svg",
     "npsCode": "chcu",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "New Mexico"
   },
   {
     "id": "nps-slbe",
-    "name": "Sleeping Bear Dunes National Lakeshore",
+    "name": "Sleeping Bear Dunes National Lakeshore, Michigan",
     "type": "National Lakeshore",
     "position": [
       44.92844962,
@@ -326,11 +355,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/slbe/index.htm",
     "icon": "assets/icons/other-nps/slbe.svg",
     "npsCode": "slbe",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "nature",
+    "stateLabel": "Michigan"
   },
   {
     "id": "nps-mimi",
-    "name": "Minuteman Missile National Historic Site",
+    "name": "Minuteman Missile National Historic Site, South Dakota",
     "type": "National Historic Site",
     "position": [
       43.89558013,
@@ -345,11 +376,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/mimi/index.htm",
     "icon": "assets/icons/other-nps/mimi.svg",
     "npsCode": "mimi",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "South Dakota"
   },
   {
     "id": "nps-pore",
-    "name": "Point Reyes National Seashore",
+    "name": "Point Reyes National Seashore, California",
     "type": "National Seashore",
     "position": [
       38.05511241,
@@ -365,11 +398,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/pore/index.htm",
     "icon": "assets/icons/other-nps/pore.svg",
     "npsCode": "pore",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "nature",
+    "stateLabel": "California"
   },
   {
     "id": "nps-azru",
-    "name": "Aztec Ruins National Monument",
+    "name": "Aztec Ruins National Monument, New Mexico",
     "type": "National Monument",
     "position": [
       36.83682216,
@@ -385,11 +420,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/azru/index.htm",
     "icon": "assets/icons/other-nps/azru.svg",
     "npsCode": "azru",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "New Mexico"
   },
   {
     "id": "nps-lewi",
-    "name": "Lewis and Clark National Historical Park",
+    "name": "Lewis and Clark National Historical Park, Oregon & Washington",
     "type": "National Historical Park",
     "position": [
       46.1344,
@@ -404,11 +441,13 @@ const travelHighlights=[
     "icon": "assets/icons/other-nps/lewi.svg",
     "npsCode": "lewi",
     "positionNote": "Fort Clatsop Visitor Center and museum",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "Oregon & Washington"
   },
   {
     "id": "nps-mapr",
-    "name": "Manhattan Project National Historical Park",
+    "name": "Los Alamos, New Mexico",
     "type": "National Historical Park",
     "position": [
       35.88096,
@@ -423,11 +462,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/mapr/index.htm",
     "icon": "assets/icons/other-nps/mapr.svg",
     "npsCode": "mapr",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "New Mexico"
   },
   {
     "id": "nps-ebla",
-    "name": "Ebey's Landing National Historical Reserve",
+    "name": "Ebey's Landing National Historical Reserve, Washington",
     "type": "National Historical Reserve",
     "position": [
       48.21403036,
@@ -441,11 +482,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/ebla/index.htm",
     "icon": "assets/icons/other-nps/ebla.svg",
     "npsCode": "ebla",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "nature",
+    "stateLabel": "Washington"
   },
   {
     "id": "nps-cach",
-    "name": "Canyon de Chelly National Monument",
+    "name": "Canyon de Chelly National Monument, Arizona",
     "type": "National Monument",
     "position": [
       36.14319567,
@@ -459,11 +502,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/cach/index.htm",
     "icon": "assets/icons/other-nps/cach.svg",
     "npsCode": "cach",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "Arizona"
   },
   {
     "id": "nps-goga",
-    "name": "Golden Gate National Recreation Area",
+    "name": "Golden Gate Bridge, California",
     "type": "National Recreation Area",
     "position": [
       37.8199,
@@ -479,11 +524,16 @@ const travelHighlights=[
     "icon": "assets/icons/other-nps/goga.svg",
     "npsCode": "goga",
     "positionNote": "Pin placed near Golden Gate Bridge at traveler request; NPS recreation area spans multiple sites.",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "photo": "https://npgallery.nps.gov/GetAsset/c7f00b91-f284-4cdd-b9f8-b705fd030b9c/proxylores",
+    "photoSource": "https://npgallery.nps.gov/AssetDetail/c7f00b91-f284-4cdd-b9f8-b705fd030b9c",
+    "photoAlt": "Golden Gate Bridge spanning the bay with sailboats",
+    "category": "nature",
+    "stateLabel": "California"
   },
   {
     "id": "nps-moru",
-    "name": "Mount Rushmore National Memorial",
+    "name": "Mount Rushmore National Memorial, South Dakota",
     "type": "National Memorial",
     "position": [
       43.88037021,
@@ -497,11 +547,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/moru/index.htm",
     "icon": "assets/icons/other-nps/moru.svg",
     "npsCode": "moru",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "South Dakota"
   },
   {
     "id": "nps-band",
-    "name": "Bandelier National Monument",
+    "name": "Bandelier National Monument, New Mexico",
     "type": "National Monument",
     "position": [
       35.77898596,
@@ -516,29 +568,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/band/index.htm",
     "icon": "assets/icons/other-nps/band.svg",
     "npsCode": "band",
-    "confirmedByUser": true
-  },
-  {
-    "id": "nps-yuho",
-    "name": "Yucca House National Monument",
-    "type": "National Monument",
-    "position": [
-      37.24778944,
-      -108.6861274
-    ],
-    "dates": [
-      "2026-01-31"
-    ],
-    "status": "Confirmed visit",
-    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
-    "url": "https://www.nps.gov/yuho/index.htm",
-    "icon": "assets/icons/other-nps/yuho.svg",
-    "npsCode": "yuho",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "New Mexico"
   },
   {
     "id": "nps-glca",
-    "name": "Glen Canyon National Recreation Area",
+    "name": "Glen Canyon National Recreation Area, Arizona & Utah",
     "type": "National Recreation Area",
     "position": [
       36.9357464677,
@@ -553,11 +589,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/glca/index.htm",
     "icon": "assets/icons/other-nps/glca.svg",
     "npsCode": "glca",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "nature",
+    "stateLabel": "Arizona & Utah"
   },
   {
     "id": "nps-moca",
-    "name": "Montezuma Castle National Monument",
+    "name": "Montezuma Castle National Monument, Arizona",
     "type": "National Monument",
     "position": [
       34.62237771,
@@ -573,11 +611,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/moca/index.htm",
     "icon": "assets/icons/other-nps/moca.svg",
     "npsCode": "moca",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "Arizona"
   },
   {
     "id": "nps-moja",
-    "name": "Mojave National Preserve",
+    "name": "Mojave National Preserve, California",
     "type": "National Preserve",
     "position": [
       35.12485941,
@@ -591,11 +631,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/moja/index.htm",
     "icon": "assets/icons/other-nps/moja.svg",
     "npsCode": "moja",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "nature",
+    "stateLabel": "California"
   },
   {
     "id": "nps-deto",
-    "name": "Devils Tower National Monument",
+    "name": "Devils Tower National Monument, Wyoming",
     "type": "National Monument",
     "position": [
       44.59064655,
@@ -610,11 +652,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/deto/index.htm",
     "icon": "assets/icons/other-nps/deto.svg",
     "npsCode": "deto",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "Wyoming"
   },
   {
     "id": "nps-hutr",
-    "name": "Hubbell Trading Post National Historic Site",
+    "name": "Hubbell Trading Post National Historic Site, Arizona",
     "type": "National Historic Site",
     "position": [
       35.70727324,
@@ -629,30 +673,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/hutr/index.htm",
     "icon": "assets/icons/other-nps/hutr.svg",
     "npsCode": "hutr",
-    "confirmedByUser": true
-  },
-  {
-    "id": "nps-tusk",
-    "name": "Tule Springs Fossil Beds National Monument",
-    "type": "National Monument",
-    "position": [
-      36.3893217,
-      -115.3202223
-    ],
-    "dates": [
-      "2025-12-21",
-      "2026-01-03"
-    ],
-    "status": "Confirmed visit",
-    "evidence": "Visit confirmed by traveler; dates estimated from nearby Google Timeline activity.",
-    "url": "https://www.nps.gov/tusk/index.htm",
-    "icon": "assets/icons/other-nps/tusk.svg",
-    "npsCode": "tusk",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "Arizona"
   },
   {
     "id": "nps-piro",
-    "name": "Pictured Rocks National Lakeshore",
+    "name": "Pictured Rocks National Lakeshore, Michigan",
     "type": "National Lakeshore",
     "position": [
       46.56435642,
@@ -666,11 +693,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/piro/index.htm",
     "icon": "assets/icons/other-nps/piro.svg",
     "npsCode": "piro",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "nature",
+    "stateLabel": "Michigan"
   },
   {
     "id": "nps-sucr",
-    "name": "Sunset Crater Volcano National Monument",
+    "name": "Sunset Crater Volcano National Monument, Arizona",
     "type": "National Monument",
     "position": [
       35.37114323,
@@ -684,11 +713,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/sucr/index.htm",
     "icon": "assets/icons/other-nps/sucr.svg",
     "npsCode": "sucr",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "Arizona"
   },
   {
     "id": "nps-wupa",
-    "name": "Wupatki National Monument",
+    "name": "Wupatki National Monument, Arizona",
     "type": "National Monument",
     "position": [
       35.55741077,
@@ -703,11 +734,13 @@ const travelHighlights=[
     "url": "https://www.nps.gov/wupa/index.htm",
     "icon": "assets/icons/other-nps/wupa.svg",
     "npsCode": "wupa",
-    "confirmedByUser": true
+    "confirmedByUser": true,
+    "category": "landmarks",
+    "stateLabel": "Arizona"
   },
   {
     "id": "whale-watching-anacortes",
-    "name": "Whale watching in Anacortes",
+    "name": "Orca Watching in Anacortes, Washington",
     "type": "Activity",
     "position": [
       48.5126,
@@ -717,12 +750,13 @@ const travelHighlights=[
       "2026-07-08",
       "2026-07-28"
     ],
-    "icon": "assets/icons/highlights/whale-watching-anacortes.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "icon": "assets/icons/highlights/orca-watching.svg",
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature"
   },
   {
     "id": "port-townsend-whidbey-ferry",
-    "name": "Ferry from Port Townsend to Whidbey Island",
+    "name": "Ferry from Port Townsend to Whidbey Island, Washington",
     "type": "Ferry",
     "position": [
       48.1118,
@@ -733,11 +767,13 @@ const travelHighlights=[
       "2026-07-08"
     ],
     "icon": "assets/icons/highlights/port-townsend-whidbey-ferry.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Washington"
   },
   {
     "id": "vancouver",
-    "name": "Vancouver",
+    "name": "Vancouver, Canada",
     "type": "City",
     "position": [
       49.2827,
@@ -752,11 +788,13 @@ const travelHighlights=[
       "2026-07-28"
     ],
     "icon": "assets/icons/highlights/vancouver.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities",
+    "country": "Canada"
   },
   {
     "id": "seattle",
-    "name": "Seattle",
+    "name": "Seattle, Washington",
     "type": "City",
     "position": [
       47.6062,
@@ -771,11 +809,12 @@ const travelHighlights=[
       "2026-07-22"
     ],
     "icon": "assets/icons/highlights/seattle.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities"
   },
   {
     "id": "phoenix",
-    "name": "Phoenix",
+    "name": "Phoenix, Arizona",
     "type": "City",
     "position": [
       33.4484,
@@ -793,11 +832,12 @@ const travelHighlights=[
       "2026-03-24"
     ],
     "icon": "assets/icons/highlights/phoenix.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities"
   },
   {
     "id": "sedona",
-    "name": "Sedona",
+    "name": "Sedona, Arizona",
     "type": "Town",
     "position": [
       34.8697,
@@ -813,11 +853,12 @@ const travelHighlights=[
       "2026-03-20"
     ],
     "icon": "assets/icons/highlights/sedona.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities"
   },
   {
     "id": "horseshoe-bend",
-    "name": "Horseshoe Bend",
+    "name": "Horseshoe Bend, Arizona",
     "type": "Scenic stop",
     "position": [
       36.879,
@@ -829,11 +870,13 @@ const travelHighlights=[
       "2026-01-19"
     ],
     "icon": "assets/icons/highlights/horseshoe-bend.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Arizona"
   },
   {
     "id": "vermilion-cliffs",
-    "name": "Vermilion Cliffs",
+    "name": "Vermilion Cliffs, Arizona",
     "type": "Scenic area",
     "position": [
       36.889,
@@ -844,11 +887,13 @@ const travelHighlights=[
       "2026-01-18"
     ],
     "icon": "assets/icons/highlights/vermilion-cliffs.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Arizona"
   },
   {
     "id": "white-pocket",
-    "name": "White Pocket",
+    "name": "White Pocket, Arizona",
     "type": "Backcountry",
     "position": [
       36.9556,
@@ -858,11 +903,13 @@ const travelHighlights=[
       "2026-01-17"
     ],
     "icon": "assets/icons/highlights/white-pocket.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Arizona"
   },
   {
     "id": "park-city",
-    "name": "Park City",
+    "name": "Park City, Utah",
     "type": "Town",
     "position": [
       40.6461,
@@ -872,11 +919,12 @@ const travelHighlights=[
       "2025-11-15"
     ],
     "icon": "assets/icons/highlights/park-city.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities"
   },
   {
     "id": "salt-lake-city",
-    "name": "Salt Lake City",
+    "name": "Salt Lake City, Utah",
     "type": "City",
     "position": [
       40.7608,
@@ -893,11 +941,12 @@ const travelHighlights=[
       "2025-11-17"
     ],
     "icon": "assets/icons/highlights/salt-lake-city.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities"
   },
   {
     "id": "great-salt-lake",
-    "name": "Great Salt Lake",
+    "name": "Great Salt Lake, Utah",
     "type": "Lake",
     "position": [
       41.1,
@@ -907,11 +956,13 @@ const travelHighlights=[
       "2025-11-17"
     ],
     "icon": "assets/icons/highlights/great-salt-lake.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Utah"
   },
   {
     "id": "sawtooth-mountains",
-    "name": "Sawtooth Mountains",
+    "name": "Sawtooth Mountains, Idaho",
     "type": "Mountain range",
     "position": [
       44.1445,
@@ -925,11 +976,13 @@ const travelHighlights=[
       "2025-09-26"
     ],
     "icon": "assets/icons/highlights/sawtooth-mountains.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Idaho"
   },
   {
     "id": "boise",
-    "name": "Boise",
+    "name": "Boise, Idaho",
     "type": "City",
     "position": [
       43.615,
@@ -941,11 +994,12 @@ const travelHighlights=[
       "2025-09-22"
     ],
     "icon": "assets/icons/highlights/boise.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities"
   },
   {
     "id": "bend",
-    "name": "Bend",
+    "name": "Bend, Oregon",
     "type": "City",
     "position": [
       44.0582,
@@ -966,11 +1020,12 @@ const travelHighlights=[
       "2025-09-20"
     ],
     "icon": "assets/icons/highlights/bend.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities"
   },
   {
     "id": "portland",
-    "name": "Portland",
+    "name": "Portland, Oregon",
     "type": "City",
     "position": [
       45.5152,
@@ -987,11 +1042,12 @@ const travelHighlights=[
       "2026-06-20"
     ],
     "icon": "assets/icons/highlights/portland.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "cities"
   },
   {
     "id": "cape-flattery",
-    "name": "Cape Flattery — northwesternmost point",
+    "name": "Cape Flattery, Washington",
     "type": "Scenic stop",
     "position": [
       48.3842,
@@ -1001,11 +1057,12 @@ const travelHighlights=[
       "2026-07-06"
     ],
     "icon": "assets/icons/highlights/cape-flattery.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature"
   },
   {
     "id": "mount-baker",
-    "name": "Mount Baker",
+    "name": "Mount Baker, Washington",
     "type": "Mountain",
     "position": [
       48.7768,
@@ -1016,11 +1073,13 @@ const travelHighlights=[
       "2026-07-09"
     ],
     "icon": "assets/icons/highlights/mount-baker.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Washington"
   },
   {
     "id": "mount-hood",
-    "name": "Mount Hood",
+    "name": "Mount Hood, Oregon",
     "type": "Mountain",
     "position": [
       45.3735,
@@ -1032,11 +1091,13 @@ const travelHighlights=[
       "2026-05-09"
     ],
     "icon": "assets/icons/highlights/mount-hood.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Oregon"
   },
   {
     "id": "mount-shasta",
-    "name": "Mount Shasta",
+    "name": "Mount Shasta, California",
     "type": "Mountain",
     "position": [
       41.4092,
@@ -1049,11 +1110,13 @@ const travelHighlights=[
       "2026-05-15"
     ],
     "icon": "assets/icons/highlights/mount-shasta.svg",
-    "dateSource": "Nearby Google Timeline activity; dates approximate"
+    "dateSource": "Nearby Google Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "California"
   },
   {
     "id": "outpost-x",
-    "name": "Outpost X",
+    "name": "Outpost X, Utah",
     "type": "Unique stay",
     "position": [
       37.858,
@@ -1069,11 +1132,13 @@ const travelHighlights=[
     "status": "Confirmed visit",
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline activity; dates approximate",
-    "url": "https://outpost-x.com/"
+    "url": "https://outpost-x.com/",
+    "category": "landmarks",
+    "stateLabel": "Utah"
   },
   {
     "id": "umpqua-hot-springs",
-    "name": "Umpqua Hot Springs",
+    "name": "Umpqua Hot Springs, Oregon",
     "type": "Hot springs",
     "position": [
       43.2965,
@@ -1086,11 +1151,13 @@ const travelHighlights=[
     "icon": "assets/icons/highlights/umpqua-hot-springs.svg",
     "status": "Confirmed visit",
     "confirmedByUser": true,
-    "dateSource": "Nearby Timeline activity; dates approximate"
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Oregon"
   },
   {
     "id": "newberry-volcanic",
-    "name": "Newberry National Volcanic Monument",
+    "name": "Newberry National Volcanic Monument, Oregon",
     "type": "National Monument",
     "position": [
       43.7135,
@@ -1103,11 +1170,13 @@ const travelHighlights=[
     "status": "Confirmed visit",
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline activity; dates approximate",
-    "url": "https://www.fs.usda.gov/visit/destination/newberry-national-volcanic-monument"
+    "url": "https://www.fs.usda.gov/visit/destination/newberry-national-volcanic-monument",
+    "category": "landmarks",
+    "stateLabel": "Oregon"
   },
   {
     "id": "smith-rock",
-    "name": "Smith Rock State Park",
+    "name": "Smith Rock State Park, Oregon",
     "type": "State Park",
     "position": [
       44.3685,
@@ -1119,11 +1188,13 @@ const travelHighlights=[
     "icon": "assets/icons/highlights/smith-rock.svg",
     "status": "Confirmed visit",
     "confirmedByUser": true,
-    "dateSource": "Nearby Timeline activity; dates approximate"
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Oregon"
   },
   {
     "id": "meteor-crater",
-    "name": "Meteor Crater",
+    "name": "Meteor Crater, Arizona",
     "type": "Natural landmark",
     "position": [
       35.0275,
@@ -1137,11 +1208,13 @@ const travelHighlights=[
     "status": "Confirmed visit",
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline activity; dates approximate",
-    "url": "https://meteorcrater.com/"
+    "url": "https://meteorcrater.com/",
+    "category": "nature",
+    "stateLabel": "Arizona"
   },
   {
     "id": "monument-valley",
-    "name": "Monument Valley",
+    "name": "Monument Valley, Arizona & Utah",
     "type": "Tribal Park",
     "position": [
       36.9824,
@@ -1153,11 +1226,13 @@ const travelHighlights=[
     "icon": "assets/icons/highlights/monument-valley.svg",
     "status": "Confirmed visit",
     "confirmedByUser": true,
-    "dateSource": "Nearby Timeline activity; dates approximate"
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "nature",
+    "stateLabel": "Arizona & Utah"
   },
   {
     "id": "acoma-pueblo",
-    "name": "Acoma Pueblo (Sky City)",
+    "name": "Acoma Pueblo (Sky City), New Mexico",
     "type": "Cultural site",
     "position": [
       34.8963,
@@ -1169,6 +1244,516 @@ const travelHighlights=[
     "icon": "assets/icons/highlights/acoma-pueblo.svg",
     "status": "Confirmed visit",
     "confirmedByUser": true,
-    "dateSource": "Nearby Timeline activity; dates approximate"
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "landmarks",
+    "stateLabel": "New Mexico"
+  },
+  {
+    "id": "custer-state-park",
+    "name": "Custer State Park, South Dakota",
+    "type": "State park",
+    "position": [
+      43.7617301940918,
+      -103.36817932128906
+    ],
+    "dates": [
+      "2025-08-26",
+      "2025-08-27"
+    ],
+    "icon": "assets/icons/highlights/custer-state-park.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 10 km; dates approximate",
+    "url": "https://gfp.sd.gov/parks/detail/custer-state-park/",
+    "category": "nature",
+    "stateLabel": "South Dakota"
+  },
+  {
+    "id": "mackinac-island",
+    "name": "Mackinac Island, Michigan",
+    "type": "Island",
+    "position": [
+      45.84916687011719,
+      -84.61888885498047
+    ],
+    "dates": [
+      "2025-08-09"
+    ],
+    "icon": "assets/icons/highlights/mackinac-island.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 5 km; dates approximate",
+    "url": "https://www.mackinacisland.org/",
+    "category": "cities"
+  },
+  {
+    "id": "kitch-iti-kipi",
+    "name": "Kitch-Iti-Kipi, Michigan",
+    "type": "Natural spring",
+    "position": [
+      46.004119873046875,
+      -86.38201141357422
+    ],
+    "dates": [
+      "2025-08-14"
+    ],
+    "icon": "assets/icons/highlights/kitch-iti-kipi.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 3 km; dates approximate",
+    "url": "https://www.michigan.gov/recsearch/parks/palmsbook",
+    "photo": "https://www.michigan.gov/recsearch/-/media/Project/Websites/recsearch/images/ParksM-P/PalmsBook/__birds_eye_view_of_blue_green_colored_lake_and_raft.jpg?rev=e31fee35f9834b0c820d4d07d473e678",
+    "photoSource": "https://www.michigan.gov/recsearch/parks/palmsbook",
+    "category": "nature",
+    "stateLabel": "Michigan"
+  },
+  {
+    "id": "hoover-dam",
+    "name": "Hoover Dam, Arizona & Nevada",
+    "type": "Engineering landmark",
+    "position": [
+      36.016222,
+      -114.737245
+    ],
+    "dates": [
+      "2026-01-02",
+      "2026-01-05"
+    ],
+    "icon": "assets/icons/highlights/hoover-dam.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 4 km; dates approximate",
+    "url": "https://www.usbr.gov/lc/hooverdam/",
+    "category": "landmarks",
+    "stateLabel": "Arizona & Nevada"
+  },
+  {
+    "id": "big-sur",
+    "name": "Big Sur, California",
+    "type": "Coastal region",
+    "position": [
+      36.270240783691406,
+      -121.80744934082031
+    ],
+    "dates": [
+      "2026-05-25"
+    ],
+    "icon": "assets/icons/highlights/big-sur.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 15 km; dates approximate",
+    "url": "https://www.bigsurcalifornia.org/",
+    "photo": "https://imgc.ssmedia.com/imgc318_8363/q:95/bigsurcalifornia/webart/slideshows/32.jpg",
+    "photoSource": "https://www.bigsurcalifornia.org/",
+    "category": "nature"
+  },
+  {
+    "id": "hearst-castle",
+    "name": "Hearst Castle, California",
+    "type": "Historic landmark",
+    "position": [
+      35.686075,
+      -121.1696
+    ],
+    "dates": [
+      "2026-05-23",
+      "2026-05-24"
+    ],
+    "icon": "assets/icons/highlights/hearst-castle.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 5 km; dates approximate",
+    "url": "https://hearstcastle.org/",
+    "category": "landmarks",
+    "stateLabel": "California"
+  },
+  {
+    "id": "lake-tahoe",
+    "name": "Lake Tahoe, California & Nevada",
+    "type": "Lake",
+    "position": [
+      39.091667,
+      -120.041667
+    ],
+    "dates": [
+      "2026-05-16",
+      "2026-05-17",
+      "2026-05-18"
+    ],
+    "icon": "assets/icons/highlights/lake-tahoe.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 30 km; dates approximate",
+    "url": "https://www.fs.usda.gov/r05/ltbmu",
+    "category": "nature",
+    "stateLabel": "California & Nevada"
+  },
+  {
+    "id": "santa-cruz",
+    "name": "Santa Cruz, California",
+    "type": "City",
+    "position": [
+      36.9741,
+      -122.0308
+    ],
+    "dates": [
+      "2026-05-30",
+      "2026-05-31",
+      "2026-06-01"
+    ],
+    "icon": "assets/icons/highlights/santa-cruz.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "cities"
+  },
+  {
+    "id": "san-luis-obispo",
+    "name": "San Luis Obispo, California",
+    "type": "City",
+    "position": [
+      35.2828,
+      -120.6596
+    ],
+    "dates": [
+      "2026-04-15",
+      "2026-04-16"
+    ],
+    "icon": "assets/icons/highlights/san-luis-obispo.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "cities"
+  },
+  {
+    "id": "mendocino",
+    "name": "Mendocino, California",
+    "type": "Coastal town",
+    "position": [
+      39.3077,
+      -123.7995
+    ],
+    "dates": [
+      "2026-06-11",
+      "2026-06-12",
+      "2026-06-13"
+    ],
+    "icon": "assets/icons/highlights/mendocino.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "cities"
+  },
+  {
+    "id": "cannon-beach",
+    "name": "Cannon Beach, Oregon",
+    "type": "Coastal town",
+    "position": [
+      45.884,
+      -123.968
+    ],
+    "dates": [
+      "2026-05-02",
+      "2026-05-03"
+    ],
+    "icon": "assets/icons/highlights/cannon-beach.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "cities"
+  },
+  {
+    "id": "point-roberts",
+    "name": "Point Roberts, Washington",
+    "type": "Peninsula",
+    "position": [
+      48.9884,
+      -123.0569
+    ],
+    "dates": [
+      "2026-07-28"
+    ],
+    "icon": "assets/icons/highlights/point-roberts.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "category": "cities"
+  },
+  {
+    "id": "ouray-ice-climbing",
+    "name": "Ouray Ice Climbing, Colorado",
+    "type": "Ice climbing",
+    "position": [
+      38.0156,
+      -107.6735
+    ],
+    "dates": [
+      "2026-02-03",
+      "2026-02-04",
+      "2026-02-05",
+      "2026-02-06",
+      "2026-02-07"
+    ],
+    "icon": "assets/icons/highlights/ouray-ice-climbing.svg",
+    "status": "Confirmed visit",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "url": "https://ourayicepark.com/",
+    "category": "nature",
+    "stateLabel": "Colorado"
+  },
+  {
+    "id": "telluride-skiing",
+    "name": "Telluride Skiing, Colorado",
+    "type": "Skiing",
+    "position": [
+      37.9368,
+      -107.8467
+    ],
+    "dates": [
+      "2026-02-04",
+      "2026-02-05",
+      "2026-02-06"
+    ],
+    "icon": "assets/icons/highlights/telluride-skiing.svg",
+    "confirmedByUser": true,
+    "status": "Confirmed visit",
+    "dateSource": "Nearby Timeline activity; dates approximate",
+    "url": "https://tellurideskiresort.com/",
+    "category": "nature",
+    "stateLabel": "Colorado"
+  },
+  {
+    "id": "aztec-ufo-crash-site",
+    "name": "Aztec UFO Crash Site, New Mexico",
+    "type": "Roadside landmark",
+    "position": [
+      36.87849,
+      -107.84107
+    ],
+    "dates": [
+      "2026-02-10"
+    ],
+    "icon": "assets/icons/highlights/aztec-ufo-crash-site.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 3 km; dates approximate",
+    "url": "https://www.aztecnm.com/aztec/ufo/UFOCrashSiteMap.pdf",
+    "category": "landmarks",
+    "stateLabel": "New Mexico"
+  },
+  {
+    "id": "worlds-largest-artichoke",
+    "name": "World's Largest Artichoke, California",
+    "type": "Roadside landmark",
+    "position": [
+      36.76247087571245,
+      -121.75306390463167
+    ],
+    "dates": [
+      "2026-05-30"
+    ],
+    "icon": "assets/icons/highlights/worlds-largest-artichoke.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 2 km; dates approximate",
+    "category": "landmarks",
+    "stateLabel": "California"
+  },
+  {
+    "id": "worlds-largest-pistachio",
+    "name": "World's Largest Pistachio, New Mexico",
+    "type": "Roadside landmark",
+    "position": [
+      32.99658,
+      -105.98932
+    ],
+    "dates": [
+      "2026-03-04"
+    ],
+    "icon": "assets/icons/highlights/worlds-largest-pistachio.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 2 km; dates approximate",
+    "url": "https://pistachioland.com/",
+    "category": "landmarks",
+    "stateLabel": "New Mexico"
+  },
+  {
+    "id": "hilo",
+    "name": "Hilo, Hawaii",
+    "type": "City",
+    "position": [
+      19.7074,
+      -155.085
+    ],
+    "dates": [
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-19"
+    ],
+    "icon": "assets/icons/highlights/hilo.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 8 km; dates approximate",
+    "category": "cities"
+  },
+  {
+    "id": "kona",
+    "name": "Kona (Kailua-Kona), Hawaii",
+    "type": "City",
+    "position": [
+      19.64,
+      -155.9969
+    ],
+    "dates": [
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-19",
+      "2026-07-21"
+    ],
+    "icon": "assets/icons/highlights/kona.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 8 km; dates approximate",
+    "category": "cities"
+  },
+  {
+    "id": "randy-paige-wedding",
+    "name": "Randy and Paige\u2019s Wedding \u2014 Atlanta, Georgia",
+    "type": "Wedding",
+    "position": [
+      33.749,
+      -84.388
+    ],
+    "dates": [
+      "2025-10-10",
+      "2025-10-11",
+      "2025-10-12",
+      "2025-10-14",
+      "2025-10-15"
+    ],
+    "icon": "assets/icons/highlights/randy-paige-wedding.svg",
+    "confirmedByUser": true,
+    "dateSource": "Dates reflect nearby Atlanta trip activity, not the exact wedding date",
+    "positionNote": "Atlanta city center; wedding venue unspecified",
+    "category": "people"
+  },
+  {
+    "id": "lake-mendocino",
+    "name": "Lake Mendocino, California",
+    "type": "Lake",
+    "category": "nature",
+    "position": [
+      39.2156,
+      -123.1733
+    ],
+    "dates": [
+      "2026-06-10",
+      "2026-06-11"
+    ],
+    "icon": "assets/icons/highlights/lake-mendocino.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 5 km; dates approximate",
+    "url": "https://www.spn.usace.army.mil/Missions/Recreation/Lake-Mendocino/",
+    "stateLabel": "California"
+  },
+  {
+    "id": "trip-start",
+    "name": "Trip Start \u2014 Blue Springs, Mississippi",
+    "type": "Trip start",
+    "category": "people",
+    "position": [
+      34.4031,
+      -88.8728
+    ],
+    "dates": [
+      "2025-07-22"
+    ],
+    "icon": "assets/icons/highlights/trip-start.svg",
+    "iconAnchor": [
+      42,
+      50
+    ],
+    "confirmedByUser": true,
+    "dateSource": "Confirmed by traveler",
+    "positionNote": "Town center used in place of private home address"
+  },
+  {
+    "id": "trip-end",
+    "name": "Trip End \u2014 Blue Springs, Mississippi",
+    "type": "Trip end",
+    "category": "people",
+    "position": [
+      34.4031,
+      -88.8728
+    ],
+    "dates": [
+      "2026-10-09"
+    ],
+    "icon": "assets/icons/highlights/trip-end.svg",
+    "iconAnchor": [
+      0,
+      50
+    ],
+    "confirmedByUser": true,
+    "dateSource": "Confirmed by traveler",
+    "positionNote": "Town center used in place of private home address"
+  },
+  {
+    "id": "san-diego",
+    "name": "San Diego, California",
+    "type": "City",
+    "category": "cities",
+    "position": [
+      32.7157,
+      -117.1611
+    ],
+    "dates": [
+      "2026-03-31",
+      "2026-04-01",
+      "2026-04-02",
+      "2026-04-03"
+    ],
+    "icon": "assets/icons/highlights/san-diego.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline samples; approximate dates"
+  },
+  {
+    "id": "morro-rock",
+    "name": "Morro Rock, California",
+    "type": "Natural landmark",
+    "category": "nature",
+    "position": [
+      35.3694,
+      -120.8676
+    ],
+    "dates": [
+      "2026-04-15",
+      "2026-04-16",
+      "2026-04-17",
+      "2026-05-23"
+    ],
+    "icon": "assets/icons/highlights/morro-rock.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline samples; approximate dates",
+    "stateLabel": "California"
+  },
+  {
+    "id": "monterey",
+    "name": "Monterey, California",
+    "type": "City",
+    "category": "cities",
+    "position": [
+      36.6002,
+      -121.8947
+    ],
+    "dates": [
+      "2026-05-25",
+      "2026-05-26",
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29",
+      "2026-05-30"
+    ],
+    "icon": "assets/icons/highlights/monterey.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline samples; approximate dates"
   }
 ];

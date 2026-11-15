@@ -13,7 +13,7 @@ This is static HTML, so no build tools or frameworks are needed for the first ve
 
 ## Privacy notes
 - The original Timeline.json is **not** included.
-- July 23, 2025 through October 2026 is used. July 23 is the inclusive start of the travel period (timestamps are stored with time-zone offsets).
+- July 22, 2025 through October 2026 is used. July 22 is the inclusive start of the travel period (timestamps are stored with time-zone offsets).
 - Position coordinates are rounded to a roughly 5km grid (0.05 degrees). Exact visits, labels, home and work classification are omitted.
 - The map is approximate and not snapped to roads. Large gaps/flights are not joined.
 - This output still reveals broad travel patterns and approximate visits. Review it before publishing, especially sensitive destinations.
@@ -36,7 +36,7 @@ From the project directory:
 go run scripts/convert_timeline.go Timeline.json
 ```
 
-Options: `--start 2025-07-23 --end 2026-10-31 --grid 0.05
+Options: `--start 2025-07-22 --end 2026-10-31 --grid 0.05
 --gap-hours 6 --jump-km 100`. Dates are inclusive, using each sample's
 time-zone date. The script sorts route samples by time, includes activity
 endpoints, rounds coordinates, removes consecutive duplicate points, groups
@@ -127,3 +127,51 @@ https://proxyinternet.nrcan-rncan.gc.ca/arcgis/rest/services/CLSS-SATC/CLSS_Admi
 Retrieved November 14, 2026; simplified to 0.001 degrees. Matches detected:
 Banff, Yoho, Jasper. These are inferred visits, not user-confirmed.
 Canadian provincial parks are outside this boundary dataset.
+
+Visit date display merges consecutive days and gaps of one missing day into
+a single range, for both parks and highlights. Longer gaps remain separate
+visits. Glacier dates were explicitly corrected by the traveler.
+
+## Transport colors and month highlighting
+
+Blue shows ground route samples; orange shows explicitly classified flying
+activities from Timeline. Flight lines are approximate airport connections,
+not actual flight tracks. Gray dashes indicate unknown routes. The month
+selector highlights the selected month and keeps other routes as faint
+context. Park/highlight lists still filter to that month. Flights are assigned
+to their departure month. No speed-based flight guesses are made.
+
+## Location groups and local time
+
+Pins have category borders and white outer edges. `category` in each data
+entry selects parks (green), nature (blue), cities (violet), landmarks (gold),
+or people (berry). Radio buttons select all locations or one category, filtering map pins and the unified chronological
+location list; month filtering applies as well.
+Route point popups use bundled MIT-licensed tz-lookup 6.1.25 to resolve an
+IANA timezone from coordinates, then Intl formats the timestamp with local
+daylight-saving rules. Geographic timezone lookup is approximate near borders.
+`data/transport-overrides.js` records the traveler-confirmed Kona–Seattle
+flight absent from flying activities; displayed times are GPS gap endpoints.
+Flight-associated gaps are suppressed by time or nearby matching airport pairs.
+
+Flight popups group connecting legs into a full itinerary when the next flight
+departs within 24 hours and its origin is within 100 km of the prior arrival.
+Cities are matched against the local airport catalog within 75 km; unmatched
+records are labeled unidentified. Each leg keeps its own local endpoint times.
+Repeated itineraries share a dashed line; transpacific longitudes are unwrapped.
+
+## Holiday trip comparison
+
+The map checkbox hides Thanksgiving (November 25–December 2, 2025) and
+Christmas (December 22–29, 2025), inclusive. Edit `holidayHomeRanges` in
+`index.html` to adjust the ranges. This display-only filter hides recorded
+route samples, overlapping gaps/flights, and location dates during those
+periods; it leaves the underlying files unchanged. Default: show everything.
+
+The home-trip comparison also includes March 12–17, 2026, covering the
+Mississippi trip and its outbound/return flights.
+
+The comparison toggle also hides the wedding trip October 9–15, 2025,
+including the Las Vegas–Atlanta outbound and return flights.
+
+The converter includes July 22, 2025, to retain the initial drive from Blue Springs toward Louisville. The trip start flag is July 22, 2025.
