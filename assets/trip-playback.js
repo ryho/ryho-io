@@ -24,9 +24,9 @@ function buildPlaybackRoute(records,month){
  const weights=segments.map(s=>Math.max(100,s.length*(s.type==='flight'?.25:s.type==='gap'?.1:1)));
  const sum=weights.reduce((a,b)=>a+b,0);
  const durations=weights.map(w=>Math.min(7000,Math.max(100,w/sum*target)));
- const durationSum=durations.reduce((a,b)=>a+b,0);let totalDuration=0;
- segments.forEach((segment,index)=>{segment.start=totalDuration;totalDuration+=durations[index]/durationSum*target;segment.end=totalDuration;});
- return {segments,totalDuration};
+ const durationSum=durations.reduce((a,b)=>a+b,0);let totalDuration=0,totalDistance=0;
+ segments.forEach((segment,index)=>{segment.start=totalDuration;totalDuration+=durations[index]/durationSum*target;segment.end=totalDuration;segment.distanceBefore=totalDistance;if(segment.type!=='gap')totalDistance+=segment.length;});
+ return {segments,totalDuration,totalDistance};
 }
 // Kept outside the UI so route ordering, transport, and interpolation can be verified.
 function playbackPosition(route,elapsed){
@@ -45,7 +45,25 @@ function playbackPosition(route,elapsed){
  const point=[(2*Math.atan(Math.exp(y))-Math.PI/2)*180/Math.PI,from[1]+(to[1]-from[1])*progress];
  const time=segment.times[index]+(segment.times[index+1]-segment.times[index])*progress;
  const heading=Math.atan2((to[1]-from[1])*Math.PI/180,mercator(to[0])-mercator(from[0]))*180/Math.PI;
- return {segment,segmentIndex:lo,index,point,time,heading,forward:to[1]>=from[1]};
+ const distanceTraveled=segment.distanceBefore+(segment.type==='gap'?0:distance);
+ return {segment,segmentIndex:lo,index,point,time,heading,distanceTraveled,forward:to[1]>=from[1]};
+}
+
+// Keep ground vehicles facing steadily through city blocks and GPS wiggles.
+function stableGroundFacing(state,previous){
+ const longitude=state.point[1];
+ if(!previous){
+  const segment=state.segment,target=segment.cumulative[state.index]+1000;
+  let index=state.index+1;while(index<segment.points.length-1&&segment.cumulative[index]<target)index++;
+  const delta=segment.points[index][1]-longitude;
+  return {forward:Math.abs(delta)>0.0005?delta>0:state.forward,anchor:longitude};
+ }
+ const metersPerDegree=111195*Math.cos(state.point[0]*Math.PI/180);
+ let {forward,anchor}=previous;
+ // Reverse only after travelling at least 600 m against the current facing.
+ if(forward){anchor=Math.max(anchor,longitude);if((anchor-longitude)*metersPerDegree>600){forward=false;anchor=longitude;}}
+ else{anchor=Math.min(anchor,longitude);if((longitude-anchor)*metersPerDegree>600){forward=true;anchor=longitude;}}
+ return {forward,anchor};
 }
 
 // Use the rental car for ground travel in these three parts of the trip.
@@ -61,6 +79,13 @@ function groundPlaybackVehicle(point){
 const playbackControls={play:document.getElementById('play-trip'),stop:document.getElementById('stop-trip'),options:document.getElementById('trip-playback-options'),progress:document.getElementById('trip-progress'),speed:document.getElementById('trip-speed'),follow:document.getElementById('trip-follow'),status:document.getElementById('trip-playback-status')};
 const playbackTrail=L.layerGroup().addTo(map),playbackVehicle=L.layerGroup().addTo(map);
 let tripRoute=null,tripActive=false,tripRunning=false,tripElapsed=0,tripFrame=null,tripLastFrame=0,tripPainted=-1,tripCurrentLine=null,tripMarker=null,tripVehicleKey='',tripLastMode='',tripLastStatus='';
+let groundFacing=null;
+function updateTripMileage(meters){
+ const counter=document.getElementById('trip-miles');
+ counter.textContent='≈ '+Math.round(meters/1609.344).toLocaleString(locale())+' mi';
+ counter.title=t('Includes ground travel, flights and trains; excludes missing-data connections.');
+}
+function showFullTripMileage(){updateTripMileage(buildPlaybackRoute(playbackSegments,monthSel.value).totalDistance);}
 function playbackLabels(){
  playbackControls.play.textContent=t(!tripActive?'▶ Play trip':tripRunning?'Ⅱ Pause trip':tripElapsed>=tripRoute.totalDuration?'↺ Replay trip':'▶ Resume trip');
  playbackControls.stop.textContent=t('■ Stop trip');
@@ -73,7 +98,8 @@ function tripLine(segment,points){
 }
 function paintTripPlayback(rebuild=false){
  const state=playbackPosition(tripRoute,tripElapsed);if(!state)return;
- if(rebuild||state.segmentIndex<tripPainted){playbackTrail.clearLayers();tripPainted=-1;tripCurrentLine=null;}
+ updateTripMileage(state.distanceTraveled);
+ if(rebuild||state.segmentIndex<tripPainted){groundFacing=null;playbackTrail.clearLayers();tripPainted=-1;tripCurrentLine=null;}
  if(state.segmentIndex!==tripPainted){
   if(tripCurrentLine)tripCurrentLine.setLatLngs(tripRoute.segments[tripPainted].points);
   for(let i=tripPainted+1;i<state.segmentIndex;i++)tripLine(tripRoute.segments[i],tripRoute.segments[i].points);
@@ -90,13 +116,15 @@ function paintTripPlayback(rebuild=false){
  }catch(error){visitDate=new Date(state.time).toISOString().slice(0,10);}
  if(playbackVisitDate!==visitDate){playbackVisitDate=visitDate;drawLocations(monthSel.value);}
  const type=state.segment.type;
+ if(type==='ground')groundFacing=stableGroundFacing(state,groundFacing);else groundFacing=null;
+ const facing=type==='ground'?groundFacing.forward:state.forward;
  if(type==='gap'){
   playbackVehicle.clearLayers();tripMarker=null;tripVehicleKey='';
  }else{
   const spec=type==='flight'?{url:'assets/icons/plane.svg',size:[34,34]}:type==='rail'?{url:'assets/icons/bullet-train.svg',size:[74,22]}:groundPlaybackVehicle(state.point);
-  const key=spec.url+':'+state.forward;
+  const key=spec.url+':'+facing;
   if(key!==tripVehicleKey){
-   const flip=type==='ground'?state.forward:!state.forward;
+   const flip=type==='ground'?facing:!facing;
    const icon=L.divIcon({className:'trip-vehicle',html:'<img alt="" src="'+spec.url+'" style="transform:scaleX('+(flip?-1:1)+')">',iconSize:spec.size,iconAnchor:spec.size.map(n=>n/2)});
    if(tripMarker)tripMarker.setIcon(icon);else tripMarker=L.marker(state.point,{icon,zIndexOffset:2000,interactive:false,keyboard:false}).addTo(playbackVehicle);
    tripVehicleKey=key;
@@ -123,13 +151,13 @@ function tripTick(timestamp){
  tripFrame=requestAnimationFrame(tripTick);
 }
 function stopTripPlayback(restore=true){
- playbackVisitDate=null;
+ playbackVisitDate=null;groundFacing=null;
  cancelAnimationFrame(tripFrame);tripFrame=null;tripRunning=false;tripActive=false;tripElapsed=0;tripLastFrame=0;
  playbackTrail.clearLayers();playbackVehicle.clearLayers();tripMarker=null;tripVehicleKey='';tripPainted=-1;tripCurrentLine=null;tripLastMode='';tripLastStatus='';
  playbackControls.options.hidden=true;playbackControls.stop.hidden=true;playbackControls.progress.value=0;playbackLabels();
  if(restore)draw(monthSel.value);
 }
-window.tripPlayback={stop:stopTripPlayback,isActive:()=>tripActive};
+window.tripPlayback={stop:stopTripPlayback,isActive:()=>tripActive,updateMileage:showFullTripMileage};
 playbackControls.play.addEventListener('click',()=>{
  if(tripRunning){tripRunning=false;cancelAnimationFrame(tripFrame);tripFrame=null;tripLastFrame=0;playbackLabels();return;}
  if(!tripActive){
@@ -148,3 +176,4 @@ map.on('dragstart',()=>{if(tripActive)playbackControls.follow.checked=false;});
 // Changing the language redraws the map, stopping playback consistently with other filters.
 window.addEventListener('languagechange',playbackLabels);
 playbackLabels();
+showFullTripMileage();

@@ -245,3 +245,9 @@ Hide Trips Home. They are broad trip views, not official regional borders.
 On a first visit, language follows the first supported browser preference
 (English, Spanish, or French, including regional variants), falling back to
 English. An explicitly selected and saved language takes priority afterward.
+
+The miles-traveled counter sums recorded ground routes, flights, and train
+segments (great-circle distance between samples). Missing-data connections
+are excluded. It shows the selected month’s full total before playback and
+after stopping, and accumulated distance during playback or timeline seeking.
+Mileage is approximate, not a vehicle odometer reading.

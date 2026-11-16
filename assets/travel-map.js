@@ -164,7 +164,7 @@ function compareVisitDates(chosen){
  return (a,b)=>{
   if(a.id==='trip-start'&&b.id!=='trip-start')return -1;
   if(b.id==='trip-start'&&a.id!=='trip-start')return 1;
-  return firstDate(a).localeCompare(firstDate(b))||a.name.localeCompare(b.name);
+  return firstDate(a).localeCompare(firstDate(b))||((a.dateOrder||0)-(b.dateOrder||0))||a.name.localeCompare(b.name);
  };
 }
 // Merge consecutive days and single missing days; preserve longer gaps.
@@ -185,9 +185,31 @@ function formatVisitRanges(dates){
   return formatRecordedTime(start)+' – '+formatRecordedTime(end);
  }).join('; ');
 }
+let placePhotoDialog;
+function showPlacePhoto(place){
+ if(!placePhotoDialog){
+  placePhotoDialog=document.createElement('dialog');placePhotoDialog.className='place-photo-viewer';
+  placePhotoDialog.addEventListener('click',event=>{if(event.target===placePhotoDialog)placePhotoDialog.close();});
+  document.body.appendChild(placePhotoDialog);
+ }
+ const header=document.createElement('div');header.className='place-photo-header';
+ const title=document.createElement('h2');title.id='place-photo-title';title.textContent=placeName(place.name);
+ const close=document.createElement('button');close.type='button';close.textContent='×';close.setAttribute('aria-label',t('Close photo'));close.addEventListener('click',()=>placePhotoDialog.close());header.append(title,close);
+ const image=document.createElement('img');image.src=place.photo;image.alt=place.photoAlt||placeName(place.name);
+ placePhotoDialog.setAttribute('aria-labelledby','place-photo-title');placePhotoDialog.replaceChildren(header,image);placePhotoDialog.showModal();
+}
+function normalizeLocationSearch(value){return value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase().trim();}
+function matchesLocationSearch(place,query){
+ const name=normalizeLocationSearch(place.name+' '+placeName(place.name));
+ return normalizeLocationSearch(query).split(/\s+/).every(term=>name.includes(term));
+}
+const locationSearch=document.getElementById('location-search');
+locationSearch.addEventListener('input',()=>{
+ drawLocations(monthSel.value);
+});
 function drawLocations(chosen){
  map.closePopup();locationLayers.clearLayers();const list=document.getElementById('location-list');list.replaceChildren();
- const available=[...visitedParks,...travelHighlights].filter(place=>visibleVisitDates(place,chosen).length>0||(chosen==='all'&&!playbackVisitDate&&place.dates.length===0));
+ const available=[...visitedParks,...travelHighlights].filter(place=>(visibleVisitDates(place,chosen).length>0||(chosen==='all'&&!playbackVisitDate&&place.dates.length===0))&&matchesLocationSearch(place,locationSearch.value));
  const counts=Object.fromEntries(Object.keys(categories).map(key=>[key,0]));
  available.forEach(place=>{if(Object.hasOwn(counts,place.category))counts[place.category]++;});
  for(const label of document.querySelectorAll('#category-options label')){
@@ -196,20 +218,19 @@ function drawLocations(chosen){
   label.querySelector('.category-label').textContent=name+(key==='none'?'':' ('+(key==='all'?available.length:counts[key]).toLocaleString(locale())+')');
  }
  const places=available.filter(place=>activeCategories.has(place.category)).sort(compareVisitDates(chosen));
- document.getElementById('location-summary').textContent=places.length+' '+t('locations')+(chosen==='all'?'':' '+t('this month'));
  if(!places.length){const empty=document.createElement('li');empty.textContent=activeCategories.size?t('No locations match these filters.'):t('Location pins hidden.');list.appendChild(empty);}
  for(const place of places){
   const dates=visibleVisitDates(place,chosen);
   const content=document.createElement('div');const heading=document.createElement('strong');heading.textContent=placeName(place.name);content.appendChild(heading);
-  if(place.photo){const image=document.createElement('img');image.src=place.photo;image.alt=place.photoAlt||placeName(place.name);image.loading='lazy';image.style='display:block;width:100%;height:150px;object-fit:cover;border-radius:8px;margin-top:10px';image.addEventListener('error',()=>image.remove());content.appendChild(image);if(place.photoSource){const source=document.createElement('a');source.href=place.photoSource;source.target='_blank';source.rel='noopener';source.textContent=t('Photo source');source.style='font-size:11px';content.appendChild(source);}}
+  if(place.photo){const photoButton=document.createElement('button');photoButton.type='button';photoButton.className='place-photo-button';photoButton.setAttribute('aria-label',t('Open photo')+' · '+placeName(place.name));photoButton.addEventListener('click',()=>showPlacePhoto(place));const image=document.createElement('img');image.src=place.photo;image.alt=place.photoAlt||placeName(place.name);image.loading='lazy';image.className='place-photo';image.addEventListener('load',()=>{if(marker.isPopupOpen())marker.getPopup().update();});image.addEventListener('error',()=>photoButton.remove());photoButton.appendChild(image);content.appendChild(photoButton);if(place.photoSource){const source=document.createElement('a');source.href=place.photoSource;source.target='_blank';source.rel='noopener';source.textContent=t('Photo source');source.style='font-size:11px';content.appendChild(source);}}
   const date=document.createElement('p');date.textContent=dates.length?formatVisitRanges(dates):t('Date not recorded');content.appendChild(date);
   const url=place.url||(place.code?'https://www.nps.gov/'+(['sequ','kica'].includes(place.code)?'seki':place.code)+'/':null);
   if(url){const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.textContent=t('More information');content.appendChild(link);}
   const spec={url:place.icon,size:[32,38],anchor:place.iconAnchor?[place.iconAnchor[0]*32/42,38]:[16,38],popup:[16-(place.iconAnchor?place.iconAnchor[0]*32/42:16),-35]};
-  const marker=L.marker(place.position,{icon:scaledTravelIcon(spec),travelIconSpec:spec,title:placeName(place.name),alt:placeName(place.name),riseOnHover:true}).bindPopup(content,{maxWidth:330}).addTo(locationLayers);
+  const marker=L.marker(place.position,{icon:scaledTravelIcon(spec),travelIconSpec:spec,title:placeName(place.name),alt:placeName(place.name),riseOnHover:true}).bindPopup(content,{maxWidth:460,className:place.photo?'photo-popup':''}).addTo(locationLayers);
   const item=document.createElement('li');const button=document.createElement('button');button.type='button';button.style='background:none;border:0;padding:5px 0;text-align:left;font-size:14px';
   const dot=document.createElement('span');dot.style='display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;background:'+categories[place.category].color;
-  const name=document.createElement('span');name.textContent=placeName(place.name);const dateLabel=document.createElement('small');dateLabel.style='display:block;margin-left:17px;color:var(--sub)';dateLabel.textContent=dates.length?formatVisitRanges(dates):t('Date not recorded');button.append(dot,name,dateLabel);button.addEventListener('click',()=>{map.setView(place.position,9);marker.openPopup();});item.appendChild(button);list.appendChild(item);
+  const name=document.createElement('span');name.textContent=placeName(place.name);const dateLabel=document.createElement('small');dateLabel.style='display:block;margin-left:17px;color:var(--sub)';dateLabel.textContent=dates.length?formatVisitRanges(dates):t('Date not recorded');button.append(dot,name,dateLabel);button.addEventListener('click',()=>{map.setView(place.position,9,{animate:false});marker.openPopup();});item.appendChild(button);list.appendChild(item);
  }
 }
 const allFlights=[...(typeof recordedFlights==='undefined'?[]:recordedFlights),...(typeof flightOverrides==='undefined'?[]:flightOverrides)];
@@ -342,6 +363,7 @@ function draw(chosen){
  }
  else if(countryBounds.length)map.fitBounds(countryBounds,{padding:[35,35],maxZoom:10});
  else if(bounds.length)map.fitBounds(bounds,{padding:[30,30],maxZoom:chosen==='all'?5:9});
+ window.tripPlayback?.updateMileage();
 }
 monthSel.addEventListener('change',()=>draw(monthSel.value));
 function refreshLanguage(){

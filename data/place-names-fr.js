@@ -151,5 +151,9 @@ window.frenchPlaceNames={
   "Papakōlea Green Sand Beach, Hawaii": "Plage de sable vert de Papakōlea, Hawaï",
   "Punaluʻu Black Sand Beach, Hawaii": "Plage de sable noir de Punaluʻu, Hawaï",
   "Nara Park, Japan": "Parc de Nara, Japon",
-  "Fujikawaguchiko, Japan": "Fujikawaguchiko, Japon"
+  "Fujikawaguchiko, Japan": "Fujikawaguchiko, Japon",
+  "Wall Drug, South Dakota": "Wall Drug, Dakota du Sud",
+  "Broken Top Mountain, Oregon": "Mont Broken Top, Oregon",
+  "Terwilliger Hot Springs, Oregon": "Sources chaudes de Terwilliger, Oregon",
+  "Bonneville Hot Springs, Idaho": "Sources chaudes de Bonneville, Idaho"
 };

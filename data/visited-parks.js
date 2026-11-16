@@ -23,7 +23,10 @@ const visitedParks= [
     "icon": "assets/icons/highlights/new-river-gorge.svg",
     "iconDescription": "New River Gorge Bridge",
     "category": "parks",
-    "stateLabel": "West Virginia"
+    "stateLabel": "West Virginia",
+    "photo": "assets/photos/new-river-gorge.jpg",
+    "photoAlt": "At the New River Gorge Bridge overlook with our dog",
+    "photoFit": "contain"
   },
   {
     "code": "thro",
@@ -40,13 +43,14 @@ const visitedParks= [
     ],
     "samples": 88,
     "status": "Confirmed visit",
-    "photo": "https://www.nps.gov/common/uploads/banner_image/mwr/homepage/2118F52C-1DD8-B71B-0B0713EA8F3E1AEA.jpg",
-    "photoSource": "https://www.nps.gov/thro/index.htm",
+    "photo": "assets/photos/theodore-roosevelt.jpg",
     "icon": "assets/icons/parks/thro.svg",
     "iconDescription": "badlands",
     "confirmedByUser": true,
     "category": "parks",
-    "stateLabel": "North Dakota"
+    "stateLabel": "North Dakota",
+    "photoAlt": "Wildflowers and badlands at sunset in Theodore Roosevelt National Park",
+    "photoFit": "contain"
   },
   {
     "code": "badl",
@@ -60,13 +64,14 @@ const visitedParks= [
     ],
     "samples": 6,
     "status": "Confirmed visit",
-    "photo": "https://www.nps.gov/common/uploads/banner_image/mwr/homepage/C4524107-A9DF-29E3-80B8554266867C06.jpg",
-    "photoSource": "https://www.nps.gov/badl/index.htm",
+    "photo": "assets/photos/badlands.jpg",
     "icon": "assets/icons/parks/badl.svg",
     "iconDescription": "badlands",
     "confirmedByUser": true,
     "category": "parks",
-    "stateLabel": "South Dakota"
+    "stateLabel": "South Dakota",
+    "photoAlt": "Layered ridges and eroded rock formations in Badlands National Park",
+    "photoFit": "contain"
   },
   {
     "code": "glac",
@@ -90,14 +95,15 @@ const visitedParks= [
     ],
     "samples": 79,
     "status": "Confirmed visit",
-    "photo": "https://www.nps.gov/common/uploads/banner_image/imr/homepage/C5A56E57-BB50-A74E-C7FA6F9F2218D91F.jpg",
-    "photoSource": "https://www.nps.gov/glac/index.htm",
+    "photo": "assets/photos/glacier.jpg",
     "icon": "assets/icons/parks/glac.svg",
     "iconDescription": "mountains and lake",
     "confirmedByUser": true,
     "dateSource": "Visit ranges corrected by traveler",
     "category": "parks",
-    "stateLabel": "Montana"
+    "stateLabel": "Montana",
+    "photoAlt": "An alpine lake framed by mountains, evergreen forest and a green meadow in Glacier National Park",
+    "photoFit": "contain"
   },
   {
     "code": "crla",
@@ -112,13 +118,14 @@ const visitedParks= [
     ],
     "samples": 6,
     "status": "Confirmed visit",
-    "photo": "https://www.nps.gov/common/uploads/banner_image/pwr/homepage/6B97B34B-1DD8-B71B-0B609E4FF8532FE9.jpg",
-    "photoSource": "https://www.nps.gov/crla/index.htm",
+    "photo": "assets/photos/crater-lake.jpg",
     "icon": "assets/icons/parks/crla.svg",
     "iconDescription": "mountains and lake",
     "confirmedByUser": true,
     "category": "parks",
-    "stateLabel": "Oregon"
+    "stateLabel": "Oregon",
+    "photoAlt": "Wizard Island in Crater Lake beneath clouds and blue sky",
+    "photoFit": "contain"
   },
   {
     "code": "yell",

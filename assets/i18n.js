@@ -63,13 +63,21 @@
  Object.assign(french,{'▶ Play trip':'▶ Revoir le voyage','Ⅱ Pause trip':'Ⅱ Mettre en pause','▶ Resume trip':'▶ Reprendre','↺ Replay trip':'↺ Revoir le voyage','■ Stop trip':'■ Arrêter','Progress':'Progression','Speed':'Vitesse','Follow vehicle':'Suivre le véhicule','Trip complete':'Voyage terminé','No route to play.':'Aucun trajet à lire.'});
  Object.assign(spanish,{'Region:':'Región:','Hawaii':'Hawái','World':'Mundo','Southwest US':'Suroeste de EE. UU.','Northwest US':'Noroeste de EE. UU.','Upper Midwest US':'Medio Oeste norte de EE. UU.'});
  Object.assign(french,{'Region:':'Région :','Hawaii':'Hawaï','World':'Monde','Southwest US':'Sud-Ouest des États-Unis','Northwest US':'Nord-Ouest des États-Unis','Upper Midwest US':'Haut Midwest des États-Unis'});
+ Object.assign(spanish,{'Open photo':'Ampliar foto','Close photo':'Cerrar foto'});
+ Object.assign(french,{'Open photo':'Agrandir la photo','Close photo':'Fermer la photo'});
+ Object.assign(spanish,{'Miles traveled':'Millas recorridas','Includes ground travel, flights and trains; excludes missing-data connections.':'Incluye viajes por tierra, vuelos y trenes; excluye las conexiones sin datos.'});
+ Object.assign(french,{'Miles traveled':'Miles parcourus','Includes ground travel, flights and trains; excludes missing-data connections.':'Comprend les trajets terrestres, les vols et les trains ; exclut les liaisons sans données.'});
+ Object.assign(spanish,{'On the road July 22, 2025 to October 9, 2026':'De viaje del 22 de julio de 2025 al 9 de octubre de 2026'});
+ Object.assign(french,{'On the road July 22, 2025 to October 9, 2026':'En voyage du 22 juillet 2025 au 9 octobre 2026'});
+ Object.assign(spanish,{'Search locations':'Buscar lugares','Name or place…':'Nombre o lugar…'});
+ Object.assign(french,{'Search locations':'Rechercher un lieu','Name or place…':'Nom ou lieu…'});
  const dictionaries={en:{},es:spanish,fr:french};
  // Follow the browser's ordered preferences until the visitor chooses a language.
  const browserLanguages=navigator.languages?.length?navigator.languages:[navigator.language||'en'];
  let language=browserLanguages.map(value=>value.toLowerCase().split(/[-_]/)[0]).find(value=>Object.hasOwn(dictionaries,value))||'en';
  try{const saved=localStorage.getItem('ryho-language');if(Object.hasOwn(dictionaries,saved))language=saved;}catch(error){}
  const t=text=>dictionaries[language][text]||text;
- function apply(){document.documentElement.lang=language;document.querySelectorAll('[data-i18n]').forEach(node=>node.textContent=t(node.dataset.i18n));document.querySelectorAll('[data-language-select]').forEach(select=>select.value=language);}
+ function apply(){document.documentElement.lang=language;document.querySelectorAll('[data-i18n-placeholder]').forEach(node=>node.placeholder=t(node.dataset.i18nPlaceholder));document.querySelectorAll('[data-i18n]').forEach(node=>node.textContent=t(node.dataset.i18n));document.querySelectorAll('[data-language-select]').forEach(select=>select.value=language);}
  const placeName=text=>({es:window.spanishPlaceNames,fr:window.frenchPlaceNames}[language]?.[text]||text);
  window.TravelI18n={t,placeName,locale:()=>({en:'en-US',es:'es',fr:'fr-FR'}[language]),language:()=>language,apply};
  document.addEventListener('DOMContentLoaded',()=>{apply();document.querySelectorAll('[data-language-select]').forEach(select=>select.addEventListener('change',()=>{language=select.value;try{localStorage.setItem('ryho-language',language);}catch(error){}apply();window.dispatchEvent(new Event('languagechange'));}));});

@@ -54,7 +54,10 @@ const travelHighlights= [
       "2025-08-05"
     ],
     "icon": "assets/icons/highlights/detroit.svg",
-    "category": "cities"
+    "category": "cities",
+    "photo": "assets/photos/detroit.jpg",
+    "photoAlt": "An exploded-view historic car exhibit in Detroit",
+    "photoFit": "contain"
   },
   {
     "id": "las-vegas",
@@ -121,7 +124,10 @@ const travelHighlights= [
       "2025-12-28"
     ],
     "icon": "assets/icons/highlights/family-louisville-ms.svg",
-    "category": "people"
+    "category": "people",
+    "photo": "assets/photos/family-louisville.jpg",
+    "photoAlt": "Visiting family and a horse in Louisville, Mississippi",
+    "photoFit": "contain"
   },
   {
     "id": "family-madison-wi",
@@ -139,7 +145,10 @@ const travelHighlights= [
       "2025-08-18"
     ],
     "icon": "assets/icons/highlights/family-madison-wi.svg",
-    "category": "people"
+    "category": "people",
+    "photo": "assets/photos/family-madison.jpg",
+    "photoAlt": "Celebrating together during our visit with family in Wisconsin",
+    "photoFit": "contain"
   },
   {
     "id": "family-los-angeles",
@@ -357,7 +366,10 @@ const travelHighlights= [
     "npsCode": "slbe",
     "confirmedByUser": true,
     "category": "nature",
-    "stateLabel": "Michigan"
+    "stateLabel": "Michigan",
+    "photo": "assets/photos/sleeping-bear-dunes.jpg",
+    "photoAlt": "Sand dunes above the turquoise water of Lake Michigan at Sleeping Bear Dunes",
+    "photoFit": "contain"
   },
   {
     "id": "nps-mimi",
@@ -378,7 +390,10 @@ const travelHighlights= [
     "npsCode": "mimi",
     "confirmedByUser": true,
     "category": "landmarks",
-    "stateLabel": "South Dakota"
+    "stateLabel": "South Dakota",
+    "photo": "assets/photos/minuteman-missile.jpg",
+    "photoAlt": "Looking down into a Minuteman missile silo",
+    "photoFit": "contain"
   },
   {
     "id": "nps-pore",
@@ -549,7 +564,10 @@ const travelHighlights= [
     "npsCode": "moru",
     "confirmedByUser": true,
     "category": "landmarks",
-    "stateLabel": "South Dakota"
+    "stateLabel": "South Dakota",
+    "photo": "assets/photos/mount-rushmore.jpg",
+    "photoAlt": "Standing on the Avenue of Flags with Mount Rushmore behind",
+    "photoFit": "contain"
   },
   {
     "id": "nps-glca",
@@ -633,7 +651,10 @@ const travelHighlights= [
     "npsCode": "deto",
     "confirmedByUser": true,
     "category": "landmarks",
-    "stateLabel": "Wyoming"
+    "stateLabel": "Wyoming",
+    "photo": "assets/photos/devils-tower.jpg",
+    "photoAlt": "Devils Tower rising above boulders and pine trees",
+    "photoFit": "contain"
   },
   {
     "id": "nps-hutr",
@@ -674,7 +695,10 @@ const travelHighlights= [
     "npsCode": "piro",
     "confirmedByUser": true,
     "category": "nature",
-    "stateLabel": "Michigan"
+    "stateLabel": "Michigan",
+    "photo": "assets/photos/pictured-rocks.jpg",
+    "photoAlt": "Hiking above turquoise Lake Superior water and sandstone cliffs at Pictured Rocks",
+    "photoFit": "contain"
   },
   {
     "id": "nps-sucr",
@@ -957,7 +981,10 @@ const travelHighlights= [
     "icon": "assets/icons/highlights/sawtooth-mountains.svg",
     "dateSource": "Nearby Google Timeline activity; dates approximate",
     "category": "nature",
-    "stateLabel": "Idaho"
+    "stateLabel": "Idaho",
+    "photo": "assets/photos/sawtooth-mountains.jpg",
+    "photoAlt": "A rugged Sawtooth peak reflected in a clear alpine lake framed by pine trees",
+    "photoFit": "contain"
   },
   {
     "id": "boise",
@@ -974,7 +1001,10 @@ const travelHighlights= [
     ],
     "icon": "assets/icons/highlights/boise.svg",
     "dateSource": "Nearby Google Timeline activity; dates approximate",
-    "category": "cities"
+    "category": "cities",
+    "photo": "assets/photos/boise.jpg",
+    "photoAlt": "The Idaho State Capitol in Boise beneath a clear blue sky",
+    "photoFit": "contain"
   },
   {
     "id": "bend",
@@ -1000,7 +1030,10 @@ const travelHighlights= [
     ],
     "icon": "assets/icons/highlights/bend.svg",
     "dateSource": "Nearby Google Timeline activity; dates approximate",
-    "category": "cities"
+    "category": "cities",
+    "photo": "assets/photos/bend.jpg",
+    "photoAlt": "Together at an overlook above Bend with the Cascade mountains in the distance",
+    "photoFit": "contain"
   },
   {
     "id": "portland",
@@ -1151,7 +1184,10 @@ const travelHighlights= [
     "dateSource": "Nearby Timeline activity; dates approximate",
     "url": "https://www.fs.usda.gov/visit/destination/newberry-national-volcanic-monument",
     "category": "landmarks",
-    "stateLabel": "Oregon"
+    "stateLabel": "Oregon",
+    "photo": "assets/photos/newberry.jpg",
+    "photoAlt": "Exploring dark volcanic glass and rock at Newberry National Volcanic Monument",
+    "photoFit": "contain"
   },
   {
     "id": "smith-rock",
@@ -1169,7 +1205,10 @@ const travelHighlights= [
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline activity; dates approximate",
     "category": "nature",
-    "stateLabel": "Oregon"
+    "stateLabel": "Oregon",
+    "photo": "assets/photos/smith-rock.jpg",
+    "photoAlt": "Sunlit cliffs reflected in the Crooked River at Smith Rock State Park",
+    "photoFit": "contain"
   },
   {
     "id": "meteor-crater",
@@ -1245,7 +1284,10 @@ const travelHighlights= [
     "dateSource": "Nearby Timeline activity within 10 km; dates approximate",
     "url": "https://gfp.sd.gov/parks/detail/custer-state-park/",
     "category": "nature",
-    "stateLabel": "South Dakota"
+    "stateLabel": "South Dakota",
+    "photo": "assets/photos/custer-state-park.jpg",
+    "photoAlt": "Meeting a burro beneath a tree at Custer State Park",
+    "photoFit": "contain"
   },
   {
     "id": "mackinac-island",
@@ -1263,7 +1305,10 @@ const travelHighlights= [
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline activity within 5 km; dates approximate",
     "url": "https://www.mackinacisland.org/",
-    "category": "cities"
+    "category": "cities",
+    "photo": "assets/photos/mackinac-island.jpg",
+    "photoAlt": "Together in a flower garden on Mackinac Island",
+    "photoFit": "contain"
   },
   {
     "id": "kitch-iti-kipi",
@@ -1281,10 +1326,12 @@ const travelHighlights= [
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline activity within 3 km; dates approximate",
     "url": "https://www.michigan.gov/recsearch/parks/palmsbook",
-    "photo": "https://www.michigan.gov/recsearch/-/media/Project/Websites/recsearch/images/ParksM-P/PalmsBook/__birds_eye_view_of_blue_green_colored_lake_and_raft.jpg?rev=e31fee35f9834b0c820d4d07d473e678",
-    "photoSource": "https://www.michigan.gov/recsearch/parks/palmsbook",
+    "photo": "assets/photos/kitch-iti-kipi.jpg",
     "category": "nature",
-    "stateLabel": "Michigan"
+    "stateLabel": "Michigan",
+    "photoAlt": "Looking through the viewing raft into the clear turquoise spring at Kitch-Iti-Kipi",
+    "photoFit": "contain",
+    "dateOrder": -1
   },
   {
     "id": "hoover-dam",
@@ -1652,7 +1699,9 @@ const travelHighlights= [
     ],
     "confirmedByUser": true,
     "dateSource": "Confirmed by traveler",
-    "positionNote": "Town center used in place of private home address"
+    "positionNote": "Town center used in place of private home address",
+    "photo": "assets/photos/trip-start.jpg",
+    "photoAlt": "Our truck and camper at the start of the trip in Blue Springs, Mississippi"
   },
   {
     "id": "trip-end",
@@ -1821,7 +1870,11 @@ const travelHighlights= [
     ],
     "icon": "assets/icons/highlights/worlds-largest-buffalo.svg",
     "confirmedByUser": true,
-    "dateSource": "GPX destination; nearby Timeline activity within 3 km, dates approximate"
+    "dateSource": "GPX destination; nearby Timeline activity within 3 km, dates approximate",
+    "photo": "assets/photos/worlds-largest-buffalo.jpg",
+    "photoAlt": "Standing with our dog beneath the World’s Largest Buffalo Monument",
+    "photoFit": "contain",
+    "dateOrder": -1
   },
   {
     "id": "poozeum",
@@ -2000,5 +2053,90 @@ const travelHighlights= [
     "dateSource": "Nearby Timeline activity within 5 km; Japan local dates, approximate",
     "category": "cities",
     "country": "Japan"
+  },
+  {
+    "id": "wall-drug",
+    "name": "Wall Drug, South Dakota",
+    "type": "Roadside attraction",
+    "position": [
+      43.9932,
+      -102.2416
+    ],
+    "dates": [
+      "2025-08-24",
+      "2025-08-25"
+    ],
+    "icon": "assets/icons/highlights/wall-drug.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline points within 500 m; local dates approximate",
+    "url": "https://www.walldrug.com/",
+    "category": "landmarks",
+    "stateLabel": "South Dakota",
+    "photo": "assets/photos/wall-drug.jpg",
+    "photoAlt": "Riding the giant jackalope statue at Wall Drug",
+    "photoFit": "contain"
+  },
+  {
+    "id": "broken-top-mountain",
+    "name": "Broken Top Mountain, Oregon",
+    "type": "Mountain",
+    "position": [
+      44.0823,
+      -121.6996
+    ],
+    "dates": [
+      "2025-09-12"
+    ],
+    "icon": "assets/icons/highlights/broken-top-mountain.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 5 km; local date approximate",
+    "url": "https://www.usgs.gov/volcanoes/three-sisters/science/eruption-history-broken-top",
+    "category": "nature",
+    "stateLabel": "Oregon",
+    "photo": "assets/photos/broken-top-mountain.jpg",
+    "photoAlt": "Together on Broken Top Mountain with alpine lakes and Cascade peaks behind us",
+    "photoFit": "contain"
+  },
+  {
+    "id": "terwilliger-hot-springs",
+    "name": "Terwilliger Hot Springs, Oregon",
+    "type": "Hot springs",
+    "position": [
+      44.0835,
+      -122.2389
+    ],
+    "dates": [
+      "2025-09-17"
+    ],
+    "icon": "assets/icons/highlights/terwilliger-hot-springs.svg",
+    "confirmedByUser": true,
+    "dateSource": "Estimated from nearest regional Timeline activity, approximately 8.5 km away; local date",
+    "url": "https://www.recreation.gov/camping/poi/244166",
+    "category": "nature",
+    "stateLabel": "Oregon",
+    "photo": "assets/photos/terwilliger-hot-springs.jpg",
+    "photoAlt": "A clear rock-lined pool surrounded by forest at Terwilliger Hot Springs",
+    "photoFit": "contain"
+  },
+  {
+    "id": "bonneville-hot-springs",
+    "name": "Bonneville Hot Springs, Idaho",
+    "type": "Hot springs",
+    "position": [
+      44.1565,
+      -115.3141
+    ],
+    "dates": [
+      "2025-09-22"
+    ],
+    "icon": "assets/icons/highlights/bonneville-hot-springs.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline points within 2 km; local date approximate",
+    "url": "https://www.recreation.gov/camping/campgrounds/232311",
+    "category": "nature",
+    "stateLabel": "Idaho",
+    "photo": "assets/photos/bonneville-hot-springs.jpg",
+    "photoAlt": "Steaming water cascading down a rock face beside forest pools at Bonneville Hot Springs",
+    "photoFit": "contain"
   }
 ];
