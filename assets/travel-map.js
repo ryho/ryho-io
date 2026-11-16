@@ -149,7 +149,7 @@ for(const [key,group] of [['all',{name:'All pins',color:'#64748b'}],['none',{nam
 }
 // Inclusive local calendar dates; edit these ranges to adjust the comparison.
 const holidayHomeRanges=[['2025-10-09','2025-10-15'],['2025-11-25','2025-12-02'],['2025-12-22','2025-12-29'],['2026-03-12','2026-03-17']];
-function holidayTripsHidden(){return document.getElementById('hide-holiday-trips').checked;}
+function holidayTripsHidden(){return !document.getElementById('show-holiday-trips').checked;}
 function hiddenHolidayDate(value){return holidayTripsHidden()&&value&&holidayHomeRanges.some(([start,end])=>value.slice(0,10)>=start&&value.slice(0,10)<=end);}
 function hiddenHolidayConnection(dates){
  if(!holidayTripsHidden())return false;
@@ -158,7 +158,7 @@ function hiddenHolidayConnection(dates){
 }
 let playbackVisitDate=null;
 function visibleVisitDates(place,chosen){return place.dates.filter(date=>!hiddenHolidayDate(date)&&(chosen==='all'||date.startsWith(chosen))&&(!playbackVisitDate||date<=playbackVisitDate));}
-document.getElementById('hide-holiday-trips').addEventListener('change',()=>draw(monthSel.value));
+document.getElementById('show-holiday-trips').addEventListener('change',()=>draw(monthSel.value));
 function compareVisitDates(chosen){
  const firstDate=place=>visibleVisitDates(place,chosen).sort()[0]||'9999-12-31';
  return (a,b)=>{

@@ -155,5 +155,7 @@ window.frenchPlaceNames={
   "Wall Drug, South Dakota": "Wall Drug, Dakota du Sud",
   "Broken Top Mountain, Oregon": "Mont Broken Top, Oregon",
   "Terwilliger Hot Springs, Oregon": "Sources chaudes de Terwilliger, Oregon",
-  "Bonneville Hot Springs, Idaho": "Sources chaudes de Bonneville, Idaho"
+  "Bonneville Hot Springs, Idaho": "Sources chaudes de Bonneville, Idaho",
+  "Snorkeling in Manta Ray Heaven, Hawaii": "Snorkeling à Manta Ray Heaven, Hawaï",
+  "ʻAkaka Falls, Hawaii": "Chutes ʻAkaka, Hawaï"
 };

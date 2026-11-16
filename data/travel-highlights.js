@@ -2138,5 +2138,41 @@ const travelHighlights= [
     "photo": "assets/photos/bonneville-hot-springs.jpg",
     "photoAlt": "Steaming water cascading down a rock face beside forest pools at Bonneville Hot Springs",
     "photoFit": "contain"
+  },
+  {
+    "id": "manta-ray-heaven",
+    "name": "Snorkeling in Manta Ray Heaven, Hawaii",
+    "type": "Snorkeling",
+    "position": [
+      19.7364,
+      -156.0551
+    ],
+    "dates": [
+      "2026-07-18"
+    ],
+    "icon": "assets/icons/highlights/manta-ray-heaven.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline points within 120 m; Hawaii local date",
+    "url": "https://konahonudivers.com/manta-ray-heaven-garden-eel-cove/",
+    "category": "nature",
+    "stateLabel": "Hawaii"
+  },
+  {
+    "id": "akaka-falls",
+    "name": "ʻAkaka Falls, Hawaii",
+    "type": "State Park",
+    "position": [
+      19.8549,
+      -155.1528
+    ],
+    "dates": [
+      "2026-07-17"
+    ],
+    "icon": "assets/icons/highlights/akaka-falls.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline activity within 1 km; Hawaii local date",
+    "url": "https://dlnr.hawaii.gov/dsp/parks/hawaii/akaka-falls-state-park/",
+    "category": "nature",
+    "stateLabel": "Hawaii"
   }
 ];

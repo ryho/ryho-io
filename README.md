@@ -251,3 +251,8 @@ segments (great-circle distance between samples). Missing-data connections
 are excluded. It shows the selected month’s full total before playback and
 after stopping, and accumulated distance during playback or timeline seeking.
 Mileage is approximate, not a vehicle odometer reading.
+
+Ground playback holds still within GPS clusters of 300 m lasting at least
+15 minutes. These stops receive a short dwell in the animation; movement
+resumes when the route leaves the cluster. Facing follows the nearby route
+with a short consistent-turn check, and icon elements are reused when flipping.

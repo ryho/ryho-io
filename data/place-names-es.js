@@ -155,5 +155,7 @@ window.spanishPlaceNames={
   "Wall Drug, South Dakota": "Wall Drug, Dakota del Sur",
   "Broken Top Mountain, Oregon": "Montaña Broken Top, Oregón",
   "Terwilliger Hot Springs, Oregon": "Aguas termales de Terwilliger, Oregón",
-  "Bonneville Hot Springs, Idaho": "Aguas termales de Bonneville, Idaho"
+  "Bonneville Hot Springs, Idaho": "Aguas termales de Bonneville, Idaho",
+  "Snorkeling in Manta Ray Heaven, Hawaii": "Esnórquel en Manta Ray Heaven, Hawái",
+  "ʻAkaka Falls, Hawaii": "Cataratas de ʻAkaka, Hawái"
 };
