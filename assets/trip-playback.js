@@ -28,8 +28,22 @@ function playbackRegionAt(point){
  if(p[0]>=10.7&&p[0]<=17&&p[1]>=-90&&p[1]<=-82)return 'nicaragua';
  return ['japan','nicaragua','canada'].find(key=>pointInCountry(p,key))||'';
 }
+// Split recorded routes at region exits so playback never joins separate visits.
+function regionPlaybackRecords(records,key){
+ if(key==='all')return records;
+ const inside=point=>pointInCountry([point[0],((point[1]+180)%360+360)%360-180],key);
+ return records.flatMap(record=>{
+  // Flights and unknown connections are indivisible: omit trips leaving the region.
+  if(record.type==='flight'||record.type==='gap')return record.points.every(inside)?[record]:[];
+  const sections=[];let points=[],dates=[];
+  const flush=()=>{if(points.length>1)sections.push({...record,points,dates});points=[];dates=[];};
+  record.points.forEach((point,index)=>{if(inside(point)){points.push(point);dates.push(record.dates[index]);}else flush();});
+  flush();return sections;
+ });
+}
 // Distance-based playback compresses stops while retaining recorded dates and transport.
 function buildPlaybackRoute(records,month){
+ records=regionPlaybackRecords(records,countrySelect.value);
  const layovers=[];
  for(const journey of buildFlightJourneys(records.filter(s=>s.type==='flight'))){
   for(let i=1;i<journey.legs.length;i++){
@@ -63,7 +77,8 @@ function buildPlaybackRoute(records,month){
   const playbackRegion=record.type==='flight'?'':playbackRegionAt(normalized);
   segments.push({...record,points,cumulative,length,playbackRegion,times:record.dates.map(Date.parse)});
  }
- const target=month==='all'?180000:60000;
+ // A filtered region should play as a short trip, not inherit the worldwide duration.
+ const target=['japan','nicaragua','hawaii','canada'].includes(countrySelect.value)?(month==='all'?30000:15000):countrySelect.value==='all'?(month==='all'?180000:60000):(month==='all'?60000:30000);
  const weights=segments.map(s=>s.dwell?0:Math.max(100,s.length*(s.type==='flight'?.25:s.type==='gap'?.1:1)));
  const sum=weights.reduce((a,b)=>a+b,0);
  const stops=segments.filter(s=>s.dwell).length,dwellBudget=Math.min(target*.2,stops*1200);
@@ -277,7 +292,7 @@ function paintTripPlayback(rebuild=false,dt=1/60){
 }
 function tripTick(timestamp){
  if(!tripRunning)return;
- const current=playbackPosition(tripRoute,tripElapsed),regionalSpeed=current?.segment.playbackRegion&&current.segment.playbackRegion!=='hawaii' ? .5 : 1;
+ const current=playbackPosition(tripRoute,tripElapsed),regionalSpeed=countrySelect.value==='all'&&current?.segment.playbackRegion&&current.segment.playbackRegion!=='hawaii' ? .5 : 1;
  if(tripLastFrame&&performance.now()>=cameraZoomUntil)tripElapsed=Math.min(tripRoute.totalDuration,tripElapsed+Math.min(250,timestamp-tripLastFrame)*Number(playbackControls.speed.value)*regionalSpeed);
  const dt=tripLastFrame?Math.min(.1,(timestamp-tripLastFrame)/1000):1/60;
  tripLastFrame=timestamp;paintTripPlayback(false,dt);
