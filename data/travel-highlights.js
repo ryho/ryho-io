@@ -2174,5 +2174,24 @@ const travelHighlights= [
     "url": "https://dlnr.hawaii.gov/dsp/parks/hawaii/akaka-falls-state-park/",
     "category": "nature",
     "stateLabel": "Hawaii"
+  },
+  {
+    "id": "calgary",
+    "name": "Calgary, Canada",
+    "type": "City",
+    "position": [
+      51.0447,
+      -114.0719
+    ],
+    "dates": [
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-15"
+    ],
+    "icon": "assets/icons/highlights/calgary.svg",
+    "confirmedByUser": true,
+    "dateSource": "Nearby Timeline points within Calgary; America/Edmonton local dates",
+    "category": "cities"
   }
 ];

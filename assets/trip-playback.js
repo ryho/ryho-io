@@ -20,8 +20,27 @@ function groundPlaybackStops(record){
  flush();return result;
 }
 
+// Keep brief border crossings in the surrounding trip region.
+function playbackRegionAt(point){
+ const p=[point[0],((point[1]+180)%360+360)%360-180];
+ if(p[0]>=18&&p[0]<=23&&p[1]>=-161&&p[1]<=-154)return 'hawaii';
+ if(p[0]>=48.97&&p[0]<=49.02&&p[1]>=-123.12&&p[1]<=-123.01)return 'canada';
+ if(p[0]>=10.7&&p[0]<=17&&p[1]>=-90&&p[1]<=-82)return 'nicaragua';
+ return ['japan','nicaragua','canada'].find(key=>pointInCountry(p,key))||'';
+}
 // Distance-based playback compresses stops while retaining recorded dates and transport.
 function buildPlaybackRoute(records,month){
+ const layovers=[];
+ for(const journey of buildFlightJourneys(records.filter(s=>s.type==='flight'))){
+  for(let i=1;i<journey.legs.length;i++){
+   const previous=journey.legs[i-1],next=journey.legs[i],airport=previous.points[previous.points.length-1];
+   if(!(airport[0]>=24.5&&airport[0]<=49.5&&airport[1]>=-125&&airport[1]<=-66))continue;
+   const from=previous.points[0],to=airport;
+   let dx=to[1]-from[1];while(dx>180)dx-=360;while(dx< -180)dx+=360;
+   const mercator=lat=>Math.log(Math.tan(Math.PI/4+lat*Math.PI/360));
+   layovers.push({start:Date.parse(previous.dates[0]),end:Date.parse(next.dates[next.dates.length-1]),airport,heading:Math.atan2(dx*Math.PI/180,mercator(to[0])-mercator(from[0]))*180/Math.PI});
+  }
+ }
  const ordered=records.flatMap(groundPlaybackStops).filter(s=>s.points.length>1&&s.dates.length===s.points.length&&Number.isFinite(Date.parse(s.dates[0])))
   .slice().sort((a,b)=>Date.parse(a.dates[0])-Date.parse(b.dates[0]));
  const segments=[];let previousLongitude;
@@ -41,7 +60,7 @@ function buildPlaybackRoute(records,month){
   }
   const length=cumulative[cumulative.length-1];if(length<1&&!record.dwell)continue;
   const middle=points[Math.floor(points.length/2)],normalized=[middle[0],((middle[1]+180)%360+360)%360-180];
-  const playbackRegion=record.type==='flight'?'': ['japan','nicaragua','canada'].find(key=>pointInCountry(normalized,key))||'';
+  const playbackRegion=record.type==='flight'?'':playbackRegionAt(normalized);
   segments.push({...record,points,cumulative,length,playbackRegion,times:record.dates.map(Date.parse)});
  }
  const target=month==='all'?180000:60000;
@@ -51,7 +70,7 @@ function buildPlaybackRoute(records,month){
  const durations=weights.map((w,i)=>segments[i].dwell?dwellBudget/stops:Math.min(7000,Math.max(100,w/sum*(target-dwellBudget))));
  const durationSum=durations.reduce((a,b)=>a+b,0);let totalDuration=0,totalDistance=0;
  segments.forEach((segment,index)=>{segment.start=totalDuration;totalDuration+=durations[index]/durationSum*target;segment.end=totalDuration;segment.distanceBefore=totalDistance;if(segment.type!=='gap')totalDistance+=segment.length;});
- return {segments,totalDuration,totalDistance};
+ return {segments,totalDuration,totalDistance,layovers};
 }
 // Kept outside the UI so route ordering, transport, and interpolation can be verified.
 function playbackPosition(route,elapsed){
@@ -69,9 +88,11 @@ function playbackPosition(route,elapsed){
  const y=mercator(from[0])+(mercator(to[0])-mercator(from[0]))*progress;
  const point=[(2*Math.atan(Math.exp(y))-Math.PI/2)*180/Math.PI,from[1]+(to[1]-from[1])*progress];
  const time=segment.times[index]+(segment.times[index+1]-segment.times[index])*progress;
- const heading=Math.atan2((to[1]-from[1])*Math.PI/180,mercator(to[0])-mercator(from[0]))*180/Math.PI;
+ let heading=Math.atan2((to[1]-from[1])*Math.PI/180,mercator(to[0])-mercator(from[0]))*180/Math.PI;
+ const layover=route.layovers?.find(stop=>time>=stop.start&&time<=stop.end&&playbackLocalDistance(point,stop.airport)<50000);
+ if(layover)heading=layover.heading;
  const distanceTraveled=segment.distanceBefore+(segment.type==='gap'?0:distance);
- return {segment,segmentIndex:lo,index,point,time,heading,distance,distanceTraveled,forward:to[1]>=from[1]};
+ return {segment,segmentIndex:lo,index,point,time,heading,inFlightLayover:!!layover,distance,distanceTraveled,forward:to[1]>=from[1]};
 }
 
 // Keep ground vehicles facing steadily through city blocks and GPS wiggles.
@@ -103,10 +124,50 @@ function groundPlaybackVehicle(point){
  return car?{url:'assets/icons/silver-car.svg',size:[54,27]}:{url:'assets/icons/truck-camper.svg',size:[84,42]};
 }
 
-const playbackControls={play:document.getElementById('play-trip'),stop:document.getElementById('stop-trip'),options:document.getElementById('trip-playback-options'),progress:document.getElementById('trip-progress'),speed:document.getElementById('trip-speed'),follow:document.getElementById('trip-follow'),status:document.getElementById('trip-playback-status')};
+const playbackControls={play:document.getElementById('play-trip'),stop:document.getElementById('stop-trip'),options:document.getElementById('trip-playback-options'),progress:document.getElementById('trip-progress'),speed:document.getElementById('trip-speed'),status:document.getElementById('trip-playback-status')};
 const playbackTrail=L.layerGroup().addTo(map),playbackVehicle=L.layerGroup().addTo(map);
 let tripRoute=null,tripActive=false,tripRunning=false,tripElapsed=0,tripFrame=null,tripLastFrame=0,tripPainted=-1,tripCurrentLine=null,tripMarker=null,tripVehicleKey='',tripLastMode='',tripLastStatus='';
-let groundFacing=null;
+let groundFacing=null,playbackFollow=true;
+const playbackNames=L.control({position:'topright'});
+const playbackNameBox=L.DomUtil.create('div','playback-place-names');
+L.DomEvent.disableClickPropagation(playbackNameBox);
+L.DomEvent.disableScrollPropagation(playbackNameBox);
+playbackNames.onAdd=()=>playbackNameBox;playbackNames.addTo(map);
+const announcedPlaybackPlaces=new Set();
+let playbackNameEntries=[];
+function clearPlaybackNames(){announcedPlaybackPlaces.clear();playbackNameEntries=[];playbackNameBox.replaceChildren();}
+function updatePlaybackNames(state,date,rebuild){
+ if(rebuild){
+  clearPlaybackNames();
+  for(const place of [...visitedParks,...travelHighlights]){
+   if(place.dates.some(d=>d<date&&!hiddenHolidayDate(d)))announcedPlaybackPlaces.add(place.id||place.code||place.name);
+  }
+ }
+ const now=performance.now();
+ for(const entry of playbackNameEntries)if(now>=entry.until)entry.element.remove();
+ playbackNameEntries=playbackNameEntries.filter(entry=>now<entry.until);
+ for(const place of [...visitedParks,...travelHighlights]){
+  const key=place.id||place.code||place.name;
+  if(announcedPlaybackPlaces.has(key)||!place.dates.includes(date)||hiddenHolidayDate(date))continue;
+  if(playbackLocalDistance(state.point,place.position)>25000)continue;
+  announcedPlaybackPlaces.add(key);
+  const element=document.createElement('div');element.className='playback-place-name';
+  const clip=document.createElement('div');clip.className='playback-name-clip';
+  const button=document.createElement('button');button.type='button';button.className='playback-name-button';
+  const image=document.createElement('img');image.src=place.icon;image.alt='';image.width=32;image.height=38;
+  const label=document.createElement('span');label.textContent=placeName(place.name);button.append(image,label);
+  button.addEventListener('click',()=>{
+   if(tripRunning){tripRunning=false;cancelAnimationFrame(tripFrame);tripFrame=null;tripLastFrame=0;playbackLabels();}
+   playbackFollow=false;cameraZoomUntil=0;map.stop();
+   map.setView(place.position,9,{animate:true});
+   const popup=L.popup({maxWidth:460,className:place.photo?'photo-popup':''}).setLatLng(place.position);
+   popup.setContent(placePopupContent(place,visibleVisitDates(place,monthSel.value),()=>({isPopupOpen:()=>map.hasLayer(popup),getPopup:()=>popup}))).openOn(map);
+  });
+  clip.appendChild(button);element.appendChild(clip);
+  element.addEventListener('animationend',()=>element.remove(),{once:true});
+  playbackNameBox.appendChild(element);playbackNameEntries.push({element,until:now+8600});
+ }
+}
 let vehicleDisplay=null,vehicleTarget=null,cameraDisplay=null,cameraZoomUntil=0;
 // Smooth in projected coordinates so motion stays even at every latitude.
 function smoothPlaybackPoint(current,target,seconds,dt){
@@ -154,7 +215,8 @@ function paintTripPlayback(rebuild=false,dt=1/60){
   visitDate=['year','month','day'].map(type=>parts.find(part=>part.type===type).value).join('-');
  }catch(error){visitDate=new Date(state.time).toISOString().slice(0,10);}
  if(playbackVisitDate!==visitDate){playbackVisitDate=visitDate;drawLocations(monthSel.value);}
- const type=state.segment.type,vehicleType=type==='gap'?'ground':type;
+ updatePlaybackNames(state,visitDate,rebuild);
+ const type=state.inFlightLayover?'flight':state.segment.type,vehicleType=type==='gap'?'ground':type;
  if(vehicleType==='ground'){
   const east=(vehicleTarget.lng-vehicleDisplay.lng)*111195*Math.cos(vehicleDisplay.lat*Math.PI/180);
   if(Math.abs(east)>120)groundFacing={forward:east>0};
@@ -181,8 +243,8 @@ function paintTripPlayback(rebuild=false,dt=1/60){
  const status=tripElapsed>=tripRoute.totalDuration?t('Trip complete')+' · '+date:mode+' · '+date;
  if(status!==tripLastStatus){playbackControls.status.textContent=status;tripLastStatus=status;}
  playbackControls.progress.value=Math.round(tripElapsed/tripRoute.totalDuration*1000);
- if(playbackControls.follow.checked){
-  const zoom=type==='flight'?4:state.segment.playbackRegion==='canada'?7:state.segment.playbackRegion?8:6;
+ if(playbackFollow){
+  const zoom=type==='flight'?4:state.segment.playbackRegion==='hawaii'?10:state.segment.playbackRegion==='canada'?7:state.segment.playbackRegion?8:6;
   if(!cameraDisplay){
    // Set the view once. Transport changes must never snap or change zoom.
    map.setView(vehicleDisplay,zoom,{animate:false});
@@ -215,7 +277,7 @@ function paintTripPlayback(rebuild=false,dt=1/60){
 }
 function tripTick(timestamp){
  if(!tripRunning)return;
- const current=playbackPosition(tripRoute,tripElapsed),regionalSpeed=current?.segment.playbackRegion ? .5 : 1;
+ const current=playbackPosition(tripRoute,tripElapsed),regionalSpeed=current?.segment.playbackRegion&&current.segment.playbackRegion!=='hawaii' ? .5 : 1;
  if(tripLastFrame&&performance.now()>=cameraZoomUntil)tripElapsed=Math.min(tripRoute.totalDuration,tripElapsed+Math.min(250,timestamp-tripLastFrame)*Number(playbackControls.speed.value)*regionalSpeed);
  const dt=tripLastFrame?Math.min(.1,(timestamp-tripLastFrame)/1000):1/60;
  tripLastFrame=timestamp;paintTripPlayback(false,dt);
@@ -223,6 +285,8 @@ function tripTick(timestamp){
  tripFrame=requestAnimationFrame(tripTick);
 }
 function stopTripPlayback(restore=true){
+ playbackFollow=true;
+ clearPlaybackNames();
  cameraZoomUntil=0;map.stop();playbackVisitDate=null;groundFacing=null;vehicleDisplay=null;vehicleTarget=null;cameraDisplay=null;
  cancelAnimationFrame(tripFrame);tripFrame=null;tripRunning=false;tripActive=false;tripElapsed=0;tripLastFrame=0;
  playbackTrail.clearLayers();playbackVehicle.clearLayers();tripMarker=null;tripVehicleKey='';tripPainted=-1;tripCurrentLine=null;tripLastMode='';tripLastStatus='';
@@ -232,6 +296,8 @@ function stopTripPlayback(restore=true){
 window.tripPlayback={stop:stopTripPlayback,isActive:()=>tripActive,updateMileage:showFullTripMileage};
 playbackControls.play.addEventListener('click',()=>{
  if(tripRunning){tripRunning=false;cancelAnimationFrame(tripFrame);tripFrame=null;tripLastFrame=0;playbackLabels();return;}
+ if(!playbackFollow)cameraDisplay=null;
+ playbackFollow=true;
  if(!tripActive){
   // draw() prepares the same filtered sections used by the regular map.
   draw(monthSel.value);tripRoute=buildPlaybackRoute(playbackSegments,monthSel.value);
@@ -243,8 +309,6 @@ playbackControls.play.addEventListener('click',()=>{
 });
 playbackControls.stop.addEventListener('click',()=>stopTripPlayback());
 playbackControls.progress.addEventListener('input',()=>{if(!tripActive)return;tripElapsed=Number(playbackControls.progress.value)/1000*tripRoute.totalDuration;tripLastFrame=0;paintTripPlayback(true);playbackLabels();});
-playbackControls.follow.addEventListener('change',()=>{if(tripActive&&playbackControls.follow.checked){cameraDisplay=null;paintTripPlayback();}});
-map.on('dragstart',()=>{if(tripActive)playbackControls.follow.checked=false;});
 // Changing the language redraws the map, stopping playback consistently with other filters.
 window.addEventListener('languagechange',playbackLabels);
 playbackLabels();

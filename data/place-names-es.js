@@ -157,5 +157,6 @@ window.spanishPlaceNames={
   "Terwilliger Hot Springs, Oregon": "Aguas termales de Terwilliger, Oregón",
   "Bonneville Hot Springs, Idaho": "Aguas termales de Bonneville, Idaho",
   "Snorkeling in Manta Ray Heaven, Hawaii": "Esnórquel en Manta Ray Heaven, Hawái",
-  "ʻAkaka Falls, Hawaii": "Cataratas de ʻAkaka, Hawái"
+  "ʻAkaka Falls, Hawaii": "Cataratas de ʻAkaka, Hawái",
+  "Calgary, Canada": "Calgary, Canadá"
 };

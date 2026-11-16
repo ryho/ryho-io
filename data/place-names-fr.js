@@ -157,5 +157,6 @@ window.frenchPlaceNames={
   "Terwilliger Hot Springs, Oregon": "Sources chaudes de Terwilliger, Oregon",
   "Bonneville Hot Springs, Idaho": "Sources chaudes de Bonneville, Idaho",
   "Snorkeling in Manta Ray Heaven, Hawaii": "Snorkeling à Manta Ray Heaven, Hawaï",
-  "ʻAkaka Falls, Hawaii": "Chutes ʻAkaka, Hawaï"
+  "ʻAkaka Falls, Hawaii": "Chutes ʻAkaka, Hawaï",
+  "Calgary, Canada": "Calgary, Canada"
 };

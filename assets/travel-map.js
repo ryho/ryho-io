@@ -207,6 +207,14 @@ const locationSearch=document.getElementById('location-search');
 locationSearch.addEventListener('input',()=>{
  drawLocations(monthSel.value);
 });
+function placePopupContent(place,dates,getMarker=()=>null){
+  const content=document.createElement('div');const heading=document.createElement('strong');heading.textContent=placeName(place.name);content.appendChild(heading);
+  if(place.photo){const photoButton=document.createElement('button');photoButton.type='button';photoButton.className='place-photo-button';photoButton.setAttribute('aria-label',t('Open photo')+' · '+placeName(place.name));photoButton.addEventListener('click',()=>showPlacePhoto(place));const image=document.createElement('img');image.src=place.photo;image.alt=place.photoAlt||placeName(place.name);image.loading='lazy';image.className='place-photo';image.addEventListener('load',()=>{const current=getMarker();if(current?.isPopupOpen())current.getPopup().update();});image.addEventListener('error',()=>photoButton.remove());photoButton.appendChild(image);content.appendChild(photoButton);if(place.photoSource){const source=document.createElement('a');source.href=place.photoSource;source.target='_blank';source.rel='noopener';source.textContent=t('Photo source');source.style='font-size:11px';content.appendChild(source);}}
+  const date=document.createElement('p');date.textContent=dates.length?formatVisitRanges(dates):t('Date not recorded');content.appendChild(date);
+  const url=place.url||(place.code?'https://www.nps.gov/'+(['sequ','kica'].includes(place.code)?'seki':place.code)+'/':null);
+  if(url){const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.textContent=t('More information');content.appendChild(link);}
+ return content;
+}
 function drawLocations(chosen){
  map.closePopup();locationLayers.clearLayers();const list=document.getElementById('location-list');list.replaceChildren();
  const available=[...visitedParks,...travelHighlights].filter(place=>(visibleVisitDates(place,chosen).length>0||(chosen==='all'&&!playbackVisitDate&&place.dates.length===0))&&matchesLocationSearch(place,locationSearch.value));
@@ -221,11 +229,7 @@ function drawLocations(chosen){
  if(!places.length){const empty=document.createElement('li');empty.textContent=activeCategories.size?t('No locations match these filters.'):t('Location pins hidden.');list.appendChild(empty);}
  for(const place of places){
   const dates=visibleVisitDates(place,chosen);
-  const content=document.createElement('div');const heading=document.createElement('strong');heading.textContent=placeName(place.name);content.appendChild(heading);
-  if(place.photo){const photoButton=document.createElement('button');photoButton.type='button';photoButton.className='place-photo-button';photoButton.setAttribute('aria-label',t('Open photo')+' · '+placeName(place.name));photoButton.addEventListener('click',()=>showPlacePhoto(place));const image=document.createElement('img');image.src=place.photo;image.alt=place.photoAlt||placeName(place.name);image.loading='lazy';image.className='place-photo';image.addEventListener('load',()=>{if(marker.isPopupOpen())marker.getPopup().update();});image.addEventListener('error',()=>photoButton.remove());photoButton.appendChild(image);content.appendChild(photoButton);if(place.photoSource){const source=document.createElement('a');source.href=place.photoSource;source.target='_blank';source.rel='noopener';source.textContent=t('Photo source');source.style='font-size:11px';content.appendChild(source);}}
-  const date=document.createElement('p');date.textContent=dates.length?formatVisitRanges(dates):t('Date not recorded');content.appendChild(date);
-  const url=place.url||(place.code?'https://www.nps.gov/'+(['sequ','kica'].includes(place.code)?'seki':place.code)+'/':null);
-  if(url){const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.textContent=t('More information');content.appendChild(link);}
+  const content=placePopupContent(place,dates,()=>marker);
   const spec={url:place.icon,size:[32,38],anchor:place.iconAnchor?[place.iconAnchor[0]*32/42,38]:[16,38],popup:[16-(place.iconAnchor?place.iconAnchor[0]*32/42:16),-35]};
   const marker=L.marker(place.position,{icon:scaledTravelIcon(spec),travelIconSpec:spec,title:placeName(place.name),alt:placeName(place.name),riseOnHover:true}).bindPopup(content,{maxWidth:460,className:place.photo?'photo-popup':''}).addTo(locationLayers);
   const item=document.createElement('li');const button=document.createElement('button');button.type='button';button.style='background:none;border:0;padding:5px 0;text-align:left;font-size:14px';
