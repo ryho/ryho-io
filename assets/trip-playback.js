@@ -129,13 +129,13 @@ function stableGroundFacing(state,previous,elapsed=0){
  return previous;
 }
 
-// Use the rental car for ground travel in these three parts of the trip.
+// Japan uses a metro car; Hawaii and Nicaragua retain the rental car.
 function groundPlaybackVehicle(point){
  const lat=point[0],lon=((point[1]+180)%360+360)%360-180;
- // Rental-car regions include nearby border/coastal points; time-zone polygons
- // alone can label part of the Nicaragua itinerary as Honduras.
- let car=(lat>=18&&lat<=23&&lon>=-161&&lon<=-154)||(lat>=24&&lat<=46&&lon>=122&&lon<=146)||(lat>=10.7&&lat<=15.2&&lon>=-87.8&&lon<=-82.5);
- try{car=car||['Pacific/Honolulu','Asia/Tokyo','America/Managua'].includes(tzlookup(lat,lon));}catch(error){}
+ let japan=lat>=24&&lat<=46&&lon>=122&&lon<=146;
+ let car=(lat>=18&&lat<=23&&lon>=-161&&lon<=-154)||(lat>=10.7&&lat<=15.2&&lon>=-87.8&&lon<=-82.5);
+ try{const zone=tzlookup(lat,lon);japan=japan||zone==='Asia/Tokyo';car=car||['Pacific/Honolulu','America/Managua'].includes(zone);}catch(error){}
+ if(japan)return {url:'assets/icons/subway-car.svg',size:[68,30]};
  return car?{url:'assets/icons/silver-car.svg',size:[54,27]}:{url:'assets/icons/truck-camper.svg',size:[84,42]};
 }
 
