@@ -248,7 +248,7 @@ English. An explicitly selected and saved language takes priority afterward.
 
 The miles-traveled counter sums recorded ground routes, flights, and train
 segments (great-circle distance between samples). Missing-data connections
-are excluded. It shows the selected month’s full total before playback and
+are included using straight-line distance between their recorded endpoints. It shows the selected month’s full total before playback and
 after stopping, and accumulated distance during playback or timeline seeking.
 Mileage is approximate, not a vehicle odometer reading.
 

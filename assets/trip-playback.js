@@ -84,7 +84,7 @@ function buildPlaybackRoute(records,month){
  const stops=segments.filter(s=>s.dwell).length,dwellBudget=Math.min(target*.2,stops*1200);
  const durations=weights.map((w,i)=>segments[i].dwell?dwellBudget/stops:Math.min(7000,Math.max(100,w/sum*(target-dwellBudget))));
  const durationSum=durations.reduce((a,b)=>a+b,0);let totalDuration=0,totalDistance=0;
- segments.forEach((segment,index)=>{segment.start=totalDuration;totalDuration+=durations[index]/durationSum*target;segment.end=totalDuration;segment.distanceBefore=totalDistance;if(segment.type!=='gap')totalDistance+=segment.length;});
+ segments.forEach((segment,index)=>{segment.start=totalDuration;totalDuration+=durations[index]/durationSum*target;segment.end=totalDuration;segment.distanceBefore=totalDistance;totalDistance+=segment.length;});
  return {segments,totalDuration,totalDistance,layovers};
 }
 // Kept outside the UI so route ordering, transport, and interpolation can be verified.
@@ -106,7 +106,7 @@ function playbackPosition(route,elapsed){
  let heading=Math.atan2((to[1]-from[1])*Math.PI/180,mercator(to[0])-mercator(from[0]))*180/Math.PI;
  const layover=route.layovers?.find(stop=>time>=stop.start&&time<=stop.end&&playbackLocalDistance(point,stop.airport)<50000);
  if(layover)heading=layover.heading;
- const distanceTraveled=segment.distanceBefore+(segment.type==='gap'?0:distance);
+ const distanceTraveled=segment.distanceBefore+distance;
  return {segment,segmentIndex:lo,index,point,time,heading,inFlightLayover:!!layover,distance,distanceTraveled,forward:to[1]>=from[1]};
 }
 
@@ -161,6 +161,12 @@ function updatePlaybackNames(state,date,rebuild){
  const now=performance.now();
  for(const entry of playbackNameEntries)if(now>=entry.until)entry.element.remove();
  playbackNameEntries=playbackNameEntries.filter(entry=>now<entry.until);
+ const mobileNames=window.matchMedia('(max-width:700px)').matches;
+ // Also trim existing desktop notifications if the viewport becomes mobile-sized.
+ if(mobileNames&&playbackNameEntries.length>1){
+  playbackNameEntries.slice(0,-1).forEach(entry=>entry.element.remove());
+  playbackNameEntries=playbackNameEntries.slice(-1);
+ }
  for(const place of [...visitedParks,...travelHighlights]){
   const key=place.id||place.code||place.name;
   if(announcedPlaybackPlaces.has(key)||!place.dates.includes(date)||hiddenHolidayDate(date))continue;
@@ -180,6 +186,7 @@ function updatePlaybackNames(state,date,rebuild){
   });
   clip.appendChild(button);element.appendChild(clip);
   element.addEventListener('animationend',()=>element.remove(),{once:true});
+  if(mobileNames){playbackNameEntries.forEach(entry=>entry.element.remove());playbackNameEntries=[];}
   playbackNameBox.appendChild(element);playbackNameEntries.push({element,until:now+8600});
  }
 }
