@@ -211,6 +211,13 @@ function placePopupContent(place,dates,getMarker=()=>null){
   const content=document.createElement('div');const heading=document.createElement('strong');heading.textContent=placeName(place.name);content.appendChild(heading);
   if(place.photo){const photoButton=document.createElement('button');photoButton.type='button';photoButton.className='place-photo-button';photoButton.setAttribute('aria-label',t('Open photo')+' · '+placeName(place.name));photoButton.addEventListener('click',()=>showPlacePhoto(place));const image=document.createElement('img');image.src=place.photo;image.alt=place.photoAlt||placeName(place.name);image.loading='lazy';image.className='place-photo';image.addEventListener('load',()=>{const current=getMarker();if(current?.isPopupOpen())current.getPopup().update();});image.addEventListener('error',()=>photoButton.remove());photoButton.appendChild(image);content.appendChild(photoButton);if(place.photoSource){const source=document.createElement('a');source.href=place.photoSource;source.target='_blank';source.rel='noopener';source.textContent=t('Photo source');source.style='font-size:11px';content.appendChild(source);}}
   const date=document.createElement('p');date.textContent=dates.length?formatVisitRanges(dates):t('Date not recorded');content.appendChild(date);
+  const blurb=destinationBlurbs[place.id||place.code];
+  if(blurb){
+   const description=document.createElement('p');
+   description.lang='en';
+   description.textContent=blurb;
+   content.appendChild(description);
+  }
   const url=place.url||(place.code?'https://www.nps.gov/'+(['sequ','kica'].includes(place.code)?'seki':place.code)+'/':null);
   if(url){const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.textContent=t('More information');content.appendChild(link);}
  return content;

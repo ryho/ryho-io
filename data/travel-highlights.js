@@ -2193,5 +2193,59 @@ const travelHighlights= [
     "confirmedByUser": true,
     "dateSource": "Nearby Timeline points within Calgary; America/Edmonton local dates",
     "category": "cities"
+  },
+  {
+    "id": "valley-of-the-gods",
+    "name": "Valley of the Gods, Utah",
+    "type": "Scenic area",
+    "position": [
+      37.307,
+      -109.854
+    ],
+    "dates": [
+      "2026-01-31"
+    ],
+    "dateSource": "Closest recorded route point; Utah local date",
+    "icon": "assets/icons/highlights/vermilion-cliffs.svg",
+    "status": "Confirmed visit",
+    "category": "nature",
+    "stateLabel": "Utah",
+    "url": "https://www.blm.gov/visit/valley-gods"
+  },
+  {
+    "id": "bears-ears",
+    "name": "Bears Ears National Monument, Utah",
+    "type": "National Monument",
+    "position": [
+      37.631,
+      -109.861
+    ],
+    "dates": [
+      "2026-01-31"
+    ],
+    "dateSource": "Closest recorded route point; Utah local date",
+    "icon": "assets/icons/highlights/monument-valley.svg",
+    "status": "Confirmed visit",
+    "category": "nature",
+    "stateLabel": "Utah",
+    "url": "https://www.blm.gov/programs/national-conservation-lands/utah/bears-ears-national-monument"
+  },
+  {
+    "id": "grand-staircase-escalante",
+    "name": "Grand Staircase-Escalante National Monument, Utah",
+    "type": "National Monument",
+    "position": [
+      37.417,
+      -111.737
+    ],
+    "dates": [
+      "2025-11-02"
+    ],
+    "dateSource": "Closest recorded route point; Utah local date",
+    "icon": "assets/icons/highlights/vermilion-cliffs.svg",
+    "status": "Confirmed visit",
+    "category": "nature",
+    "stateLabel": "Utah",
+    "url": "https://www.blm.gov/programs/national-conservation-lands/utah/grand-staircase-escalante-national-monument"
   }
 ];
