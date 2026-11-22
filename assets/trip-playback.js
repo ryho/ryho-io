@@ -195,7 +195,9 @@ function updatePlaybackNames(state,date,rebuild){
   playbackNameBox.appendChild(element);playbackNameEntries.push({element,until:now+8600});
  }
 }
-let vehicleDisplay=null,vehicleTarget=null,cameraDisplay=null,cameraZoomUntil=0;
+const bigIslandBounds=L.latLngBounds([18.90,-156.10],[20.30,-154.75]);
+const bigIslandPadding=L.point(24,24);
+let vehicleDisplay=null,vehicleTarget=null,cameraDisplay=null,cameraZoomUntil=0,cameraOnBigIsland=false;
 // Smooth in projected coordinates so motion stays even at every latitude.
 function smoothPlaybackPoint(current,target,seconds,dt){
  if(!current)return target;
@@ -274,7 +276,22 @@ function paintTripPlayback(rebuild=false,dt=1/60){
  if(status!==tripLastStatus){playbackControls.status.textContent=status;tripLastStatus=status;}
  playbackControls.progress.value=Math.round(tripElapsed/tripRoute.totalDuration*1000);
  if(playbackFollow){
-  const zoom=type==='flight'?4:state.segment.playbackRegion==='hawaii'?10:state.segment.playbackRegion==='canada'?7:state.segment.playbackRegion?8:6;
+  const onBigIsland=type!=='flight'&&state.segment.playbackRegion==='hawaii';
+  const zoom=type==='flight'?4:onBigIsland?Math.min(10,map.getBoundsZoom(bigIslandBounds,false,bigIslandPadding.multiplyBy(2))):state.segment.playbackRegion==='canada'?7:state.segment.playbackRegion?8:6;
+  if(onBigIsland&&(!cameraDisplay||!cameraOnBigIsland)){
+   // Match the longitude copy used by the worldwide playback route.
+   const offset=360*Math.round((vehicleDisplay.lng-bigIslandBounds.getCenter().lng)/360);
+   const southwest=bigIslandBounds.getSouthWest(),northeast=bigIslandBounds.getNorthEast();
+   const bounds=[[southwest.lat,southwest.lng+offset],[northeast.lat,northeast.lng+offset]];
+   const animated=!!cameraDisplay;
+   cameraOnBigIsland=true;
+   if(animated)map.flyToBounds(bounds,{padding:bigIslandPadding,maxZoom:zoom,duration:1.4});
+   else map.fitBounds(bounds,{padding:bigIslandPadding,maxZoom:zoom,animate:false});
+   cameraDisplay=map.getCenter();
+   cameraZoomUntil=performance.now()+1500;
+   return;
+  }
+  cameraOnBigIsland=onBigIsland;
   if(!cameraDisplay){
    // Set the view once. Transport changes must never snap or change zoom.
    map.setView(vehicleDisplay,zoom,{animate:false});
