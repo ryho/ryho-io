@@ -140,8 +140,8 @@ function groundPlaybackVehicle(point){
  let japan=lat>=24&&lat<=46&&lon>=122&&lon<=146;
  let car=(lat>=18&&lat<=23&&lon>=-161&&lon<=-154)||(lat>=10.7&&lat<=15.2&&lon>=-87.8&&lon<=-82.5);
  try{const zone=tzlookup(lat,lon);japan=japan||zone==='Asia/Tokyo';car=car||['Pacific/Honolulu','America/Managua'].includes(zone);}catch(error){}
- if(japan)return {url:'/assets/icons/subway-car.svg',size:[68,30]};
- return car?{url:'/assets/icons/silver-car.svg',size:[54,27]}:{url:'/assets/icons/truck-camper.svg',size:[84,42]};
+ if(japan)return {url:'../assets/icons/subway-car.svg',size:[68,30]};
+ return car?{url:'../assets/icons/silver-car.svg',size:[54,27]}:{url:'../assets/icons/truck-camper.svg',size:[84,42]};
 }
 
 const playbackControls={play:document.getElementById('play-trip'),stop:document.getElementById('stop-trip'),options:document.getElementById('trip-playback-options'),progress:document.getElementById('trip-progress'),speed:document.getElementById('trip-speed'),status:document.getElementById('trip-playback-status')};
@@ -180,7 +180,7 @@ function updatePlaybackNames(state,date,rebuild){
   const element=document.createElement('div');element.className='playback-place-name';
   const clip=document.createElement('div');clip.className='playback-name-clip';
   const button=document.createElement('button');button.type='button';button.className='playback-name-button';
-  const image=document.createElement('img');image.src='/'+place.icon;image.alt='';image.width=32;image.height=38;
+  const image=document.createElement('img');image.src='../'+place.icon;image.alt='';image.width=32;image.height=38;
   const label=document.createElement('span');label.textContent=placeName(place.name);button.append(image,label);
   button.addEventListener('click',()=>{
    if(tripRunning){tripRunning=false;cancelAnimationFrame(tripFrame);tripFrame=null;tripLastFrame=0;playbackLabels();}
@@ -257,7 +257,7 @@ function paintTripPlayback(rebuild=false,dt=1/60){
  else if(type==='flight'||type==='rail')groundFacing=null;
  const facing=vehicleType==='ground'?groundFacing.forward:state.forward;
  {
-  const spec=type==='flight'?{url:'/assets/icons/plane.svg',size:[34,34]}:type==='rail'?{url:'/assets/icons/bullet-train.svg',size:[74,22]}:groundPlaybackVehicle(state.point);
+  const spec=type==='flight'?{url:'../assets/icons/plane.svg',size:[34,34]}:type==='rail'?{url:'../assets/icons/bullet-train.svg',size:[74,22]}:groundPlaybackVehicle(state.point);
   const key=spec.url;
   if(key!==tripVehicleKey){
    const flip=vehicleType==='ground'?facing:!facing;

@@ -13,7 +13,7 @@ function setBasemapLanguage(){
 }
 async function loadBasemap(){
  try{
-  const response=await fetch('/assets/map-style.json');if(!response.ok)throw new Error('Map style unavailable');
+  const response=await fetch('../assets/map-style.json');if(!response.ok)throw new Error('Map style unavailable');
   const style=await response.json();
   const background=L.maplibreGL({style,interactive:false,attribution:'<a href="https://openfreemap.org/">OpenFreeMap</a> · © <a href="https://openmaptiles.org/">OpenMapTiles</a> · © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
   vectorMap=background.getMaplibreMap();vectorMap.on('load',setBasemapLanguage);
@@ -195,7 +195,7 @@ function showPlacePhoto(place){
  const header=document.createElement('div');header.className='place-photo-header';
  const title=document.createElement('h2');title.id='place-photo-title';title.textContent=placeName(place.name);
  const close=document.createElement('button');close.type='button';close.textContent='×';close.setAttribute('aria-label',t('Close photo'));close.addEventListener('click',()=>placePhotoDialog.close());header.append(title,close);
- const image=document.createElement('img');image.src='/'+place.photo;image.alt=place.photoAlt||placeName(place.name);
+ const image=document.createElement('img');image.src='../'+place.photo;image.alt=place.photoAlt||placeName(place.name);
  placePhotoDialog.setAttribute('aria-labelledby','place-photo-title');placePhotoDialog.replaceChildren(header,image);placePhotoDialog.showModal();
 }
 function normalizeLocationSearch(value){return value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase().trim();}
@@ -209,7 +209,7 @@ locationSearch.addEventListener('input',()=>{
 });
 function placePopupContent(place,dates,getMarker=()=>null){
   const content=document.createElement('div');const heading=document.createElement('strong');heading.textContent=placeName(place.name);content.appendChild(heading);
-  if(place.photo){const photoButton=document.createElement('button');photoButton.type='button';photoButton.className='place-photo-button';photoButton.setAttribute('aria-label',t('Open photo')+' · '+placeName(place.name));photoButton.addEventListener('click',()=>showPlacePhoto(place));const image=document.createElement('img');image.src='/'+place.photo;image.alt=place.photoAlt||placeName(place.name);image.loading='lazy';image.className='place-photo';image.addEventListener('load',()=>{const current=getMarker();if(current?.isPopupOpen())current.getPopup().update();});image.addEventListener('error',()=>photoButton.remove());photoButton.appendChild(image);content.appendChild(photoButton);if(place.photoSource){const source=document.createElement('a');source.href=place.photoSource;source.target='_blank';source.rel='noopener';source.textContent=t('Photo source');source.style='font-size:11px';content.appendChild(source);}}
+  if(place.photo){const photoButton=document.createElement('button');photoButton.type='button';photoButton.className='place-photo-button';photoButton.setAttribute('aria-label',t('Open photo')+' · '+placeName(place.name));photoButton.addEventListener('click',()=>showPlacePhoto(place));const image=document.createElement('img');image.src='../'+place.photo;image.alt=place.photoAlt||placeName(place.name);image.loading='lazy';image.className='place-photo';image.addEventListener('load',()=>{const current=getMarker();if(current?.isPopupOpen())current.getPopup().update();});image.addEventListener('error',()=>photoButton.remove());photoButton.appendChild(image);content.appendChild(photoButton);if(place.photoSource){const source=document.createElement('a');source.href=place.photoSource;source.target='_blank';source.rel='noopener';source.textContent=t('Photo source');source.style='font-size:11px';content.appendChild(source);}}
   const date=document.createElement('p');date.textContent=dates.length?formatVisitRanges(dates):t('Date not recorded');content.appendChild(date);
   const blurb=destinationBlurbs[place.id||place.code];
   if(blurb){
@@ -237,7 +237,7 @@ function drawLocations(chosen){
  for(const place of places){
   const dates=visibleVisitDates(place,chosen);
   const content=placePopupContent(place,dates,()=>marker);
-  const spec={url:'/'+place.icon,size:[32,38],anchor:place.iconAnchor?[place.iconAnchor[0]*32/42,38]:[16,38],popup:[16-(place.iconAnchor?place.iconAnchor[0]*32/42:16),-35]};
+  const spec={url:'../'+place.icon,size:[32,38],anchor:place.iconAnchor?[place.iconAnchor[0]*32/42,38]:[16,38],popup:[16-(place.iconAnchor?place.iconAnchor[0]*32/42:16),-35]};
   const marker=L.marker(place.position,{icon:scaledTravelIcon(spec),travelIconSpec:spec,title:placeName(place.name),alt:placeName(place.name),riseOnHover:true}).bindPopup(content,{maxWidth:460,className:place.photo?'photo-popup':''}).addTo(locationLayers);
   const item=document.createElement('li');const button=document.createElement('button');button.type='button';button.style='background:none;border:0;padding:5px 0;text-align:left;font-size:14px';
   const dot=document.createElement('span');dot.style='display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;background:'+categories[place.category].color;
@@ -328,7 +328,7 @@ function draw(chosen){
    line.forEach((point,j)=>{const t=Date.parse(stamps[j]);if(t>=Date.parse(journey.dates[0])&&t<=Date.parse(journey.dates[1])){section.push(point);sectionDates.push(stamps[j]);points.push(point);}else flush();});flush();
   });
   if(active&&points.length){
-   const spec={url:'/assets/icons/bullet-train.svg',size:[54,16],anchor:[27,8],popup:[0,-14]};
+   const spec={url:'../assets/icons/bullet-train.svg',size:[54,16],anchor:[27,8],popup:[0,-14]};
    const orderedPoints=[...points].sort((a,b)=>a[1]-b[1]);
    const iconPoint=orderedPoints[Math.floor((orderedPoints.length-1)*(journeyIndex%2===0?0.3:0.7))];
    const content=document.createElement('div');const title=document.createElement('strong');title.textContent=placeName(journey.name);content.appendChild(title);const time=document.createElement('p');time.textContent=formatConnectionTimes(journey.dates,[points[0],points[points.length-1]]);content.appendChild(time);
@@ -362,7 +362,7 @@ function draw(chosen){
   if(active){
    const segment=Math.floor((points.length-2)/2);
    const point=[(points[segment][0]+points[segment+1][0])/2,(points[segment][1]+points[segment+1][1])/2];
-   L.marker(point,{icon:scaledTravelIcon({url:'/assets/icons/plane.svg',size:[22,22],anchor:[11,11],popup:[0,-12]}),travelIconSpec:{url:'/assets/icons/plane.svg',size:[22,22],anchor:[11,11],popup:[0,-12]},title:shown[0].points.map(flightCity).join(' → ')}).bindPopup(content.cloneNode(true)).addTo(layers);
+   L.marker(point,{icon:scaledTravelIcon({url:'../assets/icons/plane.svg',size:[22,22],anchor:[11,11],popup:[0,-12]}),travelIconSpec:{url:'../assets/icons/plane.svg',size:[22,22],anchor:[11,11],popup:[0,-12]},title:shown[0].points.map(flightCity).join(' → ')}).bindPopup(content.cloneNode(true)).addTo(layers);
    for(const location of group.points){const city=flightCity(location);if(labeledAirports.has(city))continue;labeledAirports.add(city);L.circleMarker(location,{radius:4,color:transportColors.flight,fillColor:'white',fillOpacity:1,weight:2}).addTo(layers);}
    bounds.push(...group.points);
   }
