@@ -69,8 +69,8 @@
  Object.assign(french,{'Open photo':'Agrandir la photo','Close photo':'Fermer la photo'});
  Object.assign(spanish,{'Miles traveled':'Millas recorridas','Includes ground travel, flights and trains; excludes missing-data connections.':'Incluye viajes por tierra, vuelos y trenes; excluye las conexiones sin datos.'});
  Object.assign(french,{'Miles traveled':'Miles parcourus','Includes ground travel, flights and trains; excludes missing-data connections.':'Comprend les trajets terrestres, les vols et les trains ; exclut les liaisons sans données.'});
- Object.assign(spanish,{'On the road July 22, 2025 to October 9, 2026':'De viaje del 22 de julio de 2025 al 9 de octubre de 2026'});
- Object.assign(french,{'On the road July 22, 2025 to October 9, 2026':'En voyage du 22 juillet 2025 au 9 octobre 2026'});
+ Object.assign(spanish,{'My real location data':'Mis datos reales de ubicación','July 2025 to Oct. 2026':'de julio de 2025 a oct. de 2026'});
+ Object.assign(french,{'My real location data':'Mes données de localisation réelles','July 2025 to Oct. 2026':'de juillet 2025 à oct. 2026'});
  Object.assign(spanish,{'Search locations':'Buscar lugares','Name or place…':'Nombre o lugar…'});
  Object.assign(french,{'Search locations':'Rechercher un lieu','Name or place…':'Nom ou lieu…'});
  Object.assign(spanish,{'Experience building systems.':'Experiencia construyendo sistemas.','Read about my work in backend engineering and distributed systems, or download my résumé.':'Conoce mi trabajo en ingeniería backend y sistemas distribuidos, o descarga mi currículum.','View my résumé →':'Ver mi currículum →','Download résumé (PDF)':'Descargar currículum (PDF)','Open PDF in a new tab':'Abrir PDF en una pestaña nueva','Your browser cannot display this PDF inline.':'Tu navegador no puede mostrar este PDF aquí.'});

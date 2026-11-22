@@ -41,9 +41,14 @@ function regionPlaybackRecords(records,key){
   flush();return sections;
  });
 }
+// The United States view sets the resting map framing and plays the worldwide route.
+function playbackScope(){
+ return countrySelect.value==='us'?'all':countrySelect.value;
+}
 // Distance-based playback compresses stops while retaining recorded dates and transport.
 function buildPlaybackRoute(records,month){
- records=regionPlaybackRecords(records,countrySelect.value);
+ const scope=playbackScope();
+ records=regionPlaybackRecords(records,scope);
  const layovers=[];
  for(const journey of buildFlightJourneys(records.filter(s=>s.type==='flight'))){
   for(let i=1;i<journey.legs.length;i++){
@@ -78,7 +83,7 @@ function buildPlaybackRoute(records,month){
   segments.push({...record,points,cumulative,length,playbackRegion,times:record.dates.map(Date.parse)});
  }
  // A filtered region should play as a short trip, not inherit the worldwide duration.
- const target=['japan','nicaragua','hawaii','canada'].includes(countrySelect.value)?(month==='all'?30000:15000):countrySelect.value==='all'?(month==='all'?180000:60000):(month==='all'?60000:30000);
+ const target=['japan','nicaragua','hawaii','canada'].includes(scope)?(month==='all'?30000:15000):scope==='all'?(month==='all'?180000:60000):(month==='all'?60000:30000);
  const weights=segments.map(s=>s.dwell?0:Math.max(100,s.length*(s.type==='flight'?.25:s.type==='gap'?.1:1)));
  const sum=weights.reduce((a,b)=>a+b,0);
  const stops=segments.filter(s=>s.dwell).length,dwellBudget=Math.min(target*.2,stops*1200);
@@ -218,9 +223,11 @@ function paintTripPlayback(rebuild=false,dt=1/60){
  updateTripMileage(state.distanceTraveled);
  if(rebuild){vehicleDisplay=null;vehicleTarget=null;cameraDisplay=null;cameraZoomUntil=0;map.stop();}
  const rawPoint=L.latLng(state.point);
- // Ignore short local excursions altogether, then ease into genuine movement.
- if(!vehicleTarget||!['ground','gap'].includes(state.segment.type)||playbackLocalDistance([vehicleTarget.lat,vehicleTarget.lng],state.point)>400)vehicleTarget=rawPoint;
- vehicleDisplay=state.segment.type==='flight'||state.segment.type==='rail'?rawPoint:smoothPlaybackPoint(vehicleDisplay,vehicleTarget,.65,dt);
+ const onGround=state.segment.type==='ground'||state.segment.type==='gap';
+ const smoothVehicle=onGround&&state.segment.playbackRegion!=='hawaii';
+ // Skip the movement threshold and easing in Hawaii so the marker stays on the route.
+ if(!smoothVehicle||!vehicleTarget||playbackLocalDistance([vehicleTarget.lat,vehicleTarget.lng],state.point)>400)vehicleTarget=rawPoint;
+ vehicleDisplay=smoothVehicle?smoothPlaybackPoint(vehicleDisplay,vehicleTarget,.65,dt):rawPoint;
  if(rebuild||state.segmentIndex<tripPainted){groundFacing=null;playbackTrail.clearLayers();tripPainted=-1;tripCurrentLine=null;}
  if(state.segmentIndex!==tripPainted){
   if(tripCurrentLine)tripCurrentLine.setLatLngs(tripRoute.segments[tripPainted].points);
@@ -241,7 +248,8 @@ function paintTripPlayback(rebuild=false,dt=1/60){
  const type=state.inFlightLayover?'flight':state.segment.type,vehicleType=type==='gap'?'ground':type;
  if(vehicleType==='ground'){
   const east=(vehicleTarget.lng-vehicleDisplay.lng)*111195*Math.cos(vehicleDisplay.lat*Math.PI/180);
-  if(Math.abs(east)>120)groundFacing={forward:east>0};
+  if(!smoothVehicle)groundFacing=stableGroundFacing(state,groundFacing,tripElapsed);
+  else if(Math.abs(east)>120)groundFacing={forward:east>0};
   else if(!groundFacing)groundFacing=stableGroundFacing(state,null,tripElapsed);
  }
  else if(type==='flight'||type==='rail')groundFacing=null;
@@ -299,7 +307,7 @@ function paintTripPlayback(rebuild=false,dt=1/60){
 }
 function tripTick(timestamp){
  if(!tripRunning)return;
- const current=playbackPosition(tripRoute,tripElapsed),regionalSpeed=countrySelect.value==='all'&&current?.segment.playbackRegion&&current.segment.playbackRegion!=='hawaii' ? .5 : 1;
+ const current=playbackPosition(tripRoute,tripElapsed),regionalSpeed=playbackScope()==='all'&&current?.segment.playbackRegion&&current.segment.playbackRegion!=='hawaii' ? .5 : 1;
  if(tripLastFrame&&performance.now()>=cameraZoomUntil)tripElapsed=Math.min(tripRoute.totalDuration,tripElapsed+Math.min(250,timestamp-tripLastFrame)*Number(playbackControls.speed.value)*regionalSpeed);
  const dt=tripLastFrame?Math.min(.1,(timestamp-tripLastFrame)/1000):1/60;
  tripLastFrame=timestamp;paintTripPlayback(false,dt);
