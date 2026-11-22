@@ -178,7 +178,7 @@ The converter includes July 22, 2025, to retain the initial drive from Blue Spri
 
 ## Pages
 
-`index.html` is the personal homepage. `travel.html` is the window-filling
+`index.html` is the personal homepage. `travel/index.html` is the window-filling
 travel atlas, linked from the homepage navigation and travel section. Its
 page does not scroll; controls and locations scroll within the sidebar
 (top panel on small screens). Map behavior lives in `assets/travel-map.js`.

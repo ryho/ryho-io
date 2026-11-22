@@ -2,8 +2,8 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="description" content="A software engineer's personal site and interactive travel atlas." />
 <title>Travel Atlas — ryho.io</title>
-<link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
@@ -42,8 +42,8 @@ html,body{width:100%;height:100%;overflow:hidden}body{display:flex;flex-directio
 .place-photo-viewer>img{display:block;max-width:calc(96vw - 34px);max-height:calc(96dvh - 90px);width:auto;height:auto;object-fit:contain;margin:auto}
 .trip-mileage{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px;font-size:13px;color:var(--sub)}#trip-miles{font-size:21px;font-weight:700;color:var(--fg);font-variant-numeric:tabular-nums;white-space:nowrap}
 .location-search-label{display:block;font-size:13px;color:var(--sub);margin:16px 0 6px}#location-search{display:block;width:100%;min-width:0;padding:9px 11px;font:inherit;font-size:14px;color:var(--fg);background:var(--card);border:1px solid #46545c;border-radius:9px}#location-search:focus{outline:2px solid var(--accent);outline-offset:1px}
-</style><script src="data/place-names-es.js"></script><script src="data/place-names-fr.js"></script><script src="assets/i18n.js"></script><link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" /></head><body>
-<header class="atlas-nav"><a href="index.html" class="brand">ryho.io</a><span data-i18n="Travel Atlas">Travel Atlas</span><label style="display:flex;gap:6px;align-items:center;font-size:13px"><span data-i18n="Language">English / Español</span><select data-language-select aria-label="Language / Idioma / Langue" style="font-size:13px;padding:5px"><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option></select></label></header>
+</style><script src="/data/place-names-es.js"></script><script src="/data/place-names-fr.js"></script><script src="/assets/i18n.js"></script><link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" /></head><body>
+<header class="atlas-nav"><a href="/" class="brand">ryho.io</a><span data-i18n="Travel Atlas">Travel Atlas</span><label style="display:flex;gap:6px;align-items:center;font-size:13px"><span data-i18n="Language">English / Español</span><select data-language-select aria-label="Language / Idioma / Langue" style="font-size:13px;padding:5px"><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option></select></label></header>
 <div class="atlas-shell"><aside class="atlas-sidebar" aria-label="Travel controls"><p class="eyebrow" data-i18n="Travel Atlas">Travel Atlas</p><h1><span data-i18n="My real location data">My real location data</span> <span class="atlas-date-range" data-i18n="July 2025 to Oct. 2026">July 2025 to Oct. 2026</span></h1><div style="display:flex;align-items:center;gap:8px;margin-top:16px"><label for="country" data-i18n="Region:">Region:</label><select id="country"><option value="us" selected data-i18n="United States">United States</option><option value="us-southwest" data-i18n="Southwest US">Southwest US</option><option value="us-northwest" data-i18n="Northwest US">Northwest US</option><option value="us-upper-midwest" data-i18n="Upper Midwest US">Upper Midwest US</option><option value="hawaii" data-i18n="Hawaii">Hawaii</option><option value="canada" data-i18n="Canada">Canada</option><option value="japan" data-i18n="Japan">Japan</option><option value="nicaragua" data-i18n="Nicaragua">Nicaragua</option><option value="all" data-i18n="World">World</option></select></div><div class="controls"><label for="month" data-i18n="Month:">Month:</label><select id="month"><option value="all" data-i18n="Entire trip">Entire trip</option></select></div>
 <section id="trip-playback" aria-label="Trip playback">
 <div class="trip-mileage"><span data-i18n="Miles traveled">Miles traveled</span><output id="trip-miles" aria-live="off">—</output></div>
@@ -63,11 +63,11 @@ html,body{width:100%;height:100%;overflow:hidden}body{display:flex;flex-directio
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
-<script src="assets/vendor/tz-lookup.js"></script>
-<script src="data/transport-overrides.js"></script>
-<script src="data/country-boundaries.js"></script>
-<script src="data/travel-paths.js"></script>
-<script src="data/visited-parks.js"></script>
-<script src="data/travel-highlights.js"></script>
-<script src="data/destination-blurbs.js"></script>
-<script src="assets/travel-map.js"></script><script src="assets/trip-playback.js"></script></body></html>
+<script src="/assets/vendor/tz-lookup.js"></script>
+<script src="/data/transport-overrides.js"></script>
+<script src="/data/country-boundaries.js"></script>
+<script src="/data/travel-paths.js"></script>
+<script src="/data/visited-parks.js"></script>
+<script src="/data/travel-highlights.js"></script>
+<script src="/data/destination-blurbs.js"></script>
+<script src="/assets/travel-map.js"></script><script src="/assets/trip-playback.js"></script></body></html>
